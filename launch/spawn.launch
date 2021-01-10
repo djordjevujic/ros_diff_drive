@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+
+<!-- TODO: Improve model providing -> provide as a macro-->
+
+  <param name="robot_description" command="cat '$(find ros_diff_drive)/urdf/m2xr.xacro'"/>
+
+  <arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="0.5"/>
+  <arg name="model" default="$(find urdf_sim_tutorial)/urdf/m2xr.xacro"/>
+
+  <include file="$(find ros_diff_drive)/launch/gazebo.launch">
+    <arg name="model" value="$(arg model)" />
+  </include>
+
+  <node name="m2xr_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+        args="-urdf -param robot_description -model m2xr -x $(arg x) -y $(arg y) -z $(arg z)" />
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="30.0" />
+  </node>
+
+</launch>
