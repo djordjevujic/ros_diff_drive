@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-<!-- TODO: Improve model providing -> provide as a macro-->
-
-  <param name="robot_description" command="cat '$(find ros_diff_drive)/urdf/m2xr.xacro'"/>
+  <param name="robot_description" command="$(find xacro)/xacro '$(find ros_diff_drive)/urdf/m2xr.xacro'"/>
 
   <arg name="x" default="0"/>
   <arg name="y" default="0"/>
@@ -20,5 +18,10 @@
   <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher">
     <param name="publish_frequency" type="double" value="30.0" />
   </node>
+
+	<node pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"  name="joint_state_publisher_gui">
+
+	</node>
+
 
 </launch>
