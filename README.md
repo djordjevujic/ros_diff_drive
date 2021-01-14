@@ -1,4 +1,6 @@
-# ROS differential drive learning
+# ROS differential drive package
+
+## Intended for learning ROS / ros_control
 
 ## Refered to sources:
 
