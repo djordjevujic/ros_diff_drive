@@ -12,6 +12,10 @@
     <arg name="model" value="$(arg model)" />
   </include>
 
+  <rosparam command="load"
+    file="$(find ros_diff_drive)/config/diff_drive.yaml"
+    ns="m2xr_diff_drive_controller" />
+
   <node name="m2xr_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
         args="-urdf -param robot_description -model m2xr -x $(arg x) -y $(arg y) -z $(arg z)" />
 

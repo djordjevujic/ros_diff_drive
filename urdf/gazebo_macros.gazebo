@@ -11,7 +11,7 @@
   <gazebo reference="link_right_wheel">
     <material>Gazebo/Blue</material>
   </gazebo>
-  
+  <!--
   <gazebo>
     <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
       <legacyMode>false</legacyMode>
@@ -28,5 +28,5 @@
       <robotBaseFrame>link_chassis</robotBaseFrame>
     </plugin>
   </gazebo>
-
+-->
 </robot>
