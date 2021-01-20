@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 
-<robot>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:include filename="$(find ros_diff_drive)/urdf/macros.xacro"/>
 
   <gazebo reference="link_chassis">
     <material>Gazebo/Orange</material>
@@ -11,7 +13,7 @@
   <gazebo reference="link_right_wheel">
     <material>Gazebo/Blue</material>
   </gazebo>
-  <!--
+
   <gazebo>
     <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
       <legacyMode>false</legacyMode>
@@ -19,8 +21,8 @@
       <updateRate>20</updateRate>
       <leftJoint>joint_left_wheel</leftJoint>
       <rightJoint>joint_right_wheel</rightJoint>
-      <wheelSeparation>0.2</wheelSeparation>
-      <wheelDiameter>0.2</wheelDiameter>
+      <wheelSeparation>${chassis_box_wid}</wheelSeparation>
+      <wheelDiameter>${odom_wheel_radius}*2.0</wheelDiameter>
       <torque>0.1</torque>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
@@ -28,5 +30,5 @@
       <robotBaseFrame>link_chassis</robotBaseFrame>
     </plugin>
   </gazebo>
--->
+
 </robot>
