@@ -39,5 +39,5 @@ while not rospy.is_shutdown():
   pub.publish(command)
   print("Target:{}   Current:{} error_angle:{}".format(target_rad, yaw, error_angle) )
   
-  # Sleep some time
+  # Sleep for some time
   r.sleep()
