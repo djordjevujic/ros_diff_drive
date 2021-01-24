@@ -7,12 +7,6 @@
   <gazebo reference="link_chassis">
     <material>Gazebo/Orange</material>
   </gazebo>
-  <gazebo reference="link_left_wheel">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="link_right_wheel">
-    <material>Gazebo/Blue</material>
-  </gazebo>
   <!--
   <gazebo>
     <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
