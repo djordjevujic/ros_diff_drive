@@ -20,6 +20,4 @@
     <!--<remap from="/joint_states" to="/m2xr/joint_states" />-->
   </node>
 
-
-
 </launch>
