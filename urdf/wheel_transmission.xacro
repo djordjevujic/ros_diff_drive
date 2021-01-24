@@ -11,7 +11,7 @@
       </actuator>
       <joint name="joint_${side}_wheel">
         <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-        <hardwareInterface>hardware_interface/JointStateInterface</hardwareInterface>
+        <!--<hardwareInterface>hardware_interface/JointStateInterface</hardwareInterface>-->
       </joint>
     </transmission>
   </xacro:macro>
