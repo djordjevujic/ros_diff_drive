@@ -22,10 +22,10 @@ def get_rotation(msg):
 rospy.init_node('rotate_robot')
 
 # Init subscriber
-sub = rospy.Subscriber('/odom', Odometry, get_rotation)
+sub = rospy.Subscriber('/m2xr_diff_drive_controller/odom', Odometry, get_rotation)
 
 # Init publisher
-pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
+pub = rospy.Publisher('/m2xr_diff_drive_controller/cmd_vel', Twist, queue_size=1)
 r = rospy.Rate(100)
 command = Twist()
 

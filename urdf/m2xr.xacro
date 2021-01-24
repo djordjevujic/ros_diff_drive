@@ -5,6 +5,7 @@
 	<xacro:include filename="$(find ros_diff_drive)/urdf/materials.xacro" />
 	<xacro:include filename="$(find ros_diff_drive)/urdf/gazebo_macros.gazebo" />
   <xacro:include filename="$(find ros_diff_drive)/urdf/macros.xacro"/>
+  <xacro:include filename="$(find ros_diff_drive)/urdf/wheel_transmission.xacro"/>
 
   <link name="link_chassis">
     <!-- pose and inertial -->
@@ -60,4 +61,9 @@
   <!-- Right and left joints -->
   <xacro:joint_wheel name="joint_right_wheel" child="link_right_wheel" origin_xyz="-0.05 ${chassis_box_wid/2.0} 0"/>
   <xacro:joint_wheel name="joint_left_wheel" child="link_left_wheel" origin_xyz="-0.05 -${chassis_box_wid/2.0} 0"/>
+
+  <!-- Transmissions -->
+  <xacro:wheel_transmission side="right"/>
+  <xacro:wheel_transmission side="left"/>
+
 </robot>
