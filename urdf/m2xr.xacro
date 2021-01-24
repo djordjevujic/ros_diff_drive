@@ -6,6 +6,7 @@
 	<xacro:include filename="$(find ros_diff_drive)/urdf/gazebo_macros.gazebo" />
   <xacro:include filename="$(find ros_diff_drive)/urdf/macros.xacro"/>
   <xacro:include filename="$(find ros_diff_drive)/urdf/wheel_transmission.xacro"/>
+  <xacro:include filename="$(find ros_diff_drive)/urdf/wheel_gazebo.xacro"/>
 
   <link name="link_chassis">
     <!-- pose and inertial -->
@@ -65,5 +66,9 @@
   <!-- Transmissions -->
   <xacro:wheel_transmission side="right"/>
   <xacro:wheel_transmission side="left"/>
+
+  <!-- Gazebo extensions - Gains and other options -->
+  <xacro:wheel_gazebo side="right"/>
+  <xacro:wheel_gazebo side="left"/>
 
 </robot>
