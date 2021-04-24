@@ -2,10 +2,22 @@
 
 ## Intended for learning ROS / ros_control
 
-## Launch command
+## Launch commands
 
-`roslaunch ros_diff_drive m2xr_world.launch`  <-- Launches gazebo world together with model  
-`roslaunch ros_diff_drive m2xr_control.launch`  <-- Spawns controlers  
+Launch gazebo world including robot model:
+```
+roslaunch ros_diff_drive m2xr_world.launch
+```
+
+Spawn controllers:
+```
+roslaunch ros_diff_drive m2xr_control.launch
+```
+
+or launch both togeher with rqt_gui:
+```
+roslaunch ros_diff_drive m2xr_all.launch
+```
 
 ## Refered to sources:
 
