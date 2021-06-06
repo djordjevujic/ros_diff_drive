@@ -31,6 +31,8 @@
   <build_depend>std_msgs</build_depend>
   <build_depend>urdf_tutorial</build_depend>
   <build_depend>xacro</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>dynamic_reconfigure</build_depend>
   <exec_depend>controller_manager</exec_depend>
   <exec_depend>diff_drive_controller</exec_depend>
   <exec_depend>gazebo_ros</exec_depend>
@@ -45,6 +47,9 @@
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>urdf_tutorial</exec_depend>
   <exec_depend>xacro</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <exec_depend>dynamic_reconfigure</exec_depend>
+  
 
   <export>
 

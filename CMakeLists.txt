@@ -8,6 +8,7 @@ project(ros_diff_drive)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  message_generation
   controller_manager
   diff_drive_controller
   gazebo_ros
@@ -22,6 +23,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   urdf_tutorial
   xacro
+  dynamic_reconfigure
 )
 
 ## System dependencies are found with CMake's conventions
@@ -58,31 +60,16 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
-#   Message2.msg
-# )
-
-## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
-
-## Generate actions in the 'action' folder
-# add_action_files(
-#   FILES
-#   Action1.action
-#   Action2.action
-# )
+add_message_files(
+  FILES
+  RotDbgOut.msg
+)
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -99,10 +86,9 @@ find_package(catkin REQUIRED COMPONENTS
 ##     and list every .cfg file to be processed
 
 ## Generate dynamic reconfigure parameters in the 'cfg' folder
-# generate_dynamic_reconfigure_options(
-#   cfg/DynReconf1.cfg
-#   cfg/DynReconf2.cfg
-# )
+ generate_dynamic_reconfigure_options(
+   config/DynRecPID.cfg
+ )
 
 ###################################
 ## catkin specific configuration ##
@@ -116,7 +102,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES ros_diff_drive
-#  CATKIN_DEPENDS controller_manager diff_drive_controller gazebo_ros gazebo_ros_control joint_state_controller position_controllers robot_state_publisher roscpp rospy rqt_robot_steering rviz std_msgs urdf_tutorial xacro
+  CATKIN_DEPENDS message_runtime # controller_manager diff_drive_controller gazebo_ros gazebo_ros_control joint_state_controller position_controllers robot_state_publisher roscpp rospy rqt_robot_steering rviz std_msgs urdf_tutorial xacro
 #  DEPENDS system_lib
 )
 

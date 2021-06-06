@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+
+# TODO:
+# Parametri PID-a --> u config fajl
+# Parametri PID-a --> konfigurabilni kroz Dynamic Reconfigure
+
 import rospy
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
 import math
@@ -8,14 +13,6 @@ from geometry_msgs.msg import Twist, Point, Pose2D
 from nav_msgs.msg import Odometry
 from std_msgs.msg import Float32, Int32
 # from RotDbgOut.msg import dbg_angle_err
-
-
-# Config -> TODO: Move to configuration part
-# Rotation - PID Parameters
-Kp_rot = 0.03
-
-# Moving forward - PID Parameters
-Kp_lin = 0.2
 
 # Controller frequency in Hertz
 controler_freq = 10.0
@@ -121,7 +118,7 @@ def idle():
     print("[IDL] New goal: ({},{})".format(active_goal.x, active_goal.y))
 
 def rotate():
-  global robot_fsm, active_goal, theta, speed, Kp_rot, goal
+  global robot_fsm, active_goal, theta, speed, goal
 
   # Calculate angle to goal
   """
@@ -142,7 +139,7 @@ def rotate():
 
   # Calculate velocity inputs
   if abs(angle_error) > angle_err_tolerance:
-    speed_calc = Kp_rot * angle_error
+    speed_calc = KP_ROT * angle_error
     if abs(speed_calc) < rot_speed_limit:
       velocity.angular.z = speed_calc
     else:
@@ -197,34 +194,18 @@ StatesList = [StateRotation]
 
 robot_fsm = FsmRobot("M2XR", StatesList, StatesList[0])
 
+# PID parameters
+KP_ROT = 0.0
+KI_ROT = 0.0
+
 while not rospy.is_shutdown():
+
+  # Update parameters
+  KP_ROT = rospy.get_param('pid_dynamic_reconfigure/KP_ROT')
+  KI_ROT = rospy.get_param('pid_dynamic_reconfigure/KI_ROT')
 
   # Execute state from the FSM
   robot_fsm.execute()
-
-  """
-  # Calculate goal point details
-  angle_to_goal = atan2(inc_y, inc_x)
-  dist_to_goal = sqrt(pow(inc_x, 2) + pow(inc_y,2))
-
-
-  # Decide whether to rotate or to move forward
-  if dist_to_goal > 0.1:
-    if abs(angle_to_goal - theta) > 0.5:
-      speed.linear.x = 0.0
-      speed.angular.z = 0.3
-    else:
-      speed.linear.x = 0.5
-      speed.angular.z = 0.0
-  else:
-    speed.linear.x = 0.0
-    speed.angular.z = 0.0
-
-  # Publish command
-  pub_cmd_vel.publish(speed)
-  print("Dist: {}  AngleErr[Deg]: {}".format(dist_to_goal, (angle_to_goal - theta)))
-  print("X: {}  Y: {} Theta: {}".format(x, y, theta))
-  """
 
   # Sleep some time...
   r.sleep()
