@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 
 # TODO:
-# Parametri PID-a --> u config fajl
-# Parametri PID-a --> konfigurabilni kroz Dynamic Reconfigure
+# - Filtr referencu
+# - D dejstvo?
+# - Inkrementalni PID
 
 import rospy
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
@@ -15,10 +16,12 @@ from std_msgs.msg import Float32, Int32
 # from RotDbgOut.msg import dbg_angle_err
 
 # Controller frequency in Hertz
-controler_freq = 10.0
+controller_freq = 10.0
+
+T = 1.0 / controller_freq
 
 # Rotation speed limit
-rot_speed_limit = 2.5
+rot_speed_limit = 2.0
 
 # Angle error tolerance in degrees
 angle_err_tolerance = 0.5
@@ -39,6 +42,26 @@ GOAL_THETA = 0.0
 active_goal = Point()
 active_goal.x = 0
 active_goal.y = 0
+
+rot_error_prev = 0.0
+rot_u = 0.0
+
+def rot_pid_calc_positional(error):
+  global rot_error_prev, rot_u
+
+  # Calculate control
+  du = KP_ROT * (error - rot_error_prev) + KI_ROT * T * error
+  rot_u = rot_u + du
+
+  # Anti wind-up
+  if rot_u > rot_speed_limit:
+    rot_u = rot_speed_limit
+  elif rot_u < -rot_speed_limit:
+    rot_u = -rot_speed_limit
+
+  rot_error_prev = error
+
+  return rot_u
 
 ## @brief  Normalize angle
 ##         Converts negative angle to positive
@@ -139,11 +162,8 @@ def rotate():
 
   # Calculate velocity inputs
   if abs(angle_error) > angle_err_tolerance:
-    speed_calc = KP_ROT * angle_error
-    if abs(speed_calc) < rot_speed_limit:
-      velocity.angular.z = speed_calc
-    else:
-      velocity.angular.z = direction * rot_speed_limit
+    speed_calc = rot_pid_calc_positional(angle_error) #KP_ROT * angle_error
+    velocity.angular.z = speed_calc
   else:
     velocity.angular.z = 0
     # robot_fsm.switch_state(StateIdle) TODO: Uncomment later
@@ -152,11 +172,12 @@ def rotate():
   pub_cmd_vel.publish(velocity)
   #pub_rot_dbg_out.publish(angle_error) # Debug data
  
-  # Debug publish
+  # Debug publish  
   pub_dbg_angle_err.publish(angle_error)
   pub_dbg_angle_dir.publish(direction)
   pub_dbg_theta.publish(theta)
   pub_dbg_ang_to_goal.publish(angle_to_goal)
+  pub_dbg_rot.publish(velocity.angular.z)
   print("[ROT] Angle to goal: {}, theta: {}".format(angle_to_goal, theta))
   print("[ROT] Angle error: {}".format(angle_error))
 
@@ -177,13 +198,13 @@ pub_dbg_angle_err = rospy.Publisher("debug/angle_err", Float32, queue_size = 5)
 pub_dbg_angle_dir = rospy.Publisher("debug/angle_dir", Int32, queue_size = 5)
 pub_dbg_theta = rospy.Publisher("debug/theta", Float32, queue_size=5)
 pub_dbg_ang_to_goal = rospy.Publisher("debug/angle_to_goal", Float32, queue_size=5)
-
+pub_dbg_rot = rospy.Publisher("debug/rot_vel", Float32, queue_size=5)
 
 velocity = Twist()
 
 rospy.init_node("speed_controller")
 
-r = rospy.Rate(controler_freq)
+r = rospy.Rate(controller_freq)
 
 # Define Robot Finite State Machine
 StateIdle = FsmState(FsmStates.Idle, idle)
