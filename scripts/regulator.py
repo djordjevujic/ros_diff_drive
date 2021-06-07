@@ -16,7 +16,7 @@ class Regulator():
     self.KP = KP
     self.KI = KI
 
-  def pid_calc_positional(self, error):
+  def pid_positional(self, error):
 
     # Calculate control
     du = self.KP * (error - self.err_prev) + self.KI * self.T * error
