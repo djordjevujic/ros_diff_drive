@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 # TODO:
+# - Error direction calculation, remove current "normalize" func
 # - Filtr referencu
 # - D dejstvo?
 # - Inkrementalni PID
@@ -10,6 +11,7 @@ from tf.transformations import euler_from_quaternion, quaternion_from_euler
 import math
 from math import atan2, sqrt, pow, pi, degrees
 from fsm import FsmState, FsmStates, FsmRobot
+from regulator import Regulator
 from geometry_msgs.msg import Twist, Point, Pose2D
 from nav_msgs.msg import Odometry
 from std_msgs.msg import Float32, Int32
@@ -45,23 +47,6 @@ active_goal.y = 0
 
 rot_error_prev = 0.0
 rot_u = 0.0
-
-def rot_pid_calc_positional(error):
-  global rot_error_prev, rot_u
-
-  # Calculate control
-  du = KP_ROT * (error - rot_error_prev) + KI_ROT * T * error
-  rot_u = rot_u + du
-
-  # Anti wind-up
-  if rot_u > rot_speed_limit:
-    rot_u = rot_speed_limit
-  elif rot_u < -rot_speed_limit:
-    rot_u = -rot_speed_limit
-
-  rot_error_prev = error
-
-  return rot_u
 
 ## @brief  Normalize angle
 ##         Converts negative angle to positive
@@ -159,10 +144,10 @@ def rotate():
     angle_error = direction * (360.0 - abs_error)
   else:
     angle_error = direction * abs_error
-
+ 
   # Calculate velocity inputs
   if abs(angle_error) > angle_err_tolerance:
-    speed_calc = rot_pid_calc_positional(angle_error) #KP_ROT * angle_error
+    speed_calc = rot_pid.pid_calc_positional(angle_error)
     velocity.angular.z = speed_calc
   else:
     velocity.angular.z = 0
@@ -170,7 +155,6 @@ def rotate():
 
   # Publish command
   pub_cmd_vel.publish(velocity)
-  #pub_rot_dbg_out.publish(angle_error) # Debug data
  
   # Debug publish  
   pub_dbg_angle_err.publish(angle_error)
@@ -213,17 +197,21 @@ StateRotation = FsmState(FsmStates.Rotating, rotate)
 
 StatesList = [StateRotation]
 
+# Initialize state machine
 robot_fsm = FsmRobot("M2XR", StatesList, StatesList[0])
 
-# PID parameters
-KP_ROT = 0.0
-KI_ROT = 0.0
+# Get PID parameters
+KP_ROT = rospy.get_param('pid_dynamic_reconfigure/KP_ROT')
+KI_ROT = rospy.get_param('pid_dynamic_reconfigure/KI_ROT')
+
+# Initialize PID regulators
+rot_pid = Regulator(KP_ROT, KI_ROT, T, rot_speed_limit)
 
 while not rospy.is_shutdown():
-
-  # Update parameters
+  # Update PID parameters
   KP_ROT = rospy.get_param('pid_dynamic_reconfigure/KP_ROT')
   KI_ROT = rospy.get_param('pid_dynamic_reconfigure/KI_ROT')
+  rot_pid.update_params(KP_ROT, KI_ROT)
 
   # Execute state from the FSM
   robot_fsm.execute()
