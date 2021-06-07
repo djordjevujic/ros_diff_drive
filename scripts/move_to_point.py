@@ -45,42 +45,29 @@ active_goal = Point()
 active_goal.x = 0
 active_goal.y = 0
 
-rot_error_prev = 0.0
-rot_u = 0.0
-
-## @brief  Normalize angle
-##         Converts negative angle to positive
-##         Possible angle range: [-180, 180]
-## @param  angle Angle to be normalized
-## @return Normalized angle
-def angle_normalize(angle):
-  angle += 180
-  
-  return angle
-
 ## @brief  Calculate rotation direction
 ##         Positive rotation direction - clockwise
 ##         Negative rotation direction - counter clockwise
 ## @param  target_angle  Angle to be reached
 ## @param  current_angle Current angle of the robot
-## @return direction: 1 -> clockwise, -1 -> counter clockwise
-def angle_error_direction(target_angle, current_angle):
-  direction = 0
-  norm_target = target_angle
-  norm_current_angle = current_angle
+## @return error Error including direction
+def angle_error_calc(target_angle, current_angle):
 
   # Normalize angles
-  if target_angle < 0 or norm_current_angle < 0:
-    norm_target = angle_normalize(target_angle)
-    norm_current_angle = angle_normalize(current_angle)
+  if target_angle < 0 or current_angle < 0:
+    target_angle += 180.0
+    current_angle += 180.0
+    
+  error = target_angle - current_angle
 
-  # Calculate rotation direction
-  if norm_target - norm_current_angle > 0:
-    direction = 1
-  else:
-    direction = -1
-  
-  return direction
+  # Change direction if absolute error is bigger than 180 degrees
+  if abs(error) > 180.0:
+    if error >= 0.0:
+      error = -1 * (360.0 - abs(error))
+    else:
+      error = (360 - abs(error))
+
+  return error
 
 ## @brief  Odometry subscriber callback function
 ## @param  msg The message base on Odometry message type
@@ -135,19 +122,11 @@ def rotate():
   angle_to_goal = GOAL_THETA
 
   # Positive - CW, Negative - CCW
-  direction = angle_error_direction(angle_to_goal, theta)
-
-  # Find closest angle error
-  abs_error = abs(angle_to_goal - theta)
-  if abs_error > 180.0:
-    direction = direction * (-1)
-    angle_error = direction * (360.0 - abs_error)
-  else:
-    angle_error = direction * abs_error
+  angle_error = angle_error_calc(angle_to_goal, theta)
  
   # Calculate velocity inputs
   if abs(angle_error) > angle_err_tolerance:
-    speed_calc = rot_pid.pid_calc_positional(angle_error)
+    speed_calc = rot_pid.pid_positional(angle_error)
     velocity.angular.z = speed_calc
   else:
     velocity.angular.z = 0
@@ -158,7 +137,6 @@ def rotate():
  
   # Debug publish  
   pub_dbg_angle_err.publish(angle_error)
-  pub_dbg_angle_dir.publish(direction)
   pub_dbg_theta.publish(theta)
   pub_dbg_ang_to_goal.publish(angle_to_goal)
   pub_dbg_rot.publish(velocity.angular.z)
@@ -179,7 +157,6 @@ pub_cmd_vel = rospy.Publisher("/m2xr_diff_drive_controller/cmd_vel", Twist, queu
 
 # Debug publishers
 pub_dbg_angle_err = rospy.Publisher("debug/angle_err", Float32, queue_size = 5)
-pub_dbg_angle_dir = rospy.Publisher("debug/angle_dir", Int32, queue_size = 5)
 pub_dbg_theta = rospy.Publisher("debug/theta", Float32, queue_size=5)
 pub_dbg_ang_to_goal = rospy.Publisher("debug/angle_to_goal", Float32, queue_size=5)
 pub_dbg_rot = rospy.Publisher("debug/rot_vel", Float32, queue_size=5)
