@@ -1,7 +1,7 @@
 <launch>
 
   <!-- Load joint controller configurations from YAML file to parameter server -->
-  <rosparam file="$(find ros_diff_drive)/config/diff_drive.yaml" 
+  <rosparam file="$(find ros_diff_drive)/config/diff_drive_cfg.yaml" 
             command="load"/>
 
   <!-- load the controllers -->
