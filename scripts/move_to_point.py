@@ -1,24 +1,24 @@
 #!/usr/bin/env python
 
 # TODO:
-# - Error direction calculation, remove current "normalize" func
 # - Filtr referencu
-# - D dejstvo?
-# - Inkrementalni PID
+# - Obicno x i y, korisceno u callback-u: Izbaciti, dodati u objekat klase Pose2D ili slicno?
+# - Preimenuj: PACKAGE = "dynamic_tutorials"
 
 import rospy
-from tf.transformations import euler_from_quaternion, quaternion_from_euler
+from tf.transformations import euler_from_quaternion
 import math
 from math import atan2, sqrt, pow, pi, degrees
 from fsm import FsmState, FsmStates, FsmRobot
 from regulator import Regulator
+#from SrvDynamicRec import get_rot_dyn_conf
 from geometry_msgs.msg import Twist, Point, Pose2D
 from nav_msgs.msg import Odometry
 from std_msgs.msg import Float32, Int32
 # from RotDbgOut.msg import dbg_angle_err
 
 # Controller frequency in Hertz
-controller_freq = 10.0
+controller_freq = 50.0
 
 T = 1.0 / controller_freq
 
@@ -34,16 +34,13 @@ y = 0.0
 theta = 0.0
 
 # Goal input coordinates
-goal = Point()
-goal.x = 0
-goal.y = 0
+goal = Point(0, 0, 0)
+
 # TODO remove later - debug var
 GOAL_THETA = 0.0
 
 # Goal coordinates that are under processing
-active_goal = Point()
-active_goal.x = 0
-active_goal.y = 0
+active_goal = Point(0, 0, 0)
 
 ## @brief  Calculate rotation direction
 ##         Positive rotation direction - clockwise
@@ -113,7 +110,7 @@ def idle():
     print("[IDL] New goal: ({},{})".format(active_goal.x, active_goal.y))
 
 def rotate():
-  global robot_fsm, active_goal, theta, speed, goal
+  global robot_fsm, active_goal, theta, speed, goal, angle_to_goal
 
   # Calculate angle to goal
   """
@@ -126,7 +123,7 @@ def rotate():
  
   # Calculate velocity inputs
   if abs(angle_error) > angle_err_tolerance:
-    speed_calc = rot_pid.pid_positional(angle_error)
+    speed_calc = rot_pid.pid_incremental(angle_error)
     velocity.angular.z = speed_calc
   else:
     velocity.angular.z = 0
@@ -136,12 +133,12 @@ def rotate():
   pub_cmd_vel.publish(velocity)
  
   # Debug publish  
-  pub_dbg_angle_err.publish(angle_error)
+  #pub_dbg_angle_err.publish(angle_error)
   pub_dbg_theta.publish(theta)
   pub_dbg_ang_to_goal.publish(angle_to_goal)
   pub_dbg_rot.publish(velocity.angular.z)
-  print("[ROT] Angle to goal: {}, theta: {}".format(angle_to_goal, theta))
-  print("[ROT] Angle error: {}".format(angle_error))
+  #print("[ROT] Angle to goal: {}, theta: {}".format(angle_to_goal, theta))
+  #print("[ROT] Angle error: {}".format(angle_error))
 
 # Initialize goal destination subscriber
 sub_goal_position = rospy.Subscriber("/target_position/position", Pose2D, goal_position_callback)
@@ -178,17 +175,27 @@ StatesList = [StateRotation]
 robot_fsm = FsmRobot("M2XR", StatesList, StatesList[0])
 
 # Get PID parameters
+#KP_ROT, TI_ROT, TD_ROT, INT_LIMIT = get_rot_dyn_conf()
 KP_ROT = rospy.get_param('pid_dynamic_reconfigure/KP_ROT')
-KI_ROT = rospy.get_param('pid_dynamic_reconfigure/KI_ROT')
+TI_ROT = rospy.get_param('pid_dynamic_reconfigure/TI_ROT')
+TD_ROT = rospy.get_param('pid_dynamic_reconfigure/TD_ROT')
+INT_LIMIT = rospy.get_param('pid_dynamic_reconfigure/UI_LIMIT')
 
 # Initialize PID regulators
-rot_pid = Regulator(KP_ROT, KI_ROT, T, rot_speed_limit)
+rot_pid = Regulator(KP_ROT, TI_ROT, TD_ROT, T, rot_speed_limit, INT_LIMIT)
 
 while not rospy.is_shutdown():
   # Update PID parameters
+  # TODO: Move parameters reading to SrvDynamicRec.py
+  #KP_ROT, TI_ROT, TD_ROT, INT_LIMIT = get_rot_dyn_conf()
   KP_ROT = rospy.get_param('pid_dynamic_reconfigure/KP_ROT')
-  KI_ROT = rospy.get_param('pid_dynamic_reconfigure/KI_ROT')
-  rot_pid.update_params(KP_ROT, KI_ROT)
+  TI_ROT = rospy.get_param('pid_dynamic_reconfigure/TI_ROT')
+  TD_ROT = rospy.get_param('pid_dynamic_reconfigure/TD_ROT')
+  INT_LIMIT = rospy.get_param('pid_dynamic_reconfigure/UI_LIMIT')
+
+  #print("KP_ROT: "+ str(KP_ROT))
+
+  rot_pid.update_params(KP_ROT, TI_ROT, TD_ROT, INT_LIMIT)
 
   # Execute state from the FSM
   robot_fsm.execute()
