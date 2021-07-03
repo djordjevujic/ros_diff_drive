@@ -8,6 +8,7 @@
       <type>transmission_interface/SimpleTransmission</type>
       <actuator name="wheel_${side}_motor" >
         <mechanicalReduction>1.0</mechanicalReduction>
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
       </actuator>
       <joint name="joint_${side}_wheel">
         <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>

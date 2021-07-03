@@ -25,11 +25,27 @@
     </plugin>
   </gazebo>
   -->
+
   <!-- Gazebo plugin for ROS Control -->
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotNamespace>/</robotNamespace>
+     
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+
+      <!-- Trial params -->
+      <legacyMode>false</legacyMode>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>20</updateRate>
+      <leftJoint>joint_left_wheel</leftJoint>
+      <rightJoint>joint_right_wheel</rightJoint>
+      <wheelSeparation>${chassis_box_wid}</wheelSeparation>
+      <wheelDiameter>${odom_wheel_radius}*2.0</wheelDiameter>
+      <torque>0.1</torque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>link_chassis</robotBaseFrame>
     </plugin>
   </gazebo>
 
