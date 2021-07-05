@@ -4,6 +4,7 @@
 # - Filtr referencu
 # - Obicno x i y, korisceno u callback-u: Izbaciti, dodati u objekat klase Pose2D ili slicno?
 # - Preimenuj: PACKAGE = "dynamic_tutorials"
+# - Bug: 0 -> 180 (preskok -> divljanje)
 
 import rospy
 from tf.transformations import euler_from_quaternion
@@ -109,8 +110,11 @@ def idle():
     rospy.logdebug("New active goal: (%d,%d)", active_goal.x, active_goal.y)
     print("[IDL] New goal: ({},{})".format(active_goal.x, active_goal.y))
 
+angle_to_goal_filt = 0.0
+theta_filt = 0.0
+
 def rotate():
-  global robot_fsm, active_goal, theta, speed, goal, angle_to_goal
+  global robot_fsm, active_goal, theta, speed, goal, angle_to_goal_filt, theta_filt
 
   # Calculate angle to goal
   """
@@ -118,8 +122,12 @@ def rotate():
   """
   angle_to_goal = GOAL_THETA
 
+  # Filter readings and reference
+  angle_to_goal_filt = P_ANG_DST * angle_to_goal_filt + (1 - P_ANG_DST) * angle_to_goal
+  theta_filt = P_ANG_THT * theta_filt + (1 - P_ANG_THT) * theta
+
   # Positive - CW, Negative - CCW
-  angle_error = angle_error_calc(angle_to_goal, theta)
+  angle_error = angle_error_calc(angle_to_goal_filt, theta_filt)
  
   # Calculate velocity inputs
   if abs(angle_error) > angle_err_tolerance:
@@ -132,10 +140,12 @@ def rotate():
   # Publish command
   pub_cmd_vel.publish(velocity)
  
-  # Debug publish  
+  # Debug publish
   #pub_dbg_angle_err.publish(angle_error)
   pub_dbg_theta.publish(theta)
+  pub_dbg_theta_filtr.publish(theta_filt)
   pub_dbg_ang_to_goal.publish(angle_to_goal)
+  pub_dbg_ang_to_goal_filtr.publish(angle_to_goal_filt)
   pub_dbg_rot.publish(velocity.angular.z)
   #print("[ROT] Angle to goal: {}, theta: {}".format(angle_to_goal, theta))
   #print("[ROT] Angle error: {}".format(angle_error))
@@ -155,7 +165,9 @@ pub_cmd_vel = rospy.Publisher("/m2xr_diff_drive_controller/cmd_vel", Twist, queu
 # Debug publishers
 pub_dbg_angle_err = rospy.Publisher("debug/angle_err", Float32, queue_size = 5)
 pub_dbg_theta = rospy.Publisher("debug/theta", Float32, queue_size=5)
+pub_dbg_theta_filtr = rospy.Publisher("debug/theta_filtr", Float32, queue_size=5)
 pub_dbg_ang_to_goal = rospy.Publisher("debug/angle_to_goal", Float32, queue_size=5)
+pub_dbg_ang_to_goal_filtr = rospy.Publisher("debug/angle_to_goal_filtr", Float32, queue_size=5)
 pub_dbg_rot = rospy.Publisher("debug/rot_vel", Float32, queue_size=5)
 
 velocity = Twist()
@@ -180,6 +192,9 @@ KP_ROT = rospy.get_param('pid_dynamic_reconfigure/KP_ROT')
 TI_ROT = rospy.get_param('pid_dynamic_reconfigure/TI_ROT')
 TD_ROT = rospy.get_param('pid_dynamic_reconfigure/TD_ROT')
 INT_LIMIT = rospy.get_param('pid_dynamic_reconfigure/UI_LIMIT')
+P_ANG_DST = rospy.get_param('pid_dynamic_reconfigure/P_ANG_DST')
+P_ANG_THT = rospy.get_param('pid_dynamic_reconfigure/P_ANG_THT')
+
 
 # Initialize PID regulators
 rot_pid = Regulator(KP_ROT, TI_ROT, TD_ROT, T, rot_speed_limit, INT_LIMIT)
@@ -192,6 +207,8 @@ while not rospy.is_shutdown():
   TI_ROT = rospy.get_param('pid_dynamic_reconfigure/TI_ROT')
   TD_ROT = rospy.get_param('pid_dynamic_reconfigure/TD_ROT')
   INT_LIMIT = rospy.get_param('pid_dynamic_reconfigure/UI_LIMIT')
+  P_ANG_DST = rospy.get_param('pid_dynamic_reconfigure/P_ANG_DST')
+  P_ANG_THT = rospy.get_param('pid_dynamic_reconfigure/P_ANG_THT')
 
   #print("KP_ROT: "+ str(KP_ROT))
 
