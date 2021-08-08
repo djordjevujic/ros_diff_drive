@@ -1,0 +1,24 @@
+<launch>
+
+  <node name="fwd_dist_plot"
+      pkg="rqt_plot"
+      type="rqt_plot"
+      args="/debug/dist_to_goal_filtr /debug/dist_to_goal /debug/dist_filtr /debug/distance"/>
+
+  <node name="fwd_dist_vel_plot"
+      pkg="rqt_plot"
+      type="rqt_plot"
+      args="/debug/dist_velocity"/>
+
+  <node name="rot_angles_plot"
+      pkg="rqt_plot"
+      type="rqt_plot"
+      args="debug/theta_filtr debug/angle_to_goal_filtr"/>
+
+  <node name="rot_velocity"
+      pkg="rqt_plot"
+      type="rqt_plot"
+      args="debug/rot_vel"/>
+
+</launch>
+
