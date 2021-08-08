@@ -24,9 +24,8 @@
 ├── scripts  
 │   ├── fsm.py  
 │   ├── move_to_point.py  
-│   ├── rotate.py  
-│   └── SrvDynamicRec.py  
-├── urdf  
+│   └── rotate.py  
+├── urdf
 │   ├── gazebo_macros.gazebo  
 │   ├── m2xr.xacro  
 │   ├── macros.xacro  
