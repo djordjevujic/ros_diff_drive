@@ -19,7 +19,4 @@
     <!--<remap from="/joint_states" to="/m2xr/joint_states" />-->
   </node>
 
-  <node name="pid_dynamic_reconfigure" pkg="ros_diff_drive" type="SrvDynamicRec.py">
-  </node>
-
 </launch>
