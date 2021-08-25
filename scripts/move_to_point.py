@@ -2,12 +2,10 @@
 
 # TODO:
 # - Obicno x i y, korisceno u callback-u: Izbaciti, dodati u objekat klase Pose2D ili slicno?
-# - Preimenuj: PACKAGE = "dynamic_tutorials"
-# - Bug: 0 -> 180 (preskok -> divljanje)
+# - Peglanje greske ugla tokom pravolinijskog kretanja
 
 import rospy
 from tf.transformations import euler_from_quaternion
-import math
 from math import atan2, sqrt, pow, pi, degrees
 from fsm import FsmState, FsmStates, FsmRobot
 from regulator import Regulator
@@ -160,9 +158,29 @@ def idle():
 # Filtered values used for the rotation
 angle_to_goal_filt = 0.0
 theta_filt = 0.0
+POSITIVE = True
+NEGATIVE = False
+theta_sign = POSITIVE
+theta_sign_prev = POSITIVE
 
 def rotate():
-  global robot_fsm, active_goal, theta, goal, angle_to_goal_filt, theta_filt
+  global robot_fsm, active_goal, theta, goal, angle_to_goal_filt, theta_filt, theta_sign, theta_sign_prev
+
+  # Check signess of the current angle
+  if theta > 0.0:
+    theta_sign = POSITIVE
+  else:
+    theta_sign = NEGATIVE
+
+  # Workaround to overcome an issue caused by changed sign of the theta
+  # Issue is caused by theta going from positive (~180) to negative (~ -180),
+  # filtering slows down this conversion and induces an error spike which is
+  # is reacted with the huge jump in the control value
+  if theta_sign != theta_sign_prev:
+    theta_filt = -theta_filt
+
+  # Remember current sign
+  theta_sign_prev = theta_sign
 
   # Calculate angle to goal
   angle_to_goal = degrees(atan2(active_goal.y - y, active_goal.x - x))
