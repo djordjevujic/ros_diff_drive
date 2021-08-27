@@ -2,7 +2,6 @@
 
 # TODO:
 # - Obicno x i y, korisceno u callback-u: Izbaciti, dodati u objekat klase Pose2D ili slicno?
-# - Peglanje greske ugla tokom pravolinijskog kretanja
 
 import rospy
 from tf.transformations import euler_from_quaternion
@@ -174,7 +173,7 @@ def rotate():
 
   # Workaround to overcome an issue caused by changed sign of the theta
   # Issue is caused by theta going from positive (~180) to negative (~ -180),
-  # filtering slows down this conversion and induces an error spike which is
+  # filtering slows down this conversion and induces an error spike which
   # is reacted with the huge jump in the control value
   if theta_sign != theta_sign_prev:
     theta_filt = -theta_filt
@@ -222,9 +221,10 @@ goal_distance = 0.0
 goal_distance_filt = 0.0
 dist_filt = 0.0
 move_fwd_started = False
+angle_to_goal_fwd = 0.0
 
 def forward():
-  global robot_fsm, active_goal, goal_distance_filt, goal_distance, dist_filt, move_fwd_started, xInitial, yInitial
+  global robot_fsm, active_goal, goal_distance_filt, goal_distance, dist_filt, move_fwd_started, xInitial, yInitial, angle_to_goal_fwd
 
   if move_fwd_started == False:
     # Calculate current distance to the point
@@ -256,6 +256,18 @@ def forward():
     move_fwd_started = False
     robot_fsm.switch_state(StateIdle)
 
+  # Correct angle error which accumulates while moving forward
+  angle_to_goal_fwd = degrees(atan2(active_goal.y - y, active_goal.x - x))
+  angle_error = angle_error_calc(angle_to_goal_fwd, theta)
+  
+  # Correct angle only if distance is longer than 1 meter
+  if dist_error > 1:
+    if abs(angle_error) > angle_err_tolerance:
+      speed_calc = fwd_pid_rot.pid_incremental(angle_error)
+      velocity.angular.z = speed_calc
+    else:
+      velocity.angular.z = 0
+
   # Publish command
   pub_cmd_vel.publish(velocity)
 
@@ -264,6 +276,8 @@ def forward():
   pub_dbg_dist_to_goal.publish(goal_distance)
   pub_dbg_dist_to_goal_filtr.publish(goal_distance_filt)
   pub_dbg_fwd.publish(velocity.linear.x)
+  pub_dbg_fwd_rot.publish(angle_error)
+  pub_dbg_fwd_rot_vel.publish(velocity.angular.z)
 
   print("[FWD] Point({}, {}) Dist to goal: {}, Current: {}".format(x, y, goal_distance, distance))
 
@@ -290,6 +304,8 @@ pub_dbg_distance_filtr = rospy.Publisher("/debug/dist_filtr", Float32, queue_siz
 pub_dbg_dist_to_goal = rospy.Publisher("/debug/dist_to_goal", Float32, queue_size = 5)
 pub_dbg_dist_to_goal_filtr = rospy.Publisher("/debug/dist_to_goal_filtr", Float32, queue_size = 5)
 pub_dbg_fwd = rospy.Publisher("/debug/dist_velocity", Float32, queue_size = 5)
+pub_dbg_fwd_rot = rospy.Publisher("/debug/fwd_rot", Float32, queue_size = 5)
+pub_dbg_fwd_rot_vel = rospy.Publisher("/debug/fwd_rot_vel", Float32, queue_size = 5)
 
 velocity = Twist()
 
@@ -314,6 +330,7 @@ srv__dyn_reconf = Server(DynRecPIDConfig, dyn_reconf_callback)
 # Initialize PID regulators
 rot_pid = Regulator(KP_ROT, TI_ROT, TD_ROT, T, rot_speed_limit, INT_LIMIT_ROT)
 fwd_pid = Regulator(KP_FWD, TI_FWD, TD_FWD, T, fwd_speed_limit, INT_LIMIT_FWD)
+fwd_pid_rot = Regulator(KP_ROT, TI_ROT, TD_ROT, T, rot_speed_limit, INT_LIMIT_ROT)
 
 while not rospy.is_shutdown():
   # Update PID parameters
@@ -322,6 +339,7 @@ while not rospy.is_shutdown():
 
   rot_pid.update_params(KP_ROT, TI_ROT, TD_ROT, INT_LIMIT_ROT)
   fwd_pid.update_params(KP_FWD, TI_FWD, TD_FWD, INT_LIMIT_FWD)
+  fwd_pid_rot.update_params(KP_ROT, TI_ROT, TD_ROT, INT_LIMIT_ROT)
 
   # Execute state from the FSM
   robot_fsm.execute()
