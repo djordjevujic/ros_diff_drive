@@ -4,9 +4,6 @@ Implements differential drive robot control
 
 #!/usr/bin/env python
 
-# TODO:
-# - Obicno x i y, korisceno u callback-u: Izbaciti, dodati u objekat klase Pose2D ili slicno?
-
 import rospy
 from tf.transformations import euler_from_quaternion
 from math import atan2, sqrt, degrees
@@ -35,8 +32,14 @@ yInitial = 0.0
 ## @defgroup callbackPos Values updated during the callback of the odometry
 ## These values are updated during \ref position_callback
 ## @{
-x = 0.0
-y = 0.0
+
+## Contains X and Y coordinates of the current position
+cur_pos = Point()
+
+cur_pos.x = 0.0
+cur_pos.y = 0.0
+
+## Contanes current angle of the robot
 theta = 0.0
 ## @}
 
@@ -149,12 +152,11 @@ def dyn_reconf_callback(config, level):
 ## @brief  Odometry subscriber callback function
 ## @param  msg The message base on Odometry message type
 def position_callback(msg):
-  global x
-  global y
+  global cur_pos
   global theta
 
-  x = msg.pose.pose.position.x
-  y = msg.pose.pose.position.y
+  cur_pos.x = msg.pose.pose.position.x
+  cur_pos.y = msg.pose.pose.position.y
 
   rot_q = msg.pose.pose.orientation
   (roll, pitch, theta) = euler_from_quaternion([rot_q.x, rot_q.y, rot_q.z, rot_q.w])
@@ -171,8 +173,8 @@ def goal_position_callback(msg):
     goal.y = msg.y
     GOAL_THETA = msg.theta
     GOAL_DIST = msg.x
-    xInitial = x
-    yInitial = y
+    xInitial = cur_pos.x
+    yInitial = cur_pos.y
     print("/target_position/position Goal: ({}, {})".format(goal.x, goal.y))
 
 ## @brief Idle function of the robot state machine
@@ -223,7 +225,7 @@ def rotate():
   theta_sign_prev = theta_sign
 
   # Calculate angle to goal
-  angle_to_goal = degrees(atan2(active_goal.y - y, active_goal.x - x))
+  angle_to_goal = degrees(atan2(active_goal.y - cur_pos.y, active_goal.x - cur_pos.x))
 
   # Debug option: Uncomment for rotation parameters tuning
   #angle_to_goal = GOAL_THETA
@@ -271,14 +273,14 @@ def forward():
 
   if move_fwd_started == False:
     # Calculate current distance to the point
-    xInitial = x
-    yInitial = y
-    goal_distance = sqrt((active_goal.x - x)**2 + (active_goal.y - y)**2)
+    xInitial = cur_pos.x
+    yInitial = cur_pos.y
+    goal_distance = sqrt((active_goal.x - cur_pos.x)**2 + (active_goal.y - cur_pos.y)**2)
     #goal_distance = GOAL_DIST # This line is only for debugging purposes
     move_fwd_started = True
 
   # Update a distance from the initial point
-  distance = sqrt((x - xInitial)**2 + (y - yInitial)**2)
+  distance = sqrt((cur_pos.x - xInitial)**2 + (cur_pos.y - yInitial)**2)
 
   # Filter the reference
   goal_distance_filt = P_FWD_DST * goal_distance_filt + (1 - P_FWD_DST) * goal_distance
@@ -300,7 +302,7 @@ def forward():
     robot_fsm.switch_state(StateIdle)
 
   # Correct angle error which accumulates while moving forward
-  angle_to_goal_fwd = degrees(atan2(active_goal.y - y, active_goal.x - x))
+  angle_to_goal_fwd = degrees(atan2(active_goal.y - cur_pos.y, active_goal.x - cur_pos.x))
   angle_error = angle_error_calc(angle_to_goal_fwd, theta)
   
   # Correct angle only if distance is longer than 1 meter
@@ -322,7 +324,7 @@ def forward():
   pub_dbg_fwd_rot.publish(angle_error)
   pub_dbg_fwd_rot_vel.publish(velocity.angular.z)
 
-  print("[FWD] Point({}, {}) Dist to goal: {}, Current: {}".format(x, y, goal_distance, distance))
+  print("[FWD] Point({}, {}) Dist to goal: {}, Current: {}".format(cur_pos.x, cur_pos.y, goal_distance, distance))
 
 ## Goal destination subscriber
 sub_goal_position = rospy.Subscriber("/target_position/position", Pose2D, goal_position_callback)
