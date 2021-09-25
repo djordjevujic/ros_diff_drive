@@ -4,36 +4,43 @@
 
 ## Package structure
 ```
-├── CMakeLists.txt  
-├── config  
-│   ├── diff_drive.yaml  
-│   ├── DynRecPID.cfg  
-│   ├── rqt_gui_main.perspective  
-│   └── rvizCfg.rviz  
-├── launch  
-│   ├── gazebo.launch  
-│   ├── m2xr_all.launch  
-│   ├── m2xr_control.launch  
-│   ├── m2xr_world.launch  
-│   ├── rviz.launch  
-│   └── spawn.launch  
-├── msg  
-│   └── RotDbgOut.msg  
-├── package.xml  
-├── README.md  
-├── scripts  
-│   ├── fsm.py  
-│   ├── move_to_point.py  
-│   └── rotate.py  
+├── CMakeLists.txt
+├── config
+│   ├── diff_drive_cfg.yaml
+│   ├── DynRecPID.cfg
+│   ├── rqt_gui_main.perspective
+│   └── rvizCfg.rviz
+├── docs
+│   └── doxygen
+│       └── DOXY_CFG
+├── launch
+│   ├── gazebo.launch
+│   ├── m2xr_all.launch
+│   ├── m2xr_control.launch
+│   ├── m2xr_world.launch
+│   ├── rqt_graphs.launch
+│   ├── rviz.launch
+│   └── spawn.launch
+├── msg
+│   └── RotDbgOut.msg
+├── package.xml
+├── README.md
+├── scripts
+│   ├── config.py
+│   ├── debug.py
+│   ├── fsm.py
+│   ├── move_to_point.py
+│   └── regulator.py
+├── src
 ├── urdf
-│   ├── gazebo_macros.gazebo  
-│   ├── m2xr.xacro  
-│   ├── macros.xacro  
-│   ├── materials.xacro  
-│   ├── wheel_gazebo.xacro  
-│   └── wheel_transmission.xacro  
-└── worlds    
-    └── m2xr.world  
+│   ├── gazebo_macros.gazebo
+│   ├── m2xr.xacro
+│   ├── macros.xacro
+│   ├── materials.xacro
+│   ├── wheel_gazebo.xacro
+│   └── wheel_transmission.xacro
+└── worlds
+    └── m2xr.world
 ```
 ## Launch commands
 
