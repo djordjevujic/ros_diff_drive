@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['regulator_60',['regulator',['../namespaceregulator.html',1,'']]]
+  ['regulator_62',['regulator',['../namespaceregulator.html',1,'']]]
 ];

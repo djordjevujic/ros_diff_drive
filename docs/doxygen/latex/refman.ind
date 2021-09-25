@@ -1,0 +1,77 @@
+\begin{theindex}
+
+  \item {\_\_init\_\_}
+    \subitem {fsm.FsmRobot}, \hyperpage{19}
+
+  \indexspace
+
+  \item {angle\_error\_calc}
+    \subitem {move\_to\_point}, \hyperpage{16}
+
+  \indexspace
+
+  \item {config}, \hyperpage{13}
+
+  \indexspace
+
+  \item {debug}, \hyperpage{14}
+  \item {dyn\_reconf\_callback}
+    \subitem {move\_to\_point}, \hyperpage{16}
+
+  \indexspace
+
+  \item {forward}
+    \subitem {move\_to\_point}, \hyperpage{17}
+  \item {fsm}, \hyperpage{14}
+  \item {fsm.FsmRobot}, \hyperpage{19}
+    \subitem {\_\_init\_\_}, \hyperpage{19}
+    \subitem {switch\_state}, \hyperpage{20}
+  \item {fsm.FsmState}, \hyperpage{20}
+  \item {fsm.FsmStates}, \hyperpage{21}
+
+  \indexspace
+
+  \item {goal\_position\_callback}
+    \subitem {move\_to\_point}, \hyperpage{17}
+
+  \indexspace
+
+  \item {idle}
+    \subitem {move\_to\_point}, \hyperpage{17}
+
+  \indexspace
+
+  \item {move\_to\_point}, \hyperpage{14}
+    \subitem {angle\_error\_calc}, \hyperpage{16}
+    \subitem {dyn\_reconf\_callback}, \hyperpage{16}
+    \subitem {forward}, \hyperpage{17}
+    \subitem {goal\_position\_callback}, \hyperpage{17}
+    \subitem {idle}, \hyperpage{17}
+    \subitem {position\_callback}, \hyperpage{17}
+    \subitem {rotate}, \hyperpage{18}
+
+  \indexspace
+
+  \item {position\_callback}
+    \subitem {move\_to\_point}, \hyperpage{17}
+  \item {Pre initial values of PID regulators}, \hyperpage{9}
+
+  \indexspace
+
+  \item {regulator}, \hyperpage{18}
+  \item {regulator.Regulator}, \hyperpage{22}
+  \item {rotate}
+    \subitem {move\_to\_point}, \hyperpage{18}
+
+  \indexspace
+
+  \item {switch\_state}
+    \subitem {fsm.FsmRobot}, \hyperpage{20}
+
+  \indexspace
+
+  \item {Values updated during the callback of the odometry}, 
+		\hyperpage{10, 11}
+  \item {Variables used for debugging purposes}, \hyperpage{12}
+
+\end{theindex}

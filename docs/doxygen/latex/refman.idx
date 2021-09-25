@@ -1,0 +1,31 @@
+\indexentry{Pre initial values of PID regulators@{Pre initial values of PID regulators}|hyperpage}{9}
+\indexentry{Values updated during the callback of the odometry@{Values updated during the callback of the odometry}|hyperpage}{10}
+\indexentry{Values updated during the callback of the odometry@{Values updated during the callback of the odometry}|hyperpage}{11}
+\indexentry{Variables used for debugging purposes@{Variables used for debugging purposes}|hyperpage}{12}
+\indexentry{config@{config}|hyperpage}{13}
+\indexentry{debug@{debug}|hyperpage}{14}
+\indexentry{fsm@{fsm}|hyperpage}{14}
+\indexentry{move\_to\_point@{move\_to\_point}|hyperpage}{14}
+\indexentry{move\_to\_point@{move\_to\_point}!angle\_error\_calc@{angle\_error\_calc}|hyperpage}{16}
+\indexentry{angle\_error\_calc@{angle\_error\_calc}!move\_to\_point@{move\_to\_point}|hyperpage}{16}
+\indexentry{move\_to\_point@{move\_to\_point}!dyn\_reconf\_callback@{dyn\_reconf\_callback}|hyperpage}{16}
+\indexentry{dyn\_reconf\_callback@{dyn\_reconf\_callback}!move\_to\_point@{move\_to\_point}|hyperpage}{16}
+\indexentry{move\_to\_point@{move\_to\_point}!forward@{forward}|hyperpage}{17}
+\indexentry{forward@{forward}!move\_to\_point@{move\_to\_point}|hyperpage}{17}
+\indexentry{move\_to\_point@{move\_to\_point}!goal\_position\_callback@{goal\_position\_callback}|hyperpage}{17}
+\indexentry{goal\_position\_callback@{goal\_position\_callback}!move\_to\_point@{move\_to\_point}|hyperpage}{17}
+\indexentry{move\_to\_point@{move\_to\_point}!idle@{idle}|hyperpage}{17}
+\indexentry{idle@{idle}!move\_to\_point@{move\_to\_point}|hyperpage}{17}
+\indexentry{move\_to\_point@{move\_to\_point}!position\_callback@{position\_callback}|hyperpage}{17}
+\indexentry{position\_callback@{position\_callback}!move\_to\_point@{move\_to\_point}|hyperpage}{17}
+\indexentry{move\_to\_point@{move\_to\_point}!rotate@{rotate}|hyperpage}{18}
+\indexentry{rotate@{rotate}!move\_to\_point@{move\_to\_point}|hyperpage}{18}
+\indexentry{regulator@{regulator}|hyperpage}{18}
+\indexentry{fsm.FsmRobot@{fsm.FsmRobot}|hyperpage}{19}
+\indexentry{fsm.FsmRobot@{fsm.FsmRobot}!\_\_init\_\_@{\_\_init\_\_}|hyperpage}{19}
+\indexentry{\_\_init\_\_@{\_\_init\_\_}!fsm.FsmRobot@{fsm.FsmRobot}|hyperpage}{19}
+\indexentry{fsm.FsmRobot@{fsm.FsmRobot}!switch\_state@{switch\_state}|hyperpage}{20}
+\indexentry{switch\_state@{switch\_state}!fsm.FsmRobot@{fsm.FsmRobot}|hyperpage}{20}
+\indexentry{fsm.FsmState@{fsm.FsmState}|hyperpage}{20}
+\indexentry{fsm.FsmStates@{fsm.FsmStates}|hyperpage}{21}
+\indexentry{regulator.Regulator@{regulator.Regulator}|hyperpage}{22}

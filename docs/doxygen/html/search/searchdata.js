@@ -4,7 +4,7 @@ var indexSectionsWithContent =
   1: "fr",
   2: "cdfmr",
   3: "_adfgiprs",
-  4: "adfgmnprstxy",
+  4: "acdfgmnprstxy",
   5: "pv"
 };
 

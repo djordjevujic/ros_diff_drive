@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['config_56',['config',['../namespaceconfig.html',1,'']]]
+  ['config_58',['config',['../namespaceconfig.html',1,'']]]
 ];
