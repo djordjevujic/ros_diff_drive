@@ -67,6 +67,9 @@ $(function() {
 <li>active_goal
 : <a class="el" href="namespacemove__to__point.html#a47ecf81d432d50ecbaff5e3f7c7461b8">move_to_point</a>
 </li>
+<li>angle_err_tolerance
+: <a class="el" href="namespaceconfig.html#a154303b2d6739895778e0a87873846f7">config</a>
+</li>
 <li>angle_to_goal_filt
 : <a class="el" href="namespacemove__to__point.html#a0880e1fbe72c280fcd63b0ce25d59852">move_to_point</a>
 </li>
@@ -77,6 +80,9 @@ $(function() {
 
 
 <h3><a id="index_c"></a>- c -</h3><ul>
+<li>controller_freq
+: <a class="el" href="namespaceconfig.html#addad1fe67f437e9eb67c8f4805895938">config</a>
+</li>
 <li>cur_pos
 : <a class="el" href="group__callbackPos.html#ga3e94b96749029b24ef16be218d23a12d">move_to_point</a>
 </li>
@@ -84,6 +90,9 @@ $(function() {
 
 
 <h3><a id="index_d"></a>- d -</h3><ul>
+<li>dist_err_tolerance
+: <a class="el" href="namespaceconfig.html#adf134dcf762b8b9cc827c68a7f3fe2c2">config</a>
+</li>
 <li>dist_filt
 : <a class="el" href="namespacemove__to__point.html#acb54f4e8b7652ad7631ebd49f4e197f8">move_to_point</a>
 </li>
@@ -96,6 +105,9 @@ $(function() {
 </li>
 <li>fwd_pid_rot
 : <a class="el" href="namespacemove__to__point.html#a14a818314a66e4716b37696ca304f9c2">move_to_point</a>
+</li>
+<li>fwd_speed_limit
+: <a class="el" href="namespaceconfig.html#afa076b8cfdf4cbcb2be966bf48801b3a">config</a>
 </li>
 </ul>
 
@@ -119,6 +131,26 @@ $(function() {
 </ul>
 
 
+<h3><a id="index_i"></a>- i -</h3><ul>
+<li>INT_LIMIT_FWD
+: <a class="el" href="group__pidInit.html#ga8f78add9fd9024d2179b00952c5fcae1">config</a>
+</li>
+<li>INT_LIMIT_ROT
+: <a class="el" href="group__pidInit.html#ga38fad787e9ae5e4d43cd394c7bdc82ba">config</a>
+</li>
+</ul>
+
+
+<h3><a id="index_k"></a>- k -</h3><ul>
+<li>KP_FWD
+: <a class="el" href="group__pidInit.html#ga2451f1c683a47ca8e987e810dd80014d">config</a>
+</li>
+<li>KP_ROT
+: <a class="el" href="group__pidInit.html#ga3d585b05dff6385da72a7f8d573037e3">config</a>
+</li>
+</ul>
+
+
 <h3><a id="index_m"></a>- m -</h3><ul>
 <li>move_fwd_started
 : <a class="el" href="namespacemove__to__point.html#ada6e674a3b04d7f0c90eac26192a9bc8">move_to_point</a>
@@ -134,11 +166,62 @@ $(function() {
 
 
 <h3><a id="index_p"></a>- p -</h3><ul>
+<li>P_ANG_DST
+: <a class="el" href="group__pidInit.html#ga7d01c7c4b3a22e43b5801ae0ee7ccecd">config</a>
+</li>
+<li>P_ANG_THT
+: <a class="el" href="group__pidInit.html#ga769f5a2cac95254955ca16755421dddf">config</a>
+</li>
+<li>P_FWD_CUR
+: <a class="el" href="group__pidInit.html#gaea6fcd1f05c5e64750b6ab747d73298c">config</a>
+</li>
+<li>P_FWD_DST
+: <a class="el" href="group__pidInit.html#ga3e8c70f43b1a38ac0538c8ff0fcb327c">config</a>
+</li>
 <li>POSITIVE
 : <a class="el" href="namespacemove__to__point.html#a07c9b17420f211b6ce86f423238ff788">move_to_point</a>
 </li>
 <li>pub_cmd_vel
 : <a class="el" href="namespacemove__to__point.html#a3e41570a3d85b920a5f261ac21c3b66c">move_to_point</a>
+</li>
+<li>pub_dbg_ang_to_goal
+: <a class="el" href="namespacedebug.html#a99a0e3c31e00396c5ae03f9b44aeb966">debug</a>
+</li>
+<li>pub_dbg_ang_to_goal_filtr
+: <a class="el" href="namespacedebug.html#a8d5077633189fc31550027db8de7d7ef">debug</a>
+</li>
+<li>pub_dbg_angle_err
+: <a class="el" href="namespacedebug.html#a3598830bcc70b041b6fb7185e1a0512d">debug</a>
+</li>
+<li>pub_dbg_dist_to_goal
+: <a class="el" href="namespacedebug.html#a32e369e2f1698db3b9859a7f9c1d3722">debug</a>
+</li>
+<li>pub_dbg_dist_to_goal_filtr
+: <a class="el" href="namespacedebug.html#af0248137c89641554ef0422bc88346be">debug</a>
+</li>
+<li>pub_dbg_distance
+: <a class="el" href="namespacedebug.html#af7970eeb03cdb60bc367536feef9ad39">debug</a>
+</li>
+<li>pub_dbg_distance_filtr
+: <a class="el" href="namespacedebug.html#a8b6d68a72ea9f40b59d0ec66a9244e5c">debug</a>
+</li>
+<li>pub_dbg_fwd
+: <a class="el" href="namespacedebug.html#aee120701238da7f136ba9abcc98d2438">debug</a>
+</li>
+<li>pub_dbg_fwd_rot
+: <a class="el" href="namespacedebug.html#af62a3130244fdc704a076c31a81881f4">debug</a>
+</li>
+<li>pub_dbg_fwd_rot_vel
+: <a class="el" href="namespacedebug.html#afa642911fdc4a998aa27bb18aabc66a4">debug</a>
+</li>
+<li>pub_dbg_rot
+: <a class="el" href="namespacedebug.html#a1919c8a4045f43b84f26a9d587fcf922">debug</a>
+</li>
+<li>pub_dbg_theta
+: <a class="el" href="namespacedebug.html#a327bbe67859201fbb369a62c630c3c31">debug</a>
+</li>
+<li>pub_dbg_theta_filtr
+: <a class="el" href="namespacedebug.html#a18eb6ede6a0ca6e8d65f4d3425019bfd">debug</a>
 </li>
 </ul>
 
@@ -152,6 +235,9 @@ $(function() {
 </li>
 <li>rot_pid
 : <a class="el" href="namespacemove__to__point.html#ad4c429571723c9c6e08126d4531a63a9">move_to_point</a>
+</li>
+<li>rot_speed_limit
+: <a class="el" href="namespaceconfig.html#a1fbdc19c324dfd2a1e6b06eacefc244a">config</a>
 </li>
 </ul>
 
@@ -185,6 +271,12 @@ $(function() {
 <li>T
 : <a class="el" href="namespacemove__to__point.html#a7c89111175169acba6d6f7aca063aa52">move_to_point</a>
 </li>
+<li>TD_FWD
+: <a class="el" href="group__pidInit.html#ga074068b0d279bacc19c9bf5b0a3cc4fc">config</a>
+</li>
+<li>TD_ROT
+: <a class="el" href="group__pidInit.html#ga51ec89ef832aceffa53c16833a833676">config</a>
+</li>
 <li>theta
 : <a class="el" href="group__callbackPos.html#gab396a2921cdba3818bcf0fd7f80517e5">move_to_point</a>
 </li>
@@ -197,10 +289,19 @@ $(function() {
 <li>theta_sign_prev
 : <a class="el" href="namespacemove__to__point.html#ad37823b6f4507da29f9ca4edf13727a9">move_to_point</a>
 </li>
+<li>TI_FWD
+: <a class="el" href="group__pidInit.html#gab92446d9d08c5de0804f1ac68cf77a21">config</a>
+</li>
+<li>TI_ROT
+: <a class="el" href="group__pidInit.html#ga5697e5564c21a744db557263f67e3cdd">config</a>
+</li>
 </ul>
 
 
 <h3><a id="index_x"></a>- x -</h3><ul>
+<li>x
+: <a class="el" href="group__callbackPos.html#gab4dad1ef819740e0df4d0cb0bd86e7d0">move_to_point</a>
+</li>
 <li>xInitial
 : <a class="el" href="group__xyInit.html#ga8ffa8fcb373b198ffc244c8163c4ed31">move_to_point</a>
 </li>
@@ -208,6 +309,9 @@ $(function() {
 
 
 <h3><a id="index_y"></a>- y -</h3><ul>
+<li>y
+: <a class="el" href="group__callbackPos.html#ga7a3cf92688e7fc0329cd2e7e83f8d065">move_to_point</a>
+</li>
 <li>yInitial
 : <a class="el" href="group__xyInit.html#ga3640214659e0cb7b711a37aa8d1c971e">move_to_point</a>
 </li>

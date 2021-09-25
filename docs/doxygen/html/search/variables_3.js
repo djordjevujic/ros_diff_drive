@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['fwd_5fpid_77',['fwd_pid',['../namespacemove__to__point.html#aadc7464864ee2443a7cfb126354c217e',1,'move_to_point']]],
-  ['fwd_5fpid_5frot_78',['fwd_pid_rot',['../namespacemove__to__point.html#a14a818314a66e4716b37696ca304f9c2',1,'move_to_point']]]
+  ['err_5fp_5fprev_144',['err_p_prev',['../classregulator_1_1Regulator.html#a281a4c1c0f63531ed47285cbf175059e',1,'regulator::Regulator']]],
+  ['err_5fprev_145',['err_prev',['../classregulator_1_1Regulator.html#aab61c2baa8a99087f84e60e6015512d1',1,'regulator::Regulator']]]
 ];

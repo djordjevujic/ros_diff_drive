@@ -1,25 +1,49 @@
-"""@package regulator
-Implements PID regulation algorithms
 """
+    Implements PID regulation algorithms
+""" 
 #!/usr/bin/env python
 
+## Class of the regulator which contains parameters and methods which implement different control algorithms
 class Regulator():
+  ## Constructor of the regulator
   def __init__(self, KP, TI, TD, T, u_limit, ui_limit):
+    ## KP Gain of the PID
     self.KP = KP
+
+    ## KI Gain of the PID
     self.KI = KP / TI
+
+    ## KD Gain of the PID
     self.KD = KP * TD
+
+    ## Limit of the overall control output (only for incremental PID)
     self.u_limit = u_limit
+
+    ## Limit of the integral controll output (only for positional PID)
     self.ui_limit = ui_limit
+
+    ## Error from the previous interation
     self.err_prev = 0.0
+
+    ## Error from the iteration before previous one
     self.err_p_prev = 0.0
+
+    ## Calculated control output
     self.u = 0.0
+
+    ## Period between two iteration
     self.T = T
+
+    ## KD * T part of the PID calculation
     self.KDT = self.KD / T
+
+    ## KI * T part of the PID calculation
     self.KIT = self.KI * T
 
-  # Note: Should be used during debugging and PID setup
-  #       Not intended to be used during normal operation
-  #       because of the runtime consumption
+  ## Method for updating PID parameters.
+  ## Note: Should be used during debugging and PID setup
+  ##       Not intended to be used during normal operation
+  ##       because of the runtime consumption.
   def update_params(self, KP, TI, TD, ui_limit):
     self.KP = KP
     self.KI = KP / TI
@@ -28,6 +52,7 @@ class Regulator():
     self.KIT = self.KI * self.T
     self.ui_limit = ui_limit
 
+  ## Positional PID algorithm method
   def pid_positional(self, error):
     # Calculate separate outputs
     Up = self.KP * error
@@ -41,6 +66,7 @@ class Regulator():
       Ui = -self.ui_limit
 
     # Backup variables needed for the next iteration
+    ## Backup integral output control value
     self.Ui = Ui
     self.err_prev = error
 
@@ -49,6 +75,7 @@ class Regulator():
 
     return U
 
+  ## Incremental PID algorithm method
   def pid_incremental(self, error):
     # Calculate control
     dUp = self.KP * (error - self.err_prev)
@@ -63,7 +90,8 @@ class Regulator():
       self.u = -self.u_limit
 
     # Backup values needed for the next iteration
-    self.error_p_prev = self.err_prev
+    ## Backup 
+    self.err_p_prev = self.err_prev
     self.err_prev = error
 
     return self.u

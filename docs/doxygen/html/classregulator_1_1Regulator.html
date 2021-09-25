@@ -73,64 +73,148 @@ $(function() {
 <div class="title">regulator.Regulator Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class of the regulator which contains parameters and methods which implement different control algorithms.  
+ <a href="classregulator_1_1Regulator.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:acd0aae05b32dad4387045b23a46c533e"><td class="memItemLeft" align="right" valign="top"><a id="acd0aae05b32dad4387045b23a46c533e"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self, KP, TI, TD, T, u_limit, ui_limit)</td></tr>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#acd0aae05b32dad4387045b23a46c533e">__init__</a> (self, <a class="el" href="classregulator_1_1Regulator.html#a90c833024a2137267bb6debf085776fa">KP</a>, TI, TD, <a class="el" href="classregulator_1_1Regulator.html#a30796177154c238f82443eba6d16bdfd">T</a>, <a class="el" href="classregulator_1_1Regulator.html#afa53c54f525db41e31edf0b0c506c5d8">u_limit</a>, <a class="el" href="classregulator_1_1Regulator.html#a63836946fdda614b388fc1694a2330f0">ui_limit</a>)</td></tr>
+<tr class="memdesc:acd0aae05b32dad4387045b23a46c533e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of the regulator. <br /></td></tr>
 <tr class="separator:acd0aae05b32dad4387045b23a46c533e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfffc3f1a70357b0c981b8bd8b5403cd"><td class="memItemLeft" align="right" valign="top"><a id="abfffc3f1a70357b0c981b8bd8b5403cd"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>update_params</b> (self, KP, TI, TD, ui_limit)</td></tr>
+<tr class="memitem:abfffc3f1a70357b0c981b8bd8b5403cd"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#abfffc3f1a70357b0c981b8bd8b5403cd">update_params</a> (self, <a class="el" href="classregulator_1_1Regulator.html#a90c833024a2137267bb6debf085776fa">KP</a>, TI, TD, <a class="el" href="classregulator_1_1Regulator.html#a63836946fdda614b388fc1694a2330f0">ui_limit</a>)</td></tr>
+<tr class="memdesc:abfffc3f1a70357b0c981b8bd8b5403cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method for updating PID parameters.  <a href="classregulator_1_1Regulator.html#abfffc3f1a70357b0c981b8bd8b5403cd">More...</a><br /></td></tr>
 <tr class="separator:abfffc3f1a70357b0c981b8bd8b5403cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a915606344e6490c4b754eefe4250ee8a"><td class="memItemLeft" align="right" valign="top"><a id="a915606344e6490c4b754eefe4250ee8a"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>pid_positional</b> (self, error)</td></tr>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#a915606344e6490c4b754eefe4250ee8a">pid_positional</a> (self, error)</td></tr>
+<tr class="memdesc:a915606344e6490c4b754eefe4250ee8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Positional PID algorithm method. <br /></td></tr>
 <tr class="separator:a915606344e6490c4b754eefe4250ee8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67999e5777b549cced385d8f89c823b7"><td class="memItemLeft" align="right" valign="top"><a id="a67999e5777b549cced385d8f89c823b7"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>pid_incremental</b> (self, error)</td></tr>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#a67999e5777b549cced385d8f89c823b7">pid_incremental</a> (self, error)</td></tr>
+<tr class="memdesc:a67999e5777b549cced385d8f89c823b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Incremental PID algorithm method. <br /></td></tr>
 <tr class="separator:a67999e5777b549cced385d8f89c823b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a90c833024a2137267bb6debf085776fa"><td class="memItemLeft" align="right" valign="top"><a id="a90c833024a2137267bb6debf085776fa"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KP</b></td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#a90c833024a2137267bb6debf085776fa">KP</a></td></tr>
+<tr class="memdesc:a90c833024a2137267bb6debf085776fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">KP Gain of the PID. <br /></td></tr>
 <tr class="separator:a90c833024a2137267bb6debf085776fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa14b363e4d918beed90e8d5c20438cfe"><td class="memItemLeft" align="right" valign="top"><a id="aa14b363e4d918beed90e8d5c20438cfe"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KI</b></td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#aa14b363e4d918beed90e8d5c20438cfe">KI</a></td></tr>
+<tr class="memdesc:aa14b363e4d918beed90e8d5c20438cfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">KI Gain of the PID. <br /></td></tr>
 <tr class="separator:aa14b363e4d918beed90e8d5c20438cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2af808ef10f798af91cf80ec536bbe59"><td class="memItemLeft" align="right" valign="top"><a id="a2af808ef10f798af91cf80ec536bbe59"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KD</b></td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#a2af808ef10f798af91cf80ec536bbe59">KD</a></td></tr>
+<tr class="memdesc:a2af808ef10f798af91cf80ec536bbe59"><td class="mdescLeft">&#160;</td><td class="mdescRight">KD Gain of the PID. <br /></td></tr>
 <tr class="separator:a2af808ef10f798af91cf80ec536bbe59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa53c54f525db41e31edf0b0c506c5d8"><td class="memItemLeft" align="right" valign="top"><a id="afa53c54f525db41e31edf0b0c506c5d8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>u_limit</b></td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#afa53c54f525db41e31edf0b0c506c5d8">u_limit</a></td></tr>
+<tr class="memdesc:afa53c54f525db41e31edf0b0c506c5d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Limit of the overall control output (only for incremental PID) <br /></td></tr>
 <tr class="separator:afa53c54f525db41e31edf0b0c506c5d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63836946fdda614b388fc1694a2330f0"><td class="memItemLeft" align="right" valign="top"><a id="a63836946fdda614b388fc1694a2330f0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ui_limit</b></td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#a63836946fdda614b388fc1694a2330f0">ui_limit</a></td></tr>
+<tr class="memdesc:a63836946fdda614b388fc1694a2330f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Limit of the integral controll output (only for positional PID) <br /></td></tr>
 <tr class="separator:a63836946fdda614b388fc1694a2330f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab61c2baa8a99087f84e60e6015512d1"><td class="memItemLeft" align="right" valign="top"><a id="aab61c2baa8a99087f84e60e6015512d1"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>err_prev</b></td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#aab61c2baa8a99087f84e60e6015512d1">err_prev</a></td></tr>
+<tr class="memdesc:aab61c2baa8a99087f84e60e6015512d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error from the previous interation. <br /></td></tr>
 <tr class="separator:aab61c2baa8a99087f84e60e6015512d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a281a4c1c0f63531ed47285cbf175059e"><td class="memItemLeft" align="right" valign="top"><a id="a281a4c1c0f63531ed47285cbf175059e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>err_p_prev</b></td></tr>
+<tr class="memitem:a281a4c1c0f63531ed47285cbf175059e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#a281a4c1c0f63531ed47285cbf175059e">err_p_prev</a></td></tr>
+<tr class="memdesc:a281a4c1c0f63531ed47285cbf175059e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error from the iteration before previous one.  <a href="classregulator_1_1Regulator.html#a281a4c1c0f63531ed47285cbf175059e">More...</a><br /></td></tr>
 <tr class="separator:a281a4c1c0f63531ed47285cbf175059e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f0e71dee322320e86f093ba5877d26b"><td class="memItemLeft" align="right" valign="top"><a id="a7f0e71dee322320e86f093ba5877d26b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>u</b></td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#a7f0e71dee322320e86f093ba5877d26b">u</a></td></tr>
+<tr class="memdesc:a7f0e71dee322320e86f093ba5877d26b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculated control output. <br /></td></tr>
 <tr class="separator:a7f0e71dee322320e86f093ba5877d26b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30796177154c238f82443eba6d16bdfd"><td class="memItemLeft" align="right" valign="top"><a id="a30796177154c238f82443eba6d16bdfd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>T</b></td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#a30796177154c238f82443eba6d16bdfd">T</a></td></tr>
+<tr class="memdesc:a30796177154c238f82443eba6d16bdfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Period between two iteration. <br /></td></tr>
 <tr class="separator:a30796177154c238f82443eba6d16bdfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc0fa2489e4bcd8abbadd5296620d7f8"><td class="memItemLeft" align="right" valign="top"><a id="acc0fa2489e4bcd8abbadd5296620d7f8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KDT</b></td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#acc0fa2489e4bcd8abbadd5296620d7f8">KDT</a></td></tr>
+<tr class="memdesc:acc0fa2489e4bcd8abbadd5296620d7f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">KD * T part of the PID calculation. <br /></td></tr>
 <tr class="separator:acc0fa2489e4bcd8abbadd5296620d7f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bfda37bd2ce29ec28f7945964d44ccb"><td class="memItemLeft" align="right" valign="top"><a id="a5bfda37bd2ce29ec28f7945964d44ccb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KIT</b></td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#a5bfda37bd2ce29ec28f7945964d44ccb">KIT</a></td></tr>
+<tr class="memdesc:a5bfda37bd2ce29ec28f7945964d44ccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">KI * T part of the PID calculation. <br /></td></tr>
 <tr class="separator:a5bfda37bd2ce29ec28f7945964d44ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fac388b9def8be0972b93a8bd6ad75c"><td class="memItemLeft" align="right" valign="top"><a id="a2fac388b9def8be0972b93a8bd6ad75c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Ui</b></td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#a2fac388b9def8be0972b93a8bd6ad75c">Ui</a></td></tr>
+<tr class="memdesc:a2fac388b9def8be0972b93a8bd6ad75c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backup integral output control value. <br /></td></tr>
 <tr class="separator:a2fac388b9def8be0972b93a8bd6ad75c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c101fff5270e03e60d50d7f3ecfec05"><td class="memItemLeft" align="right" valign="top"><a id="a6c101fff5270e03e60d50d7f3ecfec05"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>error_p_prev</b></td></tr>
-<tr class="separator:a6c101fff5270e03e60d50d7f3ecfec05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class of the regulator which contains parameters and methods which implement different control algorithms. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="abfffc3f1a70357b0c981b8bd8b5403cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfffc3f1a70357b0c981b8bd8b5403cd">&#9670;&nbsp;</a></span>update_params()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def regulator.Regulator.update_params </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>KP</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>TI</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>TD</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>ui_limit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Method for updating PID parameters. </p>
+<p>Note: Should be used during debugging and PID setup Not intended to be used during normal operation because of the runtime consumption. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a281a4c1c0f63531ed47285cbf175059e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a281a4c1c0f63531ed47285cbf175059e">&#9670;&nbsp;</a></span>err_p_prev</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">regulator.Regulator.err_p_prev</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Error from the iteration before previous one. </p>
+<p>Backup. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/djordje/catkin_ws/src/ros_diff_drive/scripts/regulator.py</li>
 </ul>

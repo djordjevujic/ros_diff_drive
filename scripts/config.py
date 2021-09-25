@@ -2,19 +2,19 @@
 Static configuration of the move_to_point module
 """
 
-# Controller frequency in Hertz
+## Controller frequency in Hertz
 controller_freq = 50.0
 
-# Rotation speed limit
+## Rotation speed limit
 rot_speed_limit = 2.0
 
-# Speed limit of moving forward
+## Speed limit of moving forward
 fwd_speed_limit = 0.7
 
-# Angle error tolerance in degrees
+## Angle error tolerance in degrees
 angle_err_tolerance = 0.04
 
-# Distance error tolerance
+## Distance error tolerance
 dist_err_tolerance = 0.005
 
 ##  @defgroup pidInit Pre initial values of PID regulators
@@ -23,18 +23,45 @@ dist_err_tolerance = 0.005
 ##  @{
 
 # PID Parameters initialization
+
+# ROTATION PARAMS
+
+## Rotation KP constant. Overwritten later by dynamic reconfigure module.
 KP_ROT = 0.0
+
+## Rotation TI constant. Overwritten later by dynamic reconfigure module.
 TI_ROT = 0.000001
+
+## Rotation TD constant. Overwritten later by dynamic reconfigure module.
 TD_ROT = 0.0
+
+## Limit of the control value used as protection from the wind-up - used for rotation. Overwritten later by dynamic reconfigure module.
 INT_LIMIT_ROT = 0.0
+
+## Gaol angle filter constant. Overwritten later by dynamic reconfigure module.
 P_ANG_DST = 0.0
+
+## Current angle filter constant. Overwritten later by dynamic reconfigure module.
 P_ANG_THT = 0.0
 
+# MOVE FORWARD PARAMS
+
+## Move forward KP constant. Overwritten later by dynamic reconfigure module.
 KP_FWD = 0.0
+
+## Move forward TI constant. Overwritten later by dynamic reconfigure module.
 TI_FWD = 0.000001
+
+## Move forward TD constant. Overwritten later by dynamic reconfigure module.
 TD_FWD = 0.0
+
+## Gaol distance filter constant. Overwritten later by dynamic reconfigure module.
 P_FWD_DST = 0.0
+
+## Current distance filter constant. Overwritten later by dynamic reconfigure module.
 P_FWD_CUR = 0.0
+
+## Limit of the control value used as protection from the wind-up - used for moving forward. Overwritten later by dynamic reconfigure module.
 INT_LIMIT_FWD = 0.0
 
 ##  @}

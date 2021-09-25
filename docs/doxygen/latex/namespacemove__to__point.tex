@@ -31,12 +31,12 @@ float \mbox{\hyperlink{group__xyInit_ga3640214659e0cb7b711a37aa8d1c971e}{y\+Init
 \begin{DoxyCompactList}\small\item\em Initial y coordinate from the start of moving forward. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{group__callbackPos_ga3e94b96749029b24ef16be218d23a12d}{cur\+\_\+pos}} = Point()
 \begin{DoxyCompactList}\small\item\em Contains X and Y coordinates of the current position. \end{DoxyCompactList}\item 
-{\bfseries x}
-\item 
-{\bfseries y}
-\item 
+\mbox{\hyperlink{group__callbackPos_gab4dad1ef819740e0df4d0cb0bd86e7d0}{x}}
+\begin{DoxyCompactList}\small\item\em X coordinate of the current position -\/ initialization. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__callbackPos_ga7a3cf92688e7fc0329cd2e7e83f8d065}{y}}
+\begin{DoxyCompactList}\small\item\em Y coordinate of the current position -\/ initialization. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{group__callbackPos_gab396a2921cdba3818bcf0fd7f80517e5}{theta}} = 0.\+0
-\begin{DoxyCompactList}\small\item\em Contanes current angle of the robot. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Represents current angle of the robot. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespacemove__to__point_ab1de3638c144ad109482e5e2285eab9b}\label{namespacemove__to__point_ab1de3638c144ad109482e5e2285eab9b}} 
 \mbox{\hyperlink{namespacemove__to__point_ab1de3638c144ad109482e5e2285eab9b}{goal}} = Point(0, 0, 0)
 \begin{DoxyCompactList}\small\item\em Goal input coordinates Updated in \mbox{\hyperlink{namespacemove__to__point_ad04d61c1f206a9ca810dbd061c12672b}{goal\+\_\+position\+\_\+callback}}. \end{DoxyCompactList}\item 
@@ -93,13 +93,13 @@ float \mbox{\hyperlink{namespacemove__to__point_a60e264e199e678aa7bbd4a2886b9959
 \mbox{\hyperlink{namespacemove__to__point_ae50f053b21498f414ae18f814c5f6b77}{r}} = rospy.\+Rate(controller\+\_\+freq)
 \begin{DoxyCompactList}\small\item\em Initialization of the speed\+\_\+controller node. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespacemove__to__point_a5250965386fe06d3688b360dfc6472d1}\label{namespacemove__to__point_a5250965386fe06d3688b360dfc6472d1}} 
-\mbox{\hyperlink{namespacemove__to__point_a5250965386fe06d3688b360dfc6472d1}{State\+Idle}} = \mbox{\hyperlink{classfsm_1_1FsmState}{Fsm\+State}}(Fsm\+States.\+Idle, \mbox{\hyperlink{namespacemove__to__point_a73cf87ba72147529181370e0859f96d6}{idle}})
+\mbox{\hyperlink{namespacemove__to__point_a5250965386fe06d3688b360dfc6472d1}{State\+Idle}} = \mbox{\hyperlink{classfsm_1_1FsmState}{Fsm\+State}}(\mbox{\hyperlink{classfsm_1_1FsmStates_a3ea1a8f0e79864d70feabef634b29f7d}{Fsm\+States.\+Idle}}, \mbox{\hyperlink{namespacemove__to__point_a73cf87ba72147529181370e0859f96d6}{idle}})
 \begin{DoxyCompactList}\small\item\em F\+SM idle state definition. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespacemove__to__point_a74b077be59fde3f67cc318035a690f2b}\label{namespacemove__to__point_a74b077be59fde3f67cc318035a690f2b}} 
-\mbox{\hyperlink{namespacemove__to__point_a74b077be59fde3f67cc318035a690f2b}{State\+Rotation}} = \mbox{\hyperlink{classfsm_1_1FsmState}{Fsm\+State}}(Fsm\+States.\+Rotating, \mbox{\hyperlink{namespacemove__to__point_a5a820fc5af49d40122ee686ca55933e6}{rotate}})
+\mbox{\hyperlink{namespacemove__to__point_a74b077be59fde3f67cc318035a690f2b}{State\+Rotation}} = \mbox{\hyperlink{classfsm_1_1FsmState}{Fsm\+State}}(\mbox{\hyperlink{classfsm_1_1FsmStates_af884473925f0c4317646b802d96c3fec}{Fsm\+States.\+Rotating}}, \mbox{\hyperlink{namespacemove__to__point_a5a820fc5af49d40122ee686ca55933e6}{rotate}})
 \begin{DoxyCompactList}\small\item\em F\+SM rotation state definition. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespacemove__to__point_afb2f53bc35a6f46c9d5df404f175103b}\label{namespacemove__to__point_afb2f53bc35a6f46c9d5df404f175103b}} 
-\mbox{\hyperlink{namespacemove__to__point_afb2f53bc35a6f46c9d5df404f175103b}{State\+Forward}} = \mbox{\hyperlink{classfsm_1_1FsmState}{Fsm\+State}}(Fsm\+States.\+Forward, \mbox{\hyperlink{namespacemove__to__point_a317d978471af5f074c321a96107aea92}{forward}})
+\mbox{\hyperlink{namespacemove__to__point_afb2f53bc35a6f46c9d5df404f175103b}{State\+Forward}} = \mbox{\hyperlink{classfsm_1_1FsmState}{Fsm\+State}}(\mbox{\hyperlink{classfsm_1_1FsmStates_a113ebc008b15f89e55e46737466b3059}{Fsm\+States.\+Forward}}, \mbox{\hyperlink{namespacemove__to__point_a317d978471af5f074c321a96107aea92}{forward}})
 \begin{DoxyCompactList}\small\item\em F\+SM moving forward state definition. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespacemove__to__point_a9e143714733d46f4d58a68790174ff96}\label{namespacemove__to__point_a9e143714733d46f4d58a68790174ff96}} 
 list \mbox{\hyperlink{namespacemove__to__point_a9e143714733d46f4d58a68790174ff96}{States\+List}} = \mbox{[}\mbox{\hyperlink{namespacemove__to__point_a5250965386fe06d3688b360dfc6472d1}{State\+Idle}}, \mbox{\hyperlink{namespacemove__to__point_a74b077be59fde3f67cc318035a690f2b}{State\+Rotation}}, \mbox{\hyperlink{namespacemove__to__point_afb2f53bc35a6f46c9d5df404f175103b}{State\+Forward}}\mbox{]}

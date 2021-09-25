@@ -1,63 +1,92 @@
 \hypertarget{classregulator_1_1Regulator}{}\doxysection{regulator.\+Regulator Class Reference}
 \label{classregulator_1_1Regulator}\index{regulator.Regulator@{regulator.Regulator}}
+
+
+Class of the regulator which contains parameters and methods which implement different control algorithms.  
+
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classregulator_1_1Regulator_acd0aae05b32dad4387045b23a46c533e}\label{classregulator_1_1Regulator_acd0aae05b32dad4387045b23a46c533e}} 
-def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, KP, TI, TD, T, u\+\_\+limit, ui\+\_\+limit)
-\item 
-\mbox{\Hypertarget{classregulator_1_1Regulator_abfffc3f1a70357b0c981b8bd8b5403cd}\label{classregulator_1_1Regulator_abfffc3f1a70357b0c981b8bd8b5403cd}} 
-def {\bfseries update\+\_\+params} (self, KP, TI, TD, ui\+\_\+limit)
-\item 
+def \mbox{\hyperlink{classregulator_1_1Regulator_acd0aae05b32dad4387045b23a46c533e}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classregulator_1_1Regulator_a90c833024a2137267bb6debf085776fa}{KP}}, TI, TD, \mbox{\hyperlink{classregulator_1_1Regulator_a30796177154c238f82443eba6d16bdfd}{T}}, \mbox{\hyperlink{classregulator_1_1Regulator_afa53c54f525db41e31edf0b0c506c5d8}{u\+\_\+limit}}, \mbox{\hyperlink{classregulator_1_1Regulator_a63836946fdda614b388fc1694a2330f0}{ui\+\_\+limit}})
+\begin{DoxyCompactList}\small\item\em Constructor of the regulator. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classregulator_1_1Regulator_abfffc3f1a70357b0c981b8bd8b5403cd}{update\+\_\+params}} (self, \mbox{\hyperlink{classregulator_1_1Regulator_a90c833024a2137267bb6debf085776fa}{KP}}, TI, TD, \mbox{\hyperlink{classregulator_1_1Regulator_a63836946fdda614b388fc1694a2330f0}{ui\+\_\+limit}})
+\begin{DoxyCompactList}\small\item\em Method for updating P\+ID parameters. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classregulator_1_1Regulator_a915606344e6490c4b754eefe4250ee8a}\label{classregulator_1_1Regulator_a915606344e6490c4b754eefe4250ee8a}} 
-def {\bfseries pid\+\_\+positional} (self, error)
-\item 
+def \mbox{\hyperlink{classregulator_1_1Regulator_a915606344e6490c4b754eefe4250ee8a}{pid\+\_\+positional}} (self, error)
+\begin{DoxyCompactList}\small\item\em Positional P\+ID algorithm method. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classregulator_1_1Regulator_a67999e5777b549cced385d8f89c823b7}\label{classregulator_1_1Regulator_a67999e5777b549cced385d8f89c823b7}} 
-def {\bfseries pid\+\_\+incremental} (self, error)
-\end{DoxyCompactItemize}
+def \mbox{\hyperlink{classregulator_1_1Regulator_a67999e5777b549cced385d8f89c823b7}{pid\+\_\+incremental}} (self, error)
+\begin{DoxyCompactList}\small\item\em Incremental P\+ID algorithm method. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classregulator_1_1Regulator_a90c833024a2137267bb6debf085776fa}\label{classregulator_1_1Regulator_a90c833024a2137267bb6debf085776fa}} 
-{\bfseries KP}
-\item 
+\mbox{\hyperlink{classregulator_1_1Regulator_a90c833024a2137267bb6debf085776fa}{KP}}
+\begin{DoxyCompactList}\small\item\em KP Gain of the P\+ID. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classregulator_1_1Regulator_aa14b363e4d918beed90e8d5c20438cfe}\label{classregulator_1_1Regulator_aa14b363e4d918beed90e8d5c20438cfe}} 
-{\bfseries KI}
-\item 
+\mbox{\hyperlink{classregulator_1_1Regulator_aa14b363e4d918beed90e8d5c20438cfe}{KI}}
+\begin{DoxyCompactList}\small\item\em KI Gain of the P\+ID. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classregulator_1_1Regulator_a2af808ef10f798af91cf80ec536bbe59}\label{classregulator_1_1Regulator_a2af808ef10f798af91cf80ec536bbe59}} 
-{\bfseries KD}
-\item 
+\mbox{\hyperlink{classregulator_1_1Regulator_a2af808ef10f798af91cf80ec536bbe59}{KD}}
+\begin{DoxyCompactList}\small\item\em KD Gain of the P\+ID. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classregulator_1_1Regulator_afa53c54f525db41e31edf0b0c506c5d8}\label{classregulator_1_1Regulator_afa53c54f525db41e31edf0b0c506c5d8}} 
-{\bfseries u\+\_\+limit}
-\item 
+\mbox{\hyperlink{classregulator_1_1Regulator_afa53c54f525db41e31edf0b0c506c5d8}{u\+\_\+limit}}
+\begin{DoxyCompactList}\small\item\em Limit of the overall control output (only for incremental P\+ID) \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classregulator_1_1Regulator_a63836946fdda614b388fc1694a2330f0}\label{classregulator_1_1Regulator_a63836946fdda614b388fc1694a2330f0}} 
-{\bfseries ui\+\_\+limit}
-\item 
+\mbox{\hyperlink{classregulator_1_1Regulator_a63836946fdda614b388fc1694a2330f0}{ui\+\_\+limit}}
+\begin{DoxyCompactList}\small\item\em Limit of the integral controll output (only for positional P\+ID) \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classregulator_1_1Regulator_aab61c2baa8a99087f84e60e6015512d1}\label{classregulator_1_1Regulator_aab61c2baa8a99087f84e60e6015512d1}} 
-{\bfseries err\+\_\+prev}
-\item 
-\mbox{\Hypertarget{classregulator_1_1Regulator_a281a4c1c0f63531ed47285cbf175059e}\label{classregulator_1_1Regulator_a281a4c1c0f63531ed47285cbf175059e}} 
-{\bfseries err\+\_\+p\+\_\+prev}
-\item 
+\mbox{\hyperlink{classregulator_1_1Regulator_aab61c2baa8a99087f84e60e6015512d1}{err\+\_\+prev}}
+\begin{DoxyCompactList}\small\item\em Error from the previous interation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classregulator_1_1Regulator_a281a4c1c0f63531ed47285cbf175059e}{err\+\_\+p\+\_\+prev}}
+\begin{DoxyCompactList}\small\item\em Error from the iteration before previous one. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classregulator_1_1Regulator_a7f0e71dee322320e86f093ba5877d26b}\label{classregulator_1_1Regulator_a7f0e71dee322320e86f093ba5877d26b}} 
-{\bfseries u}
-\item 
+\mbox{\hyperlink{classregulator_1_1Regulator_a7f0e71dee322320e86f093ba5877d26b}{u}}
+\begin{DoxyCompactList}\small\item\em Calculated control output. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classregulator_1_1Regulator_a30796177154c238f82443eba6d16bdfd}\label{classregulator_1_1Regulator_a30796177154c238f82443eba6d16bdfd}} 
-{\bfseries T}
-\item 
+\mbox{\hyperlink{classregulator_1_1Regulator_a30796177154c238f82443eba6d16bdfd}{T}}
+\begin{DoxyCompactList}\small\item\em Period between two iteration. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classregulator_1_1Regulator_acc0fa2489e4bcd8abbadd5296620d7f8}\label{classregulator_1_1Regulator_acc0fa2489e4bcd8abbadd5296620d7f8}} 
-{\bfseries K\+DT}
-\item 
+\mbox{\hyperlink{classregulator_1_1Regulator_acc0fa2489e4bcd8abbadd5296620d7f8}{K\+DT}}
+\begin{DoxyCompactList}\small\item\em KD $\ast$ T part of the P\+ID calculation. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classregulator_1_1Regulator_a5bfda37bd2ce29ec28f7945964d44ccb}\label{classregulator_1_1Regulator_a5bfda37bd2ce29ec28f7945964d44ccb}} 
-{\bfseries K\+IT}
-\item 
+\mbox{\hyperlink{classregulator_1_1Regulator_a5bfda37bd2ce29ec28f7945964d44ccb}{K\+IT}}
+\begin{DoxyCompactList}\small\item\em KI $\ast$ T part of the P\+ID calculation. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classregulator_1_1Regulator_a2fac388b9def8be0972b93a8bd6ad75c}\label{classregulator_1_1Regulator_a2fac388b9def8be0972b93a8bd6ad75c}} 
-{\bfseries Ui}
-\item 
-\mbox{\Hypertarget{classregulator_1_1Regulator_a6c101fff5270e03e60d50d7f3ecfec05}\label{classregulator_1_1Regulator_a6c101fff5270e03e60d50d7f3ecfec05}} 
-{\bfseries error\+\_\+p\+\_\+prev}
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classregulator_1_1Regulator_a2fac388b9def8be0972b93a8bd6ad75c}{Ui}}
+\begin{DoxyCompactList}\small\item\em Backup integral output control value. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Class of the regulator which contains parameters and methods which implement different control algorithms. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classregulator_1_1Regulator_abfffc3f1a70357b0c981b8bd8b5403cd}\label{classregulator_1_1Regulator_abfffc3f1a70357b0c981b8bd8b5403cd}} 
+\index{regulator.Regulator@{regulator.Regulator}!update\_params@{update\_params}}
+\index{update\_params@{update\_params}!regulator.Regulator@{regulator.Regulator}}
+\doxysubsubsection{\texorpdfstring{update\_params()}{update\_params()}}
+{\footnotesize\ttfamily def regulator.\+Regulator.\+update\+\_\+params (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{KP,  }\item[{}]{TI,  }\item[{}]{TD,  }\item[{}]{ui\+\_\+limit }\end{DoxyParamCaption})}
+
+
+
+Method for updating P\+ID parameters. 
+
+Note\+: Should be used during debugging and P\+ID setup Not intended to be used during normal operation because of the runtime consumption. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classregulator_1_1Regulator_a281a4c1c0f63531ed47285cbf175059e}\label{classregulator_1_1Regulator_a281a4c1c0f63531ed47285cbf175059e}} 
+\index{regulator.Regulator@{regulator.Regulator}!err\_p\_prev@{err\_p\_prev}}
+\index{err\_p\_prev@{err\_p\_prev}!regulator.Regulator@{regulator.Regulator}}
+\doxysubsubsection{\texorpdfstring{err\_p\_prev}{err\_p\_prev}}
+{\footnotesize\ttfamily regulator.\+Regulator.\+err\+\_\+p\+\_\+prev}
+
+
+
+Error from the iteration before previous one. 
+
+Backup. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

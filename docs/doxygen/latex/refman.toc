@@ -10,40 +10,63 @@
 \contentsline {chapter}{\numberline {5}Module Documentation}{9}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Pre initial values of P\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ID regulators}{9}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Detailed Description}{9}{subsection.5.1.1}%
-\contentsline {section}{\numberline {5.2}Values updated during the callback of the odometry}{10}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Detailed Description}{10}{subsection.5.2.1}%
-\contentsline {section}{\numberline {5.3}Values updated during the callback of the odometry}{11}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Detailed Description}{11}{subsection.5.3.1}%
-\contentsline {section}{\numberline {5.4}Variables used for debugging purposes}{12}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Detailed Description}{12}{subsection.5.4.1}%
-\contentsline {chapter}{\numberline {6}Namespace Documentation}{13}{chapter.6}%
-\contentsline {section}{\numberline {6.1}config Namespace Reference}{13}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Detailed Description}{13}{subsection.6.1.1}%
-\contentsline {section}{\numberline {6.2}debug Namespace Reference}{14}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Detailed Description}{14}{subsection.6.2.1}%
-\contentsline {section}{\numberline {6.3}fsm Namespace Reference}{14}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Detailed Description}{14}{subsection.6.3.1}%
-\contentsline {section}{\numberline {6.4}move\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}to\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}point Namespace Reference}{14}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Detailed Description}{16}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Function Documentation}{16}{subsection.6.4.2}%
-\contentsline {subsubsection}{\numberline {6.4.2.1}angle\_error\_calc()}{16}{subsubsection.6.4.2.1}%
-\contentsline {subsubsection}{\numberline {6.4.2.2}dyn\_reconf\_callback()}{17}{subsubsection.6.4.2.2}%
-\contentsline {subsubsection}{\numberline {6.4.2.3}forward()}{17}{subsubsection.6.4.2.3}%
-\contentsline {subsubsection}{\numberline {6.4.2.4}goal\_position\_callback()}{17}{subsubsection.6.4.2.4}%
-\contentsline {subsubsection}{\numberline {6.4.2.5}idle()}{17}{subsubsection.6.4.2.5}%
-\contentsline {subsubsection}{\numberline {6.4.2.6}position\_callback()}{18}{subsubsection.6.4.2.6}%
-\contentsline {subsubsection}{\numberline {6.4.2.7}rotate()}{18}{subsubsection.6.4.2.7}%
-\contentsline {section}{\numberline {6.5}regulator Namespace Reference}{18}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Detailed Description}{18}{subsection.6.5.1}%
-\contentsline {chapter}{\numberline {7}Class Documentation}{19}{chapter.7}%
-\contentsline {section}{\numberline {7.1}fsm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fsm\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Robot Class Reference}{19}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Detailed Description}{19}{subsection.7.1.1}%
-\contentsline {subsection}{\numberline {7.1.2}Constructor \& Destructor Documentation}{19}{subsection.7.1.2}%
-\contentsline {subsubsection}{\numberline {7.1.2.1}\_\_init\_\_()}{20}{subsubsection.7.1.2.1}%
-\contentsline {subsection}{\numberline {7.1.3}Member Function Documentation}{20}{subsection.7.1.3}%
-\contentsline {subsubsection}{\numberline {7.1.3.1}switch\_state()}{20}{subsubsection.7.1.3.1}%
-\contentsline {section}{\numberline {7.2}fsm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fsm\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State Class Reference}{20}{section.7.2}%
-\contentsline {section}{\numberline {7.3}fsm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fsm\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}States Class Reference}{21}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}Detailed Description}{21}{subsection.7.3.1}%
-\contentsline {section}{\numberline {7.4}regulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Regulator Class Reference}{22}{section.7.4}%
-\contentsline {chapter}{Index}{23}{section*.20}%
+\contentsline {subsection}{\numberline {5.1.2}Variable Documentation}{10}{subsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.1}INT\_LIMIT\_FWD}{10}{subsubsection.5.1.2.1}%
+\contentsline {subsubsection}{\numberline {5.1.2.2}INT\_LIMIT\_ROT}{10}{subsubsection.5.1.2.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.3}KP\_FWD}{10}{subsubsection.5.1.2.3}%
+\contentsline {subsubsection}{\numberline {5.1.2.4}KP\_ROT}{10}{subsubsection.5.1.2.4}%
+\contentsline {subsubsection}{\numberline {5.1.2.5}P\_ANG\_DST}{10}{subsubsection.5.1.2.5}%
+\contentsline {subsubsection}{\numberline {5.1.2.6}P\_ANG\_THT}{11}{subsubsection.5.1.2.6}%
+\contentsline {subsubsection}{\numberline {5.1.2.7}P\_FWD\_CUR}{11}{subsubsection.5.1.2.7}%
+\contentsline {subsubsection}{\numberline {5.1.2.8}P\_FWD\_DST}{11}{subsubsection.5.1.2.8}%
+\contentsline {subsubsection}{\numberline {5.1.2.9}TD\_FWD}{11}{subsubsection.5.1.2.9}%
+\contentsline {subsubsection}{\numberline {5.1.2.10}TD\_ROT}{11}{subsubsection.5.1.2.10}%
+\contentsline {subsubsection}{\numberline {5.1.2.11}TI\_FWD}{11}{subsubsection.5.1.2.11}%
+\contentsline {subsubsection}{\numberline {5.1.2.12}TI\_ROT}{11}{subsubsection.5.1.2.12}%
+\contentsline {section}{\numberline {5.2}Values updated during the callback of the odometry}{12}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Detailed Description}{12}{subsection.5.2.1}%
+\contentsline {section}{\numberline {5.3}Values updated during the callback of the odometry}{13}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Detailed Description}{13}{subsection.5.3.1}%
+\contentsline {section}{\numberline {5.4}Variables used for debugging purposes}{14}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Detailed Description}{14}{subsection.5.4.1}%
+\contentsline {chapter}{\numberline {6}Namespace Documentation}{15}{chapter.6}%
+\contentsline {section}{\numberline {6.1}config Namespace Reference}{15}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Detailed Description}{16}{subsection.6.1.1}%
+\contentsline {section}{\numberline {6.2}debug Namespace Reference}{16}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Detailed Description}{16}{subsection.6.2.1}%
+\contentsline {section}{\numberline {6.3}fsm Namespace Reference}{16}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Detailed Description}{17}{subsection.6.3.1}%
+\contentsline {section}{\numberline {6.4}move\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}to\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}point Namespace Reference}{17}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Detailed Description}{19}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Function Documentation}{19}{subsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {6.4.2.1}angle\_error\_calc()}{19}{subsubsection.6.4.2.1}%
+\contentsline {subsubsection}{\numberline {6.4.2.2}dyn\_reconf\_callback()}{19}{subsubsection.6.4.2.2}%
+\contentsline {subsubsection}{\numberline {6.4.2.3}forward()}{20}{subsubsection.6.4.2.3}%
+\contentsline {subsubsection}{\numberline {6.4.2.4}goal\_position\_callback()}{20}{subsubsection.6.4.2.4}%
+\contentsline {subsubsection}{\numberline {6.4.2.5}idle()}{20}{subsubsection.6.4.2.5}%
+\contentsline {subsubsection}{\numberline {6.4.2.6}position\_callback()}{20}{subsubsection.6.4.2.6}%
+\contentsline {subsubsection}{\numberline {6.4.2.7}rotate()}{20}{subsubsection.6.4.2.7}%
+\contentsline {section}{\numberline {6.5}regulator Namespace Reference}{21}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Detailed Description}{21}{subsection.6.5.1}%
+\contentsline {chapter}{\numberline {7}Class Documentation}{23}{chapter.7}%
+\contentsline {section}{\numberline {7.1}fsm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fsm\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Robot Class Reference}{23}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Detailed Description}{23}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Constructor \& Destructor Documentation}{24}{subsection.7.1.2}%
+\contentsline {subsubsection}{\numberline {7.1.2.1}\_\_init\_\_()}{24}{subsubsection.7.1.2.1}%
+\contentsline {subsection}{\numberline {7.1.3}Member Function Documentation}{24}{subsection.7.1.3}%
+\contentsline {subsubsection}{\numberline {7.1.3.1}default()}{24}{subsubsection.7.1.3.1}%
+\contentsline {subsubsection}{\numberline {7.1.3.2}switch\_state()}{24}{subsubsection.7.1.3.2}%
+\contentsline {subsubsection}{\numberline {7.1.3.3}validate\_state()}{25}{subsubsection.7.1.3.3}%
+\contentsline {section}{\numberline {7.2}fsm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fsm\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State Class Reference}{25}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Detailed Description}{25}{subsection.7.2.1}%
+\contentsline {section}{\numberline {7.3}fsm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fsm\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}States Class Reference}{26}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Detailed Description}{26}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Member Data Documentation}{27}{subsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.2.1}Default}{27}{subsubsection.7.3.2.1}%
+\contentsline {section}{\numberline {7.4}regulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Regulator Class Reference}{27}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Detailed Description}{28}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}Member Function Documentation}{28}{subsection.7.4.2}%
+\contentsline {subsubsection}{\numberline {7.4.2.1}update\_params()}{28}{subsubsection.7.4.2.1}%
+\contentsline {subsection}{\numberline {7.4.3}Member Data Documentation}{28}{subsection.7.4.3}%
+\contentsline {subsubsection}{\numberline {7.4.3.1}err\_p\_prev}{28}{subsubsection.7.4.3.1}%
+\contentsline {chapter}{Index}{29}{section*.20}%

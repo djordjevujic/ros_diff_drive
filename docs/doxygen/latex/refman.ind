@@ -1,77 +1,140 @@
 \begin{theindex}
 
   \item {\_\_init\_\_}
-    \subitem {fsm.FsmRobot}, \hyperpage{19}
+    \subitem {fsm.FsmRobot}, \hyperpage{24}
 
   \indexspace
 
   \item {angle\_error\_calc}
-    \subitem {move\_to\_point}, \hyperpage{16}
+    \subitem {move\_to\_point}, \hyperpage{19}
 
   \indexspace
 
-  \item {config}, \hyperpage{13}
+  \item {config}, \hyperpage{15}
 
   \indexspace
 
-  \item {debug}, \hyperpage{14}
+  \item {debug}, \hyperpage{16}
+  \item {Default}
+    \subitem {fsm.FsmStates}, \hyperpage{27}
+  \item {default}
+    \subitem {fsm.FsmRobot}, \hyperpage{24}
   \item {dyn\_reconf\_callback}
-    \subitem {move\_to\_point}, \hyperpage{16}
+    \subitem {move\_to\_point}, \hyperpage{19}
+
+  \indexspace
+
+  \item {err\_p\_prev}
+    \subitem {regulator.Regulator}, \hyperpage{28}
 
   \indexspace
 
   \item {forward}
-    \subitem {move\_to\_point}, \hyperpage{17}
-  \item {fsm}, \hyperpage{14}
-  \item {fsm.FsmRobot}, \hyperpage{19}
-    \subitem {\_\_init\_\_}, \hyperpage{19}
-    \subitem {switch\_state}, \hyperpage{20}
-  \item {fsm.FsmState}, \hyperpage{20}
-  \item {fsm.FsmStates}, \hyperpage{21}
+    \subitem {move\_to\_point}, \hyperpage{19}
+  \item {fsm}, \hyperpage{16}
+  \item {fsm.FsmRobot}, \hyperpage{23}
+    \subitem {\_\_init\_\_}, \hyperpage{24}
+    \subitem {default}, \hyperpage{24}
+    \subitem {switch\_state}, \hyperpage{24}
+    \subitem {validate\_state}, \hyperpage{24}
+  \item {fsm.FsmState}, \hyperpage{25}
+  \item {fsm.FsmStates}, \hyperpage{26}
+    \subitem {Default}, \hyperpage{27}
 
   \indexspace
 
   \item {goal\_position\_callback}
-    \subitem {move\_to\_point}, \hyperpage{17}
+    \subitem {move\_to\_point}, \hyperpage{20}
 
   \indexspace
 
   \item {idle}
-    \subitem {move\_to\_point}, \hyperpage{17}
+    \subitem {move\_to\_point}, \hyperpage{20}
+  \item {INT\_LIMIT\_FWD}
+    \subitem {Pre initial values of PID regulators}, \hyperpage{10}
+  \item {INT\_LIMIT\_ROT}
+    \subitem {Pre initial values of PID regulators}, \hyperpage{10}
 
   \indexspace
 
-  \item {move\_to\_point}, \hyperpage{14}
-    \subitem {angle\_error\_calc}, \hyperpage{16}
-    \subitem {dyn\_reconf\_callback}, \hyperpage{16}
-    \subitem {forward}, \hyperpage{17}
-    \subitem {goal\_position\_callback}, \hyperpage{17}
-    \subitem {idle}, \hyperpage{17}
-    \subitem {position\_callback}, \hyperpage{17}
-    \subitem {rotate}, \hyperpage{18}
+  \item {KP\_FWD}
+    \subitem {Pre initial values of PID regulators}, \hyperpage{10}
+  \item {KP\_ROT}
+    \subitem {Pre initial values of PID regulators}, \hyperpage{10}
 
   \indexspace
 
+  \item {move\_to\_point}, \hyperpage{17}
+    \subitem {angle\_error\_calc}, \hyperpage{19}
+    \subitem {dyn\_reconf\_callback}, \hyperpage{19}
+    \subitem {forward}, \hyperpage{19}
+    \subitem {goal\_position\_callback}, \hyperpage{20}
+    \subitem {idle}, \hyperpage{20}
+    \subitem {position\_callback}, \hyperpage{20}
+    \subitem {rotate}, \hyperpage{20}
+
+  \indexspace
+
+  \item {P\_ANG\_DST}
+    \subitem {Pre initial values of PID regulators}, \hyperpage{10}
+  \item {P\_ANG\_THT}
+    \subitem {Pre initial values of PID regulators}, \hyperpage{10}
+  \item {P\_FWD\_CUR}
+    \subitem {Pre initial values of PID regulators}, \hyperpage{11}
+  \item {P\_FWD\_DST}
+    \subitem {Pre initial values of PID regulators}, \hyperpage{11}
   \item {position\_callback}
-    \subitem {move\_to\_point}, \hyperpage{17}
+    \subitem {move\_to\_point}, \hyperpage{20}
   \item {Pre initial values of PID regulators}, \hyperpage{9}
+    \subitem {INT\_LIMIT\_FWD}, \hyperpage{10}
+    \subitem {INT\_LIMIT\_ROT}, \hyperpage{10}
+    \subitem {KP\_FWD}, \hyperpage{10}
+    \subitem {KP\_ROT}, \hyperpage{10}
+    \subitem {P\_ANG\_DST}, \hyperpage{10}
+    \subitem {P\_ANG\_THT}, \hyperpage{10}
+    \subitem {P\_FWD\_CUR}, \hyperpage{11}
+    \subitem {P\_FWD\_DST}, \hyperpage{11}
+    \subitem {TD\_FWD}, \hyperpage{11}
+    \subitem {TD\_ROT}, \hyperpage{11}
+    \subitem {TI\_FWD}, \hyperpage{11}
+    \subitem {TI\_ROT}, \hyperpage{11}
 
   \indexspace
 
-  \item {regulator}, \hyperpage{18}
-  \item {regulator.Regulator}, \hyperpage{22}
+  \item {regulator}, \hyperpage{21}
+  \item {regulator.Regulator}, \hyperpage{27}
+    \subitem {err\_p\_prev}, \hyperpage{28}
+    \subitem {update\_params}, \hyperpage{28}
   \item {rotate}
-    \subitem {move\_to\_point}, \hyperpage{18}
+    \subitem {move\_to\_point}, \hyperpage{20}
 
   \indexspace
 
   \item {switch\_state}
-    \subitem {fsm.FsmRobot}, \hyperpage{20}
+    \subitem {fsm.FsmRobot}, \hyperpage{24}
 
   \indexspace
 
+  \item {TD\_FWD}
+    \subitem {Pre initial values of PID regulators}, \hyperpage{11}
+  \item {TD\_ROT}
+    \subitem {Pre initial values of PID regulators}, \hyperpage{11}
+  \item {TI\_FWD}
+    \subitem {Pre initial values of PID regulators}, \hyperpage{11}
+  \item {TI\_ROT}
+    \subitem {Pre initial values of PID regulators}, \hyperpage{11}
+
+  \indexspace
+
+  \item {update\_params}
+    \subitem {regulator.Regulator}, \hyperpage{28}
+
+  \indexspace
+
+  \item {validate\_state}
+    \subitem {fsm.FsmRobot}, \hyperpage{24}
   \item {Values updated during the callback of the odometry}, 
-		\hyperpage{10, 11}
-  \item {Variables used for debugging purposes}, \hyperpage{12}
+		\hyperpage{12, 13}
+  \item {Variables used for debugging purposes}, \hyperpage{14}
 
 \end{theindex}

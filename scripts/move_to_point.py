@@ -36,10 +36,13 @@ yInitial = 0.0
 ## Contains X and Y coordinates of the current position
 cur_pos = Point()
 
+## X coordinate of the current position - initialization
 cur_pos.x = 0.0
+
+## Y coordinate of the current position - initialization
 cur_pos.y = 0.0
 
-## Contanes current angle of the robot
+## Represents current angle of the robot
 theta = 0.0
 ## @}
 
