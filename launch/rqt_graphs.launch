@@ -10,6 +10,16 @@
       type="rqt_plot"
       args="/debug/dist_velocity"/>
 
+  <node name="fwd_rot_plot"
+      pkg="rqt_plot"
+      type="rqt_plot"
+      args="/debug/fwd_rot"/>
+
+  <node name="fwd_rot_vel_plot"
+      pkg="rqt_plot"
+      type="rqt_plot"
+      args="/debug/fwd_rot_vel"/>
+
   <node name="rot_angles_plot"
       pkg="rqt_plot"
       type="rqt_plot"
