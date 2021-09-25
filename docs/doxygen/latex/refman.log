@@ -1,0 +1,277 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.9.23)  23 SEP 2021 21:59
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**refman
+(./refman.tex
+LaTeX2e <2020-02-02> patch level 2
+L3 programming layer <2020-02-14>
+(/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@chapter=\count168
+\c@section=\count169
+\c@subsection=\count170
+\c@subsubsection=\count171
+\c@paragraph=\count172
+\c@subparagraph=\count173
+\c@figure=\count174
+\c@table=\count175
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Rollback for package 'array' requested -> date 2016-10-06.
+         Best approximation is the release introduced on 2016-10-06.
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array-2016-10-06.sty
+Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
+\col@sep=\dimen135
+\extrarowheight=\dimen136
+\NC@list=\toks14
+\extratabsurround=\skip49
+\backup@length=\skip50
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/fixltx2e.sty
+Package: fixltx2e 2016/12/29 v2.1a fixes to LaTeX (obsolete)
+Applying: [2015/01/01] Old fixltx2e package on input line 46.
+
+
+Package fixltx2e Warning: fixltx2e is not required with releases after 2015
+(fixltx2e)                All fixes are now in the LaTeX kernel.
+(fixltx2e)                See the latexrelease package for details.
+
+Already applied: [0000/00/00] Old fixltx2e package on input line 53.
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count176
+\calc@Bcount=\count177
+\calc@Adimen=\dimen137
+\calc@Bdimen=\dimen138
+\calc@Askip=\skip51
+\calc@Bskip=\skip52
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count178
+\calc@Cskip=\skip53
+) (./doxygen.sty
+Package: doxygen 
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+)
+
+! LaTeX Error: File `float.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: doxygen.sty
+(./doxygen.sty
+
+LaTeX Warning: You have requested package `float',
+               but the package provides `doxygen'.
+
+Package: doxygen 
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2019/11/10 v1.5r LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks15
+\verbatim@line=\toks16
+\verbatim@in@stream=\read2
+)
+
+! LaTeX Error: File `xcolor.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: float
+
+! LaTeX Error: File `float.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: doxygen
+(./doxygen.sty
+
+LaTeX Warning: You have requested package `xcolor',
+               but the package provides `doxygen'.
+
+Package: doxygen 
+(./longtable_doxygen.sty
+Package: longtable_doxygen 2014/10/28 v4.11 Multi-page Table package (DPC) - fr
+ozen version for doxygen
+\LTleft=\skip54
+\LTright=\skip55
+\LTpre=\skip56
+\LTpost=\skip57
+\LTchunksize=\count179
+\LTcapwidth=\dimen139
+\LT@head=\box45
+\LT@firsthead=\box46
+\LT@foot=\box47
+\LT@lastfoot=\box48
+\LT@cols=\count180
+\LT@rows=\count181
+\c@LT@tables=\count182
+\c@LT@chunks=\count183
+\LT@p@ftn=\toks17
+) (./tabu_doxygen.sty
+Package: tabu_doxygen 2011/02/26 v2.8 - flexible LaTeX tabulars (FC), frozen ve
+rsion for doxygen
+
+
+! LaTeX Error: File `varwidth.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: longtable_doxygen.sty
+(./longtable_doxygen.sty
+
+LaTeX Warning: You have requested package `varwidth',
+               but the package provides `longtable_doxygen'.
+
+Package: longtable_doxygen 2014/10/28 v4.11 Multi-page Table package (DPC) - fr
+ozen version for doxygen
+\LTleft=\skip58
+\LTright=\skip59
+\LTpre=\skip60
+\LTpost=\skip61
+\LTchunksize=\count184
+\LTcapwidth=\dimen140
+\LT@head=\box49
+\LT@firsthead=\box50
+\LT@foot=\box51
+\LT@lastfoot=\box52
+\LT@cols=\count185
+\LT@rows=\count186
+
+! LaTeX Error: Command \c@LT@tables already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.68 \newcounter{LT@tables}
+                           
+? 
+
+! LaTeX Error: Command \c@LT@chunks already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.69 \newcounter{LT@chunks}
+                           [LT@tables]
+? 
+\LT@p@ftn=\toks18
+)
+\c@taburow=\count187
+\tabu@nbcols=\count188
+\tabu@cnt=\count189
+\tabu@Xcol=\count190
+\tabu@alloc=\count191
+\tabu@nested=\count192
+\tabu@target=\dimen141
+\tabu@spreadtarget=\dimen142
+\tabu@naturalX=\dimen143
+\tabucolX=\dimen144
+\tabu@Xsum=\dimen145
+\extrarowdepth=\dimen146
+\abovetabulinesep=\dimen147
+\belowtabulinesep=\dimen148
+\tabustrutrule=\dimen149
+\tabu@thebody=\toks19
+\tabu@footnotes=\toks20
+\tabu@box=\box53
+\tabu@arstrutbox=\box54
+\tabu@hleads=\box55
+\tabu@vleads=\box56
+\tabu@cellskip=\skip62
+)
+
+! LaTeX Error: File `fancyvrb.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+(/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
+\TX@col@width=\dimen150
+\TX@old@table=\dimen151
+\TX@old@col=\dimen152
+\TX@target=\dimen153
+\TX@delta=\dimen154
+\TX@cols=\count193
+\TX@ftn=\toks21
+)
+
+! LaTeX Error: File `multirow.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+
+! LaTeX Error: File `hanging.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifpdf.sty
+Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2019/11/07 v1.0c TeX engine tests
+))
+
+! LaTeX Error: File `adjustbox.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: q
+
+! LaTeX Error: File `q.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: x
+
+ ) ) ) )
+(\end occurred when \ifx on line 20 was incomplete)
+(\end occurred when \ifx on line 20 was incomplete)
+(\end occurred when \ifx on line 20 was incomplete)
+(\end occurred when \ifx on line 12 was incomplete)
+(\end occurred when \ifx on line 12 was incomplete)
+(\end occurred when \ifx on line 10 was incomplete) 
+Here is how much of TeX's memory you used:
+ 1377 strings out of 483183
+ 18331 string characters out of 5966292
+ 252085 words of memory out of 5000000
+ 16432 multiletter control sequences out of 15000+600000
+ 532338 words of font info for 24 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 52i,1n,43p,280b,37s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+No pages of output.
+PDF statistics:
+ 0 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
