@@ -84,6 +84,9 @@ theta_sign = POSITIVE
 ## Variable indicating signess of the angle from the previous iteration: \ref POSITIVE or \ref NEGATIVE
 theta_sign_prev = POSITIVE
 
+## Variable that indicates previous angle to goal
+angle_to_goal_prev = 0.0
+
 # Moving forward values
 ## Calculated goal distance
 goal_distance = 0.0
@@ -183,6 +186,13 @@ def goal_position_callback(msg):
     yInitial = cur_pos.y
     print("/target_position/position Goal: ({}, {})".format(goal.x, goal.y))
 
+## This function compares signess of two angles
+## @param filt1 First angle for the comparison
+## @param filt2 Second angle for the comparison
+## @return True - angle signs are equal, False - angle signs are different
+def signess_equal(flt1, flt2):
+  return flt1 * flt2 >= 0.0
+
 ## @brief Idle function of the robot state machine
 ##
 ## In this state robot is waiting for the new command to arrive.
@@ -211,7 +221,7 @@ def idle():
 ## and generates desired rotation speed calculated in PID routine.
 ## Desired rotation speed is then published to the velocity publisher \ref pub_cmd_vel.
 def rotate():
-  global robot_fsm, active_goal, theta, goal, angle_to_goal_filt, theta_filt, theta_sign, theta_sign_prev
+  global robot_fsm, active_goal, theta, goal, angle_to_goal_filt, theta_filt, theta_sign, theta_sign_prev, angle_to_goal_prev
 
   # Used for the velocity command storage
   velocity = Twist()
@@ -221,7 +231,7 @@ def rotate():
     theta_sign = POSITIVE
   else:
     theta_sign = NEGATIVE
-
+  
   # Workaround to overcome an issue caused by changed sign of the theta
   # Issue is caused by theta going from positive (~180) to negative (~ -180),
   # filtering slows down this conversion and induces an error spike which
@@ -234,6 +244,12 @@ def rotate():
 
   # Calculate angle to goal
   angle_to_goal = degrees(atan2(active_goal.y - cur_pos.y, active_goal.x - cur_pos.x))
+
+  # If signs of angle to goal and prev angle to goal are different, revert the sign of the filtered value
+  if signess_equal(angle_to_goal, angle_to_goal_prev) != True:
+    angle_to_goal_filt = angle_to_goal_filt * -1
+
+  angle_to_goal_prev = angle_to_goal
 
   # Debug option: Uncomment for rotation parameters tuning
   #angle_to_goal = GOAL_THETA
