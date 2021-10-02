@@ -4,8 +4,10 @@ Finite State Machine library
 
 #!/usr/bin/env python
 import enum
-from rospy import logerr, loginfo
+import rospy
+from rospy import loginfo, logerr
 import time
+from std_msgs.msg import Int32
 
 ## Enumeration containing state machine states definitions
 class FsmStates(enum.Enum):
@@ -57,6 +59,13 @@ class FsmRobot:
     ## Previous state
     self.previous_state = FsmState(FsmStates.Default, self.default)
 
+    ## FSM States topic
+    ## Used to give a possibility to record states history, and provide easier debugging and better visualization
+    self.pub_current_state = rospy.Publisher("/debug/"+ self.name + "/current_state", Int32, queue_size = 5)
+
+    # Publish initial state
+    self.pub_current_state.publish(self.current_state.state.value)
+
   ## Method used for switching between states of the FSM
   ## @param new_state State which FSM will switch to
   def switch_state(self, new_state):
@@ -65,6 +74,9 @@ class FsmRobot:
 
     self.previous_state = self.current_state
     self.current_state = new_state
+    
+    # Publish and log state transition
+    self.pub_current_state.publish(self.current_state.state.value)
     loginfo("Robot %s: Switching state to %s", self.name, self.current_state.state)
 
   ## Method used for state validation. It basically checks if state is in the list \ref states_list of predefined states.
