@@ -94,6 +94,9 @@ goal_distance_filt = 0.0
 ## Filtered value of the desired distance
 dist_filt = 0.0
 
+## Counts up each time when robot calculated distance to goal is in the tolerance range
+stop_lin_movement_cnt = 0
+
 ## Indicates if moving forward started or not
 move_fwd_started = False
 
@@ -184,7 +187,7 @@ def goal_position_callback(msg):
 ##
 ## In this state robot is waiting for the new command to arrive.
 def idle():
-  global robot_fsm, StateRotation, goal, active_goal
+  global robot_fsm, StateRotation, goal, active_goal, cur_pos
 
   # Check if desired goal has been changed during the time
   if active_goal.x != goal.x or active_goal.y != goal.y:
@@ -199,6 +202,8 @@ def idle():
 
     rospy.logdebug("New active goal: (%d,%d)", active_goal.x, active_goal.y)
     print("[IDL] New goal: ({},{})".format(active_goal.x, active_goal.y))
+
+  #print("[IDL] Point({}, {})".format(cur_pos.x, cur_pos.y))
 
 ## @brief Rotation function of the robot state machine
 ##
@@ -241,7 +246,7 @@ def rotate():
   angle_error = angle_error_calc(angle_to_goal_filt, theta_filt)
 
   # Calculate velocity inputs
-  if abs(angle_error) > angle_err_tolerance:
+  if abs(angle_error) > angle_err_tolerance_rot:
     speed_calc = rot_pid.pid_incremental(angle_error)
     velocity.angular.z = speed_calc
   else:
@@ -253,13 +258,13 @@ def rotate():
   pub_cmd_vel.publish(velocity)
 
   # Debug publish
-  #pub_dbg_angle_err.publish(angle_error)
+  pub_dbg_angle_err.publish(angle_error)
   pub_dbg_theta.publish(theta)
   pub_dbg_theta_filtr.publish(theta_filt)
   pub_dbg_ang_to_goal.publish(angle_to_goal)
   pub_dbg_ang_to_goal_filtr.publish(angle_to_goal_filt)
   pub_dbg_rot.publish(velocity.angular.z)
-  
+
   print("[ROT] Angle to goal: {}, theta: {}".format(angle_to_goal, theta))
   #print("[ROT] Angle error: {}".format(angle_error))
 
@@ -269,7 +274,8 @@ def rotate():
 ## and generates desired linear speed calculated in PID routine.
 ## Desired rotation speed is then published to the velocity publisher \ref pub_cmd_vel.
 def forward():
-  global robot_fsm, active_goal, goal_distance_filt, goal_distance, dist_filt, move_fwd_started, xInitial, yInitial, angle_to_goal_fwd
+  global robot_fsm, active_goal, goal_distance_filt, goal_distance, dist_filt, move_fwd_started, xInitial, yInitial, angle_to_goal_fwd, \
+          stop_lin_movement_cnt
 
   # Used for the velocity command storage
   velocity = Twist()
@@ -298,19 +304,24 @@ def forward():
     speed_calc = fwd_pid.pid_incremental(dist_error)
     velocity.linear.x = speed_calc
   else:
-    # Stop the robot and prepare for the next moving iteration
+    # Initiate stop and prepare for the next moving iteration
     velocity.linear.x = 0
-    # distance = 0
+    stop_lin_movement_cnt = stop_lin_movement_cnt + 1
+
+  # Switch to the another state only if robot was enough cycles in the tolerance region
+  if stop_lin_movement_cnt > NO_OF_CYCLES_LIN_MOVEMENT_STOP:
+    stop_lin_movement_cnt = 0
     move_fwd_started = False
     robot_fsm.switch_state(StateIdle)
 
   # Correct angle error which accumulates while moving forward
   angle_to_goal_fwd = degrees(atan2(active_goal.y - cur_pos.y, active_goal.x - cur_pos.x))
   angle_error = angle_error_calc(angle_to_goal_fwd, theta)
-  
+
   # Correct angle only if distance is longer than 1 meter
   if dist_error > 1:
-    if abs(angle_error) > angle_err_tolerance:
+  
+    if abs(angle_error) > angle_err_tolerance_fwd:
       speed_calc = fwd_pid_rot.pid_incremental(angle_error)
       velocity.angular.z = speed_calc
     else:
@@ -373,7 +384,7 @@ fwd_pid = Regulator(KP_FWD, TI_FWD, TD_FWD, T, fwd_speed_limit, INT_LIMIT_FWD)
 fwd_pid_rot = Regulator(KP_ROT, TI_ROT, TD_ROT, T, rot_speed_limit, INT_LIMIT_ROT)
 
 while not rospy.is_shutdown():
-  
+
   # Update PID parameters
   rot_pid.update_params(KP_ROT, TI_ROT, TD_ROT, INT_LIMIT_ROT)
   fwd_pid.update_params(KP_FWD, TI_FWD, TD_FWD, INT_LIMIT_FWD)

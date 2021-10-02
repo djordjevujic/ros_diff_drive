@@ -11,11 +11,20 @@ rot_speed_limit = 2.0
 ## Speed limit of moving forward
 fwd_speed_limit = 0.7
 
-## Angle error tolerance in degrees
-angle_err_tolerance = 0.04
+## Angle error tolerance for normal rotation state - in degrees
+angle_err_tolerance_rot = 0.1
 
 ## Distance error tolerance
-dist_err_tolerance = 0.005
+dist_err_tolerance = 0.1
+
+## Number of cycles to spend in forward state while the robot is in the distance tolerance region.
+## Ensures that robot stops properly, and regulates position even if it reached tolerance region.
+## Especially important if we count that inertion will keep robot moving for some small distance even
+## if we send 0 as the desired linear velocity value
+NO_OF_CYCLES_LIN_MOVEMENT_STOP = 20
+
+## Angle error tolerance for angle fix while moving forwad - in degrees
+angle_err_tolerance_fwd = 0.04
 
 ##  @defgroup pidInit Pre initial values of PID regulators
 ##  Values of PID parameters before the update from the dynamic reconfigure module.
