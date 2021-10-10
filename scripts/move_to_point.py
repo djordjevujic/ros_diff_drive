@@ -4,6 +4,7 @@ Implements differential drive robot control
 
 #!/usr/bin/env python
 
+#TODO: Introduce fix for moving forward angle regulation --> unwrapping
 import rospy
 from tf.transformations import euler_from_quaternion
 from math import atan2, sqrt, degrees, radians
@@ -13,7 +14,7 @@ from ros_diff_drive.cfg import DynRecPIDConfig
 from dynamic_reconfigure.server import Server
 from geometry_msgs.msg import Twist, Point, Pose2D
 from nav_msgs.msg import Odometry
-from angles import shortest_angular_distance # TODO: Use angle normalization functions from this lib
+from angles import shortest_angular_distance
 from config import *
 from debug import *
 import numpy as np
@@ -99,33 +100,6 @@ move_fwd_started = False
 ## Used for correcting angle error which accumulates while moving forward
 angle_to_goal_fwd = 0.0
 
-## @brief  Normalizes angle
-## @param  angle Angle to be normalized
-## @return Normalized value of the angle (moduo of the whole circle)
-def normalize_angle(angle):
-  return angle % 360.0
-
-## @brief  Calculates closer angular difference between two angles
-## @param  target_angle  Destination angle
-## @param  current_angle Current angle
-## @return Closer angular difference between two angles provided as parameters
-def closer_angle_calc(target_angle, current_angle):
-
-  target_angle = normalize_angle(target_angle)
-  current_angle = normalize_angle(current_angle)
-
-  error = target_angle - current_angle
-
-  if error >= 0:
-    error_sign = 1
-  else:
-    error_sign = -1
-
-  # Change direction if absolute error is bigger than 180 degrees
-  if abs(error) > 180.0:
-      error = (360.0 - abs(error)) * error_sign * -1
-
-  return error
 
 ## @brief  Dynamic reconfigure callback function
 ##
@@ -233,7 +207,7 @@ def rotate():
   angle_to_goal_filt = P_ANG_DST * angle_to_goal_filt + (1 - P_ANG_DST) * angle_to_goal_uw
   
   # Positive - CW, Negative - CCW
-  angle_error = closer_angle_calc(angle_to_goal_filt, theta_filt)
+  angle_error = degrees(shortest_angular_distance(radians(theta_filt), radians(angle_to_goal_filt)))
 
   # Calculate velocity inputs
   if abs(angle_error) > angle_err_tolerance_rot:
@@ -312,7 +286,7 @@ def forward():
 
   # Correct angle error which accumulates while moving forward
   angle_to_goal_fwd = degrees(atan2(active_goal.y - cur_pos.y, active_goal.x - cur_pos.x))
-  angle_error = closer_angle_calc(angle_to_goal_fwd, theta)
+  angle_error = degrees(shortest_angular_distance(radians(theta), radians(angle_to_goal_fwd)))
 
   # Correct angle only if distance is longer than 1 meter
   if dist_error > 1:
