@@ -6,15 +6,17 @@ Implements differential drive robot control
 
 import rospy
 from tf.transformations import euler_from_quaternion
-from math import atan2, sqrt, degrees
+from math import atan2, sqrt, degrees, radians
 from fsm import FsmState, FsmStates, FsmRobot
 from regulator import Regulator
 from ros_diff_drive.cfg import DynRecPIDConfig
 from dynamic_reconfigure.server import Server
 from geometry_msgs.msg import Twist, Point, Pose2D
 from nav_msgs.msg import Odometry
+from angles import shortest_angular_distance # TODO: Use angle normalization functions from this lib
 from config import *
 from debug import *
+import numpy as np
 
 ## Controller's period in seconds
 T = 1.0 / controller_freq
@@ -72,20 +74,11 @@ angle_to_goal_filt = 0.0
 ## Filtered value of the current angle
 theta_filt = 0.0
 
-## Constant for indicating positive angle
-POSITIVE = True
-
-## Constant for indicating negative angle
-NEGATIVE = False
-
-## Variable indicating signess of the current iteration angle: \ref POSITIVE or \ref NEGATIVE
-theta_sign = POSITIVE
-
-## Variable indicating signess of the angle from the previous iteration: \ref POSITIVE or \ref NEGATIVE
-theta_sign_prev = POSITIVE
-
 ## Variable that indicates previous angle to goal
 angle_to_goal_prev = 0.0
+
+## Variable that indicates previous angle (theta)
+theta_prev = 0.0
 
 # Moving forward values
 ## Calculated goal distance
@@ -106,28 +99,31 @@ move_fwd_started = False
 ## Used for correcting angle error which accumulates while moving forward
 angle_to_goal_fwd = 0.0
 
+## @brief  Normalizes angle
+## @param  angle Angle to be normalized
+## @return Normalized value of the angle (moduo of the whole circle)
+def normalize_angle(angle):
+  return angle % 360.0
 
-## @brief  Calculate rotation direction \n
-##         Positive rotation direction - clockwise \n
-##         Negative rotation direction - counter clockwise
-## @param  target_angle  Angle to be reached [degrees]
-## @param  current_angle Current angle of the robot [degrees]
-## @return Error including direction [degrees]
-def angle_error_calc(target_angle, current_angle):
+## @brief  Calculates closer angular difference between two angles
+## @param  target_angle  Destination angle
+## @param  current_angle Current angle
+## @return Closer angular difference between two angles provided as parameters
+def closer_angle_calc(target_angle, current_angle):
 
-  # Normalize angles
-  if target_angle < 0 or current_angle < 0:
-    target_angle += 180.0
-    current_angle += 180.0
+  target_angle = normalize_angle(target_angle)
+  current_angle = normalize_angle(current_angle)
 
   error = target_angle - current_angle
 
+  if error >= 0:
+    error_sign = 1
+  else:
+    error_sign = -1
+
   # Change direction if absolute error is bigger than 180 degrees
   if abs(error) > 180.0:
-    if error >= 0.0:
-      error = -1 * (360.0 - abs(error))
-    else:
-      error = (360 - abs(error))
+      error = (360.0 - abs(error)) * error_sign * -1
 
   return error
 
@@ -169,6 +165,7 @@ def position_callback(msg):
 
   rot_q = msg.pose.pose.orientation
   (roll, pitch, theta) = euler_from_quaternion([rot_q.x, rot_q.y, rot_q.z, rot_q.w])
+  
   # Convert theta to degrees
   theta = degrees(theta)
 
@@ -185,13 +182,6 @@ def goal_position_callback(msg):
     xInitial = cur_pos.x
     yInitial = cur_pos.y
     print("/target_position/position Goal: ({}, {})".format(goal.x, goal.y))
-
-## This function compares signess of two angles
-## @param filt1 First angle for the comparison
-## @param filt2 Second angle for the comparison
-## @return True - angle signs are equal, False - angle signs are different
-def signess_equal(flt1, flt2):
-  return flt1 * flt2 >= 0.0
 
 ## @brief Idle function of the robot state machine
 ##
@@ -221,45 +211,29 @@ def idle():
 ## and generates desired rotation speed calculated in PID routine.
 ## Desired rotation speed is then published to the velocity publisher \ref pub_cmd_vel.
 def rotate():
-  global robot_fsm, active_goal, theta, goal, angle_to_goal_filt, theta_filt, theta_sign, theta_sign_prev, angle_to_goal_prev
+  global robot_fsm, active_goal, theta, goal, angle_to_goal_filt, theta_filt, angle_to_goal_prev, theta_prev
 
   # Used for the velocity command storage
   velocity = Twist()
 
-  # Check signess of the current angle
-  if theta > 0.0:
-    theta_sign = POSITIVE
-  else:
-    theta_sign = NEGATIVE
-  
-  # Workaround to overcome an issue caused by changed sign of the theta
-  # Issue is caused by theta going from positive (~180) to negative (~ -180),
-  # filtering slows down this conversion and induces an error spike which
-  # is reacted with the huge jump in the control value
-  if theta_sign != theta_sign_prev:
-    theta_filt = -theta_filt
-
-  # Remember current sign
-  theta_sign_prev = theta_sign
-
-  # Calculate angle to goal
+  # Calculate and unwrap angle to goal
   angle_to_goal = degrees(atan2(active_goal.y - cur_pos.y, active_goal.x - cur_pos.x))
+  #angle_to_goal = GOAL_THETA # Debug option: Uncomment for rotation parameters tuning
+  unwrapped = np.unwrap([radians(angle_to_goal_prev), radians(angle_to_goal)])
+  angle_to_goal_uw = degrees(unwrapped[1])
+  angle_to_goal_prev = angle_to_goal_uw
 
-  # If signs of angle to goal and prev angle to goal are different, revert the sign of the filtered value
-  if signess_equal(angle_to_goal, angle_to_goal_prev) != True:
-    angle_to_goal_filt = angle_to_goal_filt * -1
-
-  angle_to_goal_prev = angle_to_goal
-
-  # Debug option: Uncomment for rotation parameters tuning
-  #angle_to_goal = GOAL_THETA
+  # Unwrap theta
+  unwrapped = np.unwrap([radians(theta_prev), radians(theta)])
+  theta_uw = degrees(unwrapped[1])
+  theta_prev = theta_uw
 
   # Filter readings and reference
-  angle_to_goal_filt = P_ANG_DST * angle_to_goal_filt + (1 - P_ANG_DST) * angle_to_goal
-  theta_filt = P_ANG_THT * theta_filt + (1 - P_ANG_THT) * theta
-
+  theta_filt = P_ANG_THT * theta_filt + (1 - P_ANG_THT) * theta_uw
+  angle_to_goal_filt = P_ANG_DST * angle_to_goal_filt + (1 - P_ANG_DST) * angle_to_goal_uw
+  
   # Positive - CW, Negative - CCW
-  angle_error = angle_error_calc(angle_to_goal_filt, theta_filt)
+  angle_error = closer_angle_calc(angle_to_goal_filt, theta_filt)
 
   # Calculate velocity inputs
   if abs(angle_error) > angle_err_tolerance_rot:
@@ -267,6 +241,7 @@ def rotate():
     velocity.angular.z = speed_calc
   else:
     velocity.angular.z = 0
+    rot_pid.reset_previous()
     robot_fsm.switch_state(StateForward)
     #robot_fsm.switch_state(StateIdle) # Can be used for debugging purposes
 
@@ -274,15 +249,18 @@ def rotate():
   pub_cmd_vel.publish(velocity)
 
   # Debug publish
-  pub_dbg_angle_err.publish(angle_error)
-  pub_dbg_theta.publish(theta)
-  pub_dbg_theta_filtr.publish(theta_filt)
-  pub_dbg_ang_to_goal.publish(angle_to_goal)
-  pub_dbg_ang_to_goal_filtr.publish(angle_to_goal_filt)
-  pub_dbg_rot.publish(velocity.angular.z)
+  if debug_topics_enabled:
+    pub_dbg_angle_err.publish(angle_error)
+    pub_dbg_theta.publish(theta)
+    pub_dbg_theta_filtr.publish(theta_filt)
+    pub_dbg_theta_uw.publish(theta_uw)
+    pub_dbg_ang_to_goal.publish(angle_to_goal)
+    pub_dbg_ang_to_goal_filtr.publish(angle_to_goal_filt)
+    pub_dbg_ang_to_goal_uw.publish(angle_to_goal_uw)
+    pub_dbg_rot.publish(velocity.angular.z)
 
-  print("[ROT] Angle to goal: {}, theta: {}".format(angle_to_goal, theta))
-  #print("[ROT] Angle error: {}".format(angle_error))
+    print("[ROT] Angle to goal: {}, theta: {}".format(angle_to_goal, theta))
+    #print("[ROT] Angle error: {}".format(angle_error))
 
 ## @brief State machine functionality for moving forward
 ##
@@ -328,15 +306,16 @@ def forward():
   if stop_lin_movement_cnt > NO_OF_CYCLES_LIN_MOVEMENT_STOP:
     stop_lin_movement_cnt = 0
     move_fwd_started = False
+    fwd_pid.reset_previous()
+    fwd_pid_rot.reset_previous()
     robot_fsm.switch_state(StateIdle)
 
   # Correct angle error which accumulates while moving forward
   angle_to_goal_fwd = degrees(atan2(active_goal.y - cur_pos.y, active_goal.x - cur_pos.x))
-  angle_error = angle_error_calc(angle_to_goal_fwd, theta)
+  angle_error = closer_angle_calc(angle_to_goal_fwd, theta)
 
   # Correct angle only if distance is longer than 1 meter
   if dist_error > 1:
-  
     if abs(angle_error) > angle_err_tolerance_fwd:
       speed_calc = fwd_pid_rot.pid_incremental(angle_error)
       velocity.angular.z = speed_calc
@@ -346,15 +325,16 @@ def forward():
   # Publish command
   pub_cmd_vel.publish(velocity)
 
-  pub_dbg_distance.publish(distance)
-  pub_dbg_distance_filtr.publish(dist_filt)
-  pub_dbg_dist_to_goal.publish(goal_distance)
-  pub_dbg_dist_to_goal_filtr.publish(goal_distance_filt)
-  pub_dbg_fwd.publish(velocity.linear.x)
-  pub_dbg_fwd_rot.publish(angle_error)
-  pub_dbg_fwd_rot_vel.publish(velocity.angular.z)
+  if debug_topics_enabled:
+    pub_dbg_distance.publish(distance)
+    pub_dbg_distance_filtr.publish(dist_filt)
+    pub_dbg_dist_to_goal.publish(goal_distance)
+    pub_dbg_dist_to_goal_filtr.publish(goal_distance_filt)
+    pub_dbg_fwd.publish(velocity.linear.x)
+    pub_dbg_fwd_rot.publish(angle_error)
+    pub_dbg_fwd_rot_vel.publish(velocity.angular.z)
 
-  print("[FWD] Point({}, {}) Dist to goal: {}, Current: {}".format(cur_pos.x, cur_pos.y, goal_distance, distance))
+    print("[FWD] Point({}, {}) Dist to goal: {}, Current: {}".format(cur_pos.x, cur_pos.y, goal_distance, distance))
 
 ## Goal destination subscriber
 sub_goal_position = rospy.Subscriber("/target_position/position", Pose2D, goal_position_callback)
@@ -391,13 +371,13 @@ robot_fsm = FsmRobot("M2XR", StatesList, StatesList[0])
 srv__dyn_reconf = Server(DynRecPIDConfig, dyn_reconf_callback)
 
 ## Normal rotation PID regulator initialization
-rot_pid = Regulator(KP_ROT, TI_ROT, TD_ROT, T, rot_speed_limit, INT_LIMIT_ROT)
+rot_pid = Regulator(KP_ROT, TI_ROT, TD_ROT, T, rot_speed_limit, INT_LIMIT_ROT, "rotation")
 
 ## Moving forward PID regulator initialization
-fwd_pid = Regulator(KP_FWD, TI_FWD, TD_FWD, T, fwd_speed_limit, INT_LIMIT_FWD)
+fwd_pid = Regulator(KP_FWD, TI_FWD, TD_FWD, T, fwd_speed_limit, INT_LIMIT_FWD, "forward")
 
 ## Rotation while moving forward PID regulator initialization
-fwd_pid_rot = Regulator(KP_ROT, TI_ROT, TD_ROT, T, rot_speed_limit, INT_LIMIT_ROT)
+fwd_pid_rot = Regulator(KP_ROT, TI_ROT, TD_ROT, T, rot_speed_limit, INT_LIMIT_ROT, "fwd_rot")
 
 while not rospy.is_shutdown():
 

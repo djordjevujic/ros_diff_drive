@@ -3,10 +3,14 @@
 """ 
 #!/usr/bin/env python
 
+import rospy
+from config import regulator_debug_enabled
+from std_msgs.msg import Float32
+
 ## Class of the regulator which contains parameters and methods which implement different control algorithms
 class Regulator():
   ## Constructor of the regulator
-  def __init__(self, KP, TI, TD, T, u_limit, ui_limit):
+  def __init__(self, KP, TI, TD, T, u_limit, ui_limit, name):
     ## KP Gain of the PID
     self.KP = KP
 
@@ -22,7 +26,7 @@ class Regulator():
     ## Limit of the integral controll output (only for positional PID)
     self.ui_limit = ui_limit
 
-    ## Error from the previous interation
+    ## Error from the previous iteration
     self.err_prev = 0.0
 
     ## Error from the iteration before previous one
@@ -39,6 +43,24 @@ class Regulator():
 
     ## KI * T part of the PID calculation
     self.KIT = self.KI * T
+
+    self.name = name
+    if regulator_debug_enabled:
+      self.pub_dup = rospy.Publisher("/debug/"+ self.name + "/dUp", Float32, queue_size = 5)
+      self.pub_dui = rospy.Publisher("/debug/"+ self.name + "/dUi", Float32, queue_size = 5)
+      self.pub_u_bef_wu = rospy.Publisher("/debug/"+ self.name + "/u_bef_windup", Float32, queue_size = 5)
+      self.pub_u = rospy.Publisher("/debug/"+ self.name + "/u_final", Float32, queue_size = 5)
+      self.pub_e_prev = rospy.Publisher("/debug/"+ self.name + "/e_prev", Float32, queue_size = 5)
+      self.pub_e_p_prev = rospy.Publisher("/debug/"+ self.name + "/e_p_prev", Float32, queue_size = 5)
+
+  ## This method resets all previously backed-up values.
+  ## Shall be used when desired movement is done, in order to prepare
+  ## the regulator for the new command.
+  def reset_previous(self):
+    self.u = 0.0
+    self.Ui = 0.0
+    self.err_prev = 0.0
+    self.err_p_prev = 0.0
 
   ## Method for updating PID parameters.
   ## Note: Should be used during debugging and PID setup
@@ -83,6 +105,13 @@ class Regulator():
     dUd = self.KDT * (error - 2*self.err_prev + self.err_p_prev)
     self.u = self.u + dUp + dUi + dUd
 
+    # Debug feature, strongly adviced to enabled only if really needed
+    # Normally expected to be disabled in order to save the runtime
+    if regulator_debug_enabled:
+      self.pub_e_prev.publish(self.err_prev)
+      self.pub_e_p_prev.publish(self.err_p_prev)
+      self.pub_u_bef_wu.publish(self.u)
+
     # Anti wind-up
     if self.u > self.u_limit:
       self.u = self.u_limit
@@ -93,5 +122,12 @@ class Regulator():
     ## Backup 
     self.err_p_prev = self.err_prev
     self.err_prev = error
+
+    # Debug feature, strongly adviced to enabled only if really needed
+    # Normally expected to be disabled in order to save the runtime
+    if regulator_debug_enabled:
+      self.pub_dui.publish(dUi)
+      self.pub_dup.publish(dUp)
+      self.pub_u.publish(self.u)
 
     return self.u

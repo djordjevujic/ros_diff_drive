@@ -2,6 +2,12 @@
 Static configuration of the move_to_point module
 """
 
+## Flag for enabling rotation and straight moving debug information
+debug_topics_enabled = True
+
+## Flag for enabling regulator values submitting
+regulator_debug_enabled = False
+
 ## Controller frequency in Hertz
 controller_freq = 50.0
 
@@ -12,7 +18,7 @@ rot_speed_limit = 2.0
 fwd_speed_limit = 0.7
 
 ## Angle error tolerance for normal rotation state - in degrees
-angle_err_tolerance_rot = 0.1
+angle_err_tolerance_rot = 0.2
 
 ## Distance error tolerance
 dist_err_tolerance = 0.1

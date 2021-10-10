@@ -26,6 +26,12 @@ pub_dbg_ang_to_goal_filtr = rospy.Publisher("debug/angle_to_goal_filtr", Float32
 ## Publisher for the desired rotation velocity
 pub_dbg_rot = rospy.Publisher("debug/rot_vel", Float32, queue_size=5)
 
+# Publisher for theta unwrapped
+pub_dbg_theta_uw = rospy.Publisher("/debug/theta_uw", Float32, queue_size=5)
+
+# Publisher for angle to goal unwrapped
+pub_dbg_ang_to_goal_uw = rospy.Publisher("/debug/angle_to_goal_uw", Float32, queue_size=5)
+
 #   Moving forward
 
 ## Current distance publisher
