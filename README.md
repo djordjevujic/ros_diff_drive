@@ -54,10 +54,17 @@ Spawn controllers:
 roslaunch ros_diff_drive m2xr_control.launch
 ```
 
-or launch both togeher with rqt_gui:
+or launch both together with rqt_gui:
 ```
 roslaunch ros_diff_drive m2xr_all.launch
 ```
+
+Run top-level controller that publishes to cmd_vel topic:
+```
+rosrun ros_diff_drive move_to_point.py 
+```
+
+Note: This step is implemented as separate one for easier debugging and running/stopping mentioned script
 
 ## Refered to sources:
 
@@ -70,6 +77,10 @@ roslaunch ros_diff_drive m2xr_all.launch
 * [[ROS Q&A] 053 - How to Move a Robot to a Certain Point Using Twist](https://www.youtube.com/watch?v=eJ4QPrYqMlw)
 
 ... and other tutorials found on the internet  
+
+# Other external resources
+
+* Many thanks to PlotJuggler development team who developed this extremely useful and intuitive tool [PlotJuggler ros plugin](https://github.com/PlotJuggler/plotjuggler-ros-plugins)
 
 ### Diff drive controller debug resources  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Failing to launch](https://answers.ros.org/question/357979/diff_drive_controller-failing-to-launch/)
