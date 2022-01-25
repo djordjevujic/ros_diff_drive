@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['t_88',['T',['../classregulator_1_1Regulator.html#a30796177154c238f82443eba6d16bdfd',1,'regulator.Regulator.T()'],['../namespacemove__to__point.html#a7c89111175169acba6d6f7aca063aa52',1,'move_to_point.T()']]],
-  ['td_5ffwd_89',['TD_FWD',['../group__pidInit.html#ga074068b0d279bacc19c9bf5b0a3cc4fc',1,'config']]],
-  ['td_5frot_90',['TD_ROT',['../group__pidInit.html#ga51ec89ef832aceffa53c16833a833676',1,'config']]],
-  ['theta_91',['theta',['../group__callbackPos.html#gab396a2921cdba3818bcf0fd7f80517e5',1,'move_to_point']]],
-  ['theta_5ffilt_92',['theta_filt',['../namespacemove__to__point.html#a471185c0ff866498bfbe56625cc1fd62',1,'move_to_point']]],
-  ['theta_5fsign_93',['theta_sign',['../namespacemove__to__point.html#a62490328bc045bb2a67bb60f902e4b75',1,'move_to_point']]],
-  ['theta_5fsign_5fprev_94',['theta_sign_prev',['../namespacemove__to__point.html#ad37823b6f4507da29f9ca4edf13727a9',1,'move_to_point']]],
-  ['ti_5ffwd_95',['TI_FWD',['../group__pidInit.html#gab92446d9d08c5de0804f1ac68cf77a21',1,'config']]],
-  ['ti_5frot_96',['TI_ROT',['../group__pidInit.html#ga5697e5564c21a744db557263f67e3cdd',1,'config']]]
+  ['t_93',['T',['../classregulator_1_1Regulator.html#a30796177154c238f82443eba6d16bdfd',1,'regulator.Regulator.T()'],['../namespacemove__to__point.html#a7c89111175169acba6d6f7aca063aa52',1,'move_to_point.T()']]],
+  ['td_5ffwd_94',['TD_FWD',['../group__pidInit.html#ga074068b0d279bacc19c9bf5b0a3cc4fc',1,'config']]],
+  ['td_5frot_95',['TD_ROT',['../group__pidInit.html#ga51ec89ef832aceffa53c16833a833676',1,'config']]],
+  ['teststringmethods_96',['TestStringMethods',['../classtest_1_1TestStringMethods.html',1,'test']]],
+  ['theta_97',['theta',['../group__callbackPos.html#gab396a2921cdba3818bcf0fd7f80517e5',1,'move_to_point']]],
+  ['theta_5ffilt_98',['theta_filt',['../namespacemove__to__point.html#a471185c0ff866498bfbe56625cc1fd62',1,'move_to_point']]],
+  ['theta_5fprev_99',['theta_prev',['../namespacemove__to__point.html#aefdba81522f78061f3cf38207cbc34fe',1,'move_to_point']]],
+  ['ti_5ffwd_100',['TI_FWD',['../group__pidInit.html#gab92446d9d08c5de0804f1ac68cf77a21',1,'config']]],
+  ['ti_5frot_101',['TI_ROT',['../group__pidInit.html#ga5697e5564c21a744db557263f67e3cdd',1,'config']]]
 ];

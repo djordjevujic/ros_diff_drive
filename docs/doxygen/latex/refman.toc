@@ -32,25 +32,26 @@
 \contentsline {chapter}{\numberline {6}Namespace Documentation}{15}{chapter.6}%
 \contentsline {section}{\numberline {6.1}config Namespace Reference}{15}{section.6.1}%
 \contentsline {subsection}{\numberline {6.1.1}Detailed Description}{16}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Variable Documentation}{16}{subsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.2.1}NO\_OF\_CYCLES\_LIN\_MOVEMENT\_STOP}{16}{subsubsection.6.1.2.1}%
 \contentsline {section}{\numberline {6.2}debug Namespace Reference}{16}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Detailed Description}{16}{subsection.6.2.1}%
-\contentsline {section}{\numberline {6.3}fsm Namespace Reference}{16}{section.6.3}%
+\contentsline {subsection}{\numberline {6.2.1}Detailed Description}{17}{subsection.6.2.1}%
+\contentsline {section}{\numberline {6.3}fsm Namespace Reference}{17}{section.6.3}%
 \contentsline {subsection}{\numberline {6.3.1}Detailed Description}{17}{subsection.6.3.1}%
 \contentsline {section}{\numberline {6.4}move\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}to\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}point Namespace Reference}{17}{section.6.4}%
 \contentsline {subsection}{\numberline {6.4.1}Detailed Description}{19}{subsection.6.4.1}%
 \contentsline {subsection}{\numberline {6.4.2}Function Documentation}{19}{subsection.6.4.2}%
-\contentsline {subsubsection}{\numberline {6.4.2.1}angle\_error\_calc()}{19}{subsubsection.6.4.2.1}%
-\contentsline {subsubsection}{\numberline {6.4.2.2}dyn\_reconf\_callback()}{19}{subsubsection.6.4.2.2}%
-\contentsline {subsubsection}{\numberline {6.4.2.3}forward()}{20}{subsubsection.6.4.2.3}%
-\contentsline {subsubsection}{\numberline {6.4.2.4}goal\_position\_callback()}{20}{subsubsection.6.4.2.4}%
-\contentsline {subsubsection}{\numberline {6.4.2.5}idle()}{20}{subsubsection.6.4.2.5}%
-\contentsline {subsubsection}{\numberline {6.4.2.6}position\_callback()}{20}{subsubsection.6.4.2.6}%
-\contentsline {subsubsection}{\numberline {6.4.2.7}rotate()}{20}{subsubsection.6.4.2.7}%
+\contentsline {subsubsection}{\numberline {6.4.2.1}dyn\_reconf\_callback()}{19}{subsubsection.6.4.2.1}%
+\contentsline {subsubsection}{\numberline {6.4.2.2}forward()}{20}{subsubsection.6.4.2.2}%
+\contentsline {subsubsection}{\numberline {6.4.2.3}goal\_position\_callback()}{20}{subsubsection.6.4.2.3}%
+\contentsline {subsubsection}{\numberline {6.4.2.4}idle()}{20}{subsubsection.6.4.2.4}%
+\contentsline {subsubsection}{\numberline {6.4.2.5}position\_callback()}{20}{subsubsection.6.4.2.5}%
+\contentsline {subsubsection}{\numberline {6.4.2.6}rotate()}{20}{subsubsection.6.4.2.6}%
 \contentsline {section}{\numberline {6.5}regulator Namespace Reference}{21}{section.6.5}%
 \contentsline {subsection}{\numberline {6.5.1}Detailed Description}{21}{subsection.6.5.1}%
 \contentsline {chapter}{\numberline {7}Class Documentation}{23}{chapter.7}%
 \contentsline {section}{\numberline {7.1}fsm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fsm\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Robot Class Reference}{23}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Detailed Description}{23}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.1}Detailed Description}{24}{subsection.7.1.1}%
 \contentsline {subsection}{\numberline {7.1.2}Constructor \& Destructor Documentation}{24}{subsection.7.1.2}%
 \contentsline {subsubsection}{\numberline {7.1.2.1}\_\_init\_\_()}{24}{subsubsection.7.1.2.1}%
 \contentsline {subsection}{\numberline {7.1.3}Member Function Documentation}{24}{subsection.7.1.3}%
@@ -66,7 +67,9 @@
 \contentsline {section}{\numberline {7.4}regulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Regulator Class Reference}{27}{section.7.4}%
 \contentsline {subsection}{\numberline {7.4.1}Detailed Description}{28}{subsection.7.4.1}%
 \contentsline {subsection}{\numberline {7.4.2}Member Function Documentation}{28}{subsection.7.4.2}%
-\contentsline {subsubsection}{\numberline {7.4.2.1}update\_params()}{28}{subsubsection.7.4.2.1}%
-\contentsline {subsection}{\numberline {7.4.3}Member Data Documentation}{28}{subsection.7.4.3}%
-\contentsline {subsubsection}{\numberline {7.4.3.1}err\_p\_prev}{28}{subsubsection.7.4.3.1}%
-\contentsline {chapter}{Index}{29}{section*.20}%
+\contentsline {subsubsection}{\numberline {7.4.2.1}reset\_previous()}{28}{subsubsection.7.4.2.1}%
+\contentsline {subsubsection}{\numberline {7.4.2.2}update\_params()}{28}{subsubsection.7.4.2.2}%
+\contentsline {subsection}{\numberline {7.4.3}Member Data Documentation}{29}{subsection.7.4.3}%
+\contentsline {subsubsection}{\numberline {7.4.3.1}err\_p\_prev}{29}{subsubsection.7.4.3.1}%
+\contentsline {section}{\numberline {7.5}test.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}String\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Methods Class Reference}{29}{section.7.5}%
+\contentsline {chapter}{Index}{31}{section*.23}%

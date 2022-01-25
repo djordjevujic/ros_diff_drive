@@ -3,10 +3,6 @@
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-def \mbox{\hyperlink{namespacemove__to__point_a7f862b8d8112859215414d205c43b692}{angle\+\_\+error\+\_\+calc}} (target\+\_\+angle, current\+\_\+angle)
-\begin{DoxyCompactList}\small\item\em Calculate rotation direction ~\newline
- Positive rotation direction -\/ clockwise ~\newline
- Negative rotation direction -\/ counter clockwise. \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{namespacemove__to__point_a08843dbe81bd704411c2268f9b25e28e}{dyn\+\_\+reconf\+\_\+callback}} (config, level)
 \begin{DoxyCompactList}\small\item\em Dynamic reconfigure callback function. \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{namespacemove__to__point_a3cef44f42ca64a6e1f514c718222396e}{position\+\_\+callback}} (msg)
@@ -53,18 +49,12 @@ float \mbox{\hyperlink{namespacemove__to__point_a0880e1fbe72c280fcd63b0ce25d5985
 \mbox{\Hypertarget{namespacemove__to__point_a471185c0ff866498bfbe56625cc1fd62}\label{namespacemove__to__point_a471185c0ff866498bfbe56625cc1fd62}} 
 float \mbox{\hyperlink{namespacemove__to__point_a471185c0ff866498bfbe56625cc1fd62}{theta\+\_\+filt}} = 0.\+0
 \begin{DoxyCompactList}\small\item\em Filtered value of the current angle. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{namespacemove__to__point_a07c9b17420f211b6ce86f423238ff788}\label{namespacemove__to__point_a07c9b17420f211b6ce86f423238ff788}} 
-bool \mbox{\hyperlink{namespacemove__to__point_a07c9b17420f211b6ce86f423238ff788}{P\+O\+S\+I\+T\+I\+VE}} = True
-\begin{DoxyCompactList}\small\item\em Constant for indicating positive angle. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{namespacemove__to__point_aa94c40bb46b9dcfa14ab79af4a5a44cc}\label{namespacemove__to__point_aa94c40bb46b9dcfa14ab79af4a5a44cc}} 
-bool \mbox{\hyperlink{namespacemove__to__point_aa94c40bb46b9dcfa14ab79af4a5a44cc}{N\+E\+G\+A\+T\+I\+VE}} = False
-\begin{DoxyCompactList}\small\item\em Constant for indicating negative angle. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{namespacemove__to__point_a62490328bc045bb2a67bb60f902e4b75}\label{namespacemove__to__point_a62490328bc045bb2a67bb60f902e4b75}} 
-bool \mbox{\hyperlink{namespacemove__to__point_a62490328bc045bb2a67bb60f902e4b75}{theta\+\_\+sign}} = \mbox{\hyperlink{namespacemove__to__point_a07c9b17420f211b6ce86f423238ff788}{P\+O\+S\+I\+T\+I\+VE}}
-\begin{DoxyCompactList}\small\item\em Variable indicating signess of the current iteration angle\+: \mbox{\hyperlink{namespacemove__to__point_a07c9b17420f211b6ce86f423238ff788}{P\+O\+S\+I\+T\+I\+VE}} or \mbox{\hyperlink{namespacemove__to__point_aa94c40bb46b9dcfa14ab79af4a5a44cc}{N\+E\+G\+A\+T\+I\+VE}}. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{namespacemove__to__point_ad37823b6f4507da29f9ca4edf13727a9}\label{namespacemove__to__point_ad37823b6f4507da29f9ca4edf13727a9}} 
-bool \mbox{\hyperlink{namespacemove__to__point_ad37823b6f4507da29f9ca4edf13727a9}{theta\+\_\+sign\+\_\+prev}} = \mbox{\hyperlink{namespacemove__to__point_a07c9b17420f211b6ce86f423238ff788}{P\+O\+S\+I\+T\+I\+VE}}
-\begin{DoxyCompactList}\small\item\em Variable indicating signess of the angle from the previous iteration\+: \mbox{\hyperlink{namespacemove__to__point_a07c9b17420f211b6ce86f423238ff788}{P\+O\+S\+I\+T\+I\+VE}} or \mbox{\hyperlink{namespacemove__to__point_aa94c40bb46b9dcfa14ab79af4a5a44cc}{N\+E\+G\+A\+T\+I\+VE}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacemove__to__point_a5b6857a0290cf37c55a9f30112b45007}\label{namespacemove__to__point_a5b6857a0290cf37c55a9f30112b45007}} 
+float \mbox{\hyperlink{namespacemove__to__point_a5b6857a0290cf37c55a9f30112b45007}{angle\+\_\+to\+\_\+goal\+\_\+prev}} = 0.\+0
+\begin{DoxyCompactList}\small\item\em Variable that indicates previous angle to goal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacemove__to__point_aefdba81522f78061f3cf38207cbc34fe}\label{namespacemove__to__point_aefdba81522f78061f3cf38207cbc34fe}} 
+float \mbox{\hyperlink{namespacemove__to__point_aefdba81522f78061f3cf38207cbc34fe}{theta\+\_\+prev}} = 0.\+0
+\begin{DoxyCompactList}\small\item\em Variable that indicates previous angle (theta) \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespacemove__to__point_a9e241e32aaa5d3d1a36863e385c56f96}\label{namespacemove__to__point_a9e241e32aaa5d3d1a36863e385c56f96}} 
 float \mbox{\hyperlink{namespacemove__to__point_a9e241e32aaa5d3d1a36863e385c56f96}{goal\+\_\+distance}} = 0.\+0
 \begin{DoxyCompactList}\small\item\em Calculated goal distance. \end{DoxyCompactList}\item 
@@ -74,6 +64,9 @@ float \mbox{\hyperlink{namespacemove__to__point_ae0cb1f66340592a14057faba5fa3699
 \mbox{\Hypertarget{namespacemove__to__point_acb54f4e8b7652ad7631ebd49f4e197f8}\label{namespacemove__to__point_acb54f4e8b7652ad7631ebd49f4e197f8}} 
 float \mbox{\hyperlink{namespacemove__to__point_acb54f4e8b7652ad7631ebd49f4e197f8}{dist\+\_\+filt}} = 0.\+0
 \begin{DoxyCompactList}\small\item\em Filtered value of the desired distance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacemove__to__point_a64b55f55f32685dd746a4f474eb623af}\label{namespacemove__to__point_a64b55f55f32685dd746a4f474eb623af}} 
+int \mbox{\hyperlink{namespacemove__to__point_a64b55f55f32685dd746a4f474eb623af}{stop\+\_\+lin\+\_\+movement\+\_\+cnt}} = 0
+\begin{DoxyCompactList}\small\item\em Counts up each time when robot calculated distance to goal is in the tolerance range. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespacemove__to__point_ada6e674a3b04d7f0c90eac26192a9bc8}\label{namespacemove__to__point_ada6e674a3b04d7f0c90eac26192a9bc8}} 
 bool \mbox{\hyperlink{namespacemove__to__point_ada6e674a3b04d7f0c90eac26192a9bc8}{move\+\_\+fwd\+\_\+started}} = False
 \begin{DoxyCompactList}\small\item\em Indicates if moving forward started or not. \end{DoxyCompactList}\item 
@@ -111,13 +104,13 @@ list \mbox{\hyperlink{namespacemove__to__point_a9e143714733d46f4d58a68790174ff96
 \mbox{\hyperlink{namespacemove__to__point_a6058b588fcb340a77b36d3b62c4ae856}{srv\+\_\+\+\_\+dyn\+\_\+reconf}} = Server(Dyn\+Rec\+P\+I\+D\+Config, \mbox{\hyperlink{namespacemove__to__point_a08843dbe81bd704411c2268f9b25e28e}{dyn\+\_\+reconf\+\_\+callback}})
 \begin{DoxyCompactList}\small\item\em Dynamic reconfigure server initialization. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespacemove__to__point_ad4c429571723c9c6e08126d4531a63a9}\label{namespacemove__to__point_ad4c429571723c9c6e08126d4531a63a9}} 
-\mbox{\hyperlink{namespacemove__to__point_ad4c429571723c9c6e08126d4531a63a9}{rot\+\_\+pid}} = \mbox{\hyperlink{classregulator_1_1Regulator}{Regulator}}(K\+P\+\_\+\+R\+OT, T\+I\+\_\+\+R\+OT, T\+D\+\_\+\+R\+OT, \mbox{\hyperlink{namespacemove__to__point_a7c89111175169acba6d6f7aca063aa52}{T}}, rot\+\_\+speed\+\_\+limit, I\+N\+T\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+OT)
+\mbox{\hyperlink{namespacemove__to__point_ad4c429571723c9c6e08126d4531a63a9}{rot\+\_\+pid}} = \mbox{\hyperlink{classregulator_1_1Regulator}{Regulator}}(K\+P\+\_\+\+R\+OT, T\+I\+\_\+\+R\+OT, T\+D\+\_\+\+R\+OT, \mbox{\hyperlink{namespacemove__to__point_a7c89111175169acba6d6f7aca063aa52}{T}}, rot\+\_\+speed\+\_\+limit, I\+N\+T\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+OT, \char`\"{}rotation\char`\"{})
 \begin{DoxyCompactList}\small\item\em Normal rotation P\+ID regulator initialization. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespacemove__to__point_aadc7464864ee2443a7cfb126354c217e}\label{namespacemove__to__point_aadc7464864ee2443a7cfb126354c217e}} 
-\mbox{\hyperlink{namespacemove__to__point_aadc7464864ee2443a7cfb126354c217e}{fwd\+\_\+pid}} = \mbox{\hyperlink{classregulator_1_1Regulator}{Regulator}}(K\+P\+\_\+\+F\+WD, T\+I\+\_\+\+F\+WD, T\+D\+\_\+\+F\+WD, \mbox{\hyperlink{namespacemove__to__point_a7c89111175169acba6d6f7aca063aa52}{T}}, fwd\+\_\+speed\+\_\+limit, I\+N\+T\+\_\+\+L\+I\+M\+I\+T\+\_\+\+F\+WD)
+\mbox{\hyperlink{namespacemove__to__point_aadc7464864ee2443a7cfb126354c217e}{fwd\+\_\+pid}} = \mbox{\hyperlink{classregulator_1_1Regulator}{Regulator}}(K\+P\+\_\+\+F\+WD, T\+I\+\_\+\+F\+WD, T\+D\+\_\+\+F\+WD, \mbox{\hyperlink{namespacemove__to__point_a7c89111175169acba6d6f7aca063aa52}{T}}, fwd\+\_\+speed\+\_\+limit, I\+N\+T\+\_\+\+L\+I\+M\+I\+T\+\_\+\+F\+WD, \char`\"{}forward\char`\"{})
 \begin{DoxyCompactList}\small\item\em Moving forward P\+ID regulator initialization. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespacemove__to__point_a14a818314a66e4716b37696ca304f9c2}\label{namespacemove__to__point_a14a818314a66e4716b37696ca304f9c2}} 
-\mbox{\hyperlink{namespacemove__to__point_a14a818314a66e4716b37696ca304f9c2}{fwd\+\_\+pid\+\_\+rot}} = \mbox{\hyperlink{classregulator_1_1Regulator}{Regulator}}(K\+P\+\_\+\+R\+OT, T\+I\+\_\+\+R\+OT, T\+D\+\_\+\+R\+OT, \mbox{\hyperlink{namespacemove__to__point_a7c89111175169acba6d6f7aca063aa52}{T}}, rot\+\_\+speed\+\_\+limit, I\+N\+T\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+OT)
+\mbox{\hyperlink{namespacemove__to__point_a14a818314a66e4716b37696ca304f9c2}{fwd\+\_\+pid\+\_\+rot}} = \mbox{\hyperlink{classregulator_1_1Regulator}{Regulator}}(K\+P\+\_\+\+R\+OT, T\+I\+\_\+\+R\+OT, T\+D\+\_\+\+R\+OT, \mbox{\hyperlink{namespacemove__to__point_a7c89111175169acba6d6f7aca063aa52}{T}}, rot\+\_\+speed\+\_\+limit, I\+N\+T\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+OT, \char`\"{}fwd\+\_\+rot\char`\"{})
 \begin{DoxyCompactList}\small\item\em Rotation while moving forward P\+ID regulator initialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -127,28 +120,6 @@ list \mbox{\hyperlink{namespacemove__to__point_a9e143714733d46f4d58a68790174ff96
  
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{namespacemove__to__point_a7f862b8d8112859215414d205c43b692}\label{namespacemove__to__point_a7f862b8d8112859215414d205c43b692}} 
-\index{move\_to\_point@{move\_to\_point}!angle\_error\_calc@{angle\_error\_calc}}
-\index{angle\_error\_calc@{angle\_error\_calc}!move\_to\_point@{move\_to\_point}}
-\doxysubsubsection{\texorpdfstring{angle\_error\_calc()}{angle\_error\_calc()}}
-{\footnotesize\ttfamily def move\+\_\+to\+\_\+point.\+angle\+\_\+error\+\_\+calc (\begin{DoxyParamCaption}\item[{}]{target\+\_\+angle,  }\item[{}]{current\+\_\+angle }\end{DoxyParamCaption})}
-
-
-
-Calculate rotation direction ~\newline
- Positive rotation direction -\/ clockwise ~\newline
- Negative rotation direction -\/ counter clockwise. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em target\+\_\+angle} & Angle to be reached \mbox{[}degrees\mbox{]} \\
-\hline
-{\em current\+\_\+angle} & Current angle of the robot \mbox{[}degrees\mbox{]} \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error including direction \mbox{[}degrees\mbox{]} 
-\end{DoxyReturn}
 \mbox{\Hypertarget{namespacemove__to__point_a08843dbe81bd704411c2268f9b25e28e}\label{namespacemove__to__point_a08843dbe81bd704411c2268f9b25e28e}} 
 \index{move\_to\_point@{move\_to\_point}!dyn\_reconf\_callback@{dyn\_reconf\_callback}}
 \index{dyn\_reconf\_callback@{dyn\_reconf\_callback}!move\_to\_point@{move\_to\_point}}

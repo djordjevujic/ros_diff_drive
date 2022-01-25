@@ -3,6 +3,12 @@
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{namespaceconfig_a176e5caebeed36c2eb1dd70b2cd77428}\label{namespaceconfig_a176e5caebeed36c2eb1dd70b2cd77428}} 
+bool \mbox{\hyperlink{namespaceconfig_a176e5caebeed36c2eb1dd70b2cd77428}{debug\+\_\+topics\+\_\+enabled}} = True
+\begin{DoxyCompactList}\small\item\em Flag for enabling rotation and straight moving debug information. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceconfig_ae19819cbac4c7eb2144f3f9f1da86867}\label{namespaceconfig_ae19819cbac4c7eb2144f3f9f1da86867}} 
+bool \mbox{\hyperlink{namespaceconfig_ae19819cbac4c7eb2144f3f9f1da86867}{regulator\+\_\+debug\+\_\+enabled}} = False
+\begin{DoxyCompactList}\small\item\em Flag for enabling regulator values submitting. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespaceconfig_addad1fe67f437e9eb67c8f4805895938}\label{namespaceconfig_addad1fe67f437e9eb67c8f4805895938}} 
 float \mbox{\hyperlink{namespaceconfig_addad1fe67f437e9eb67c8f4805895938}{controller\+\_\+freq}} = 50.\+0
 \begin{DoxyCompactList}\small\item\em Controller frequency in Hertz. \end{DoxyCompactList}\item 
@@ -12,12 +18,17 @@ float \mbox{\hyperlink{namespaceconfig_a1fbdc19c324dfd2a1e6b06eacefc244a}{rot\+\
 \mbox{\Hypertarget{namespaceconfig_afa076b8cfdf4cbcb2be966bf48801b3a}\label{namespaceconfig_afa076b8cfdf4cbcb2be966bf48801b3a}} 
 float \mbox{\hyperlink{namespaceconfig_afa076b8cfdf4cbcb2be966bf48801b3a}{fwd\+\_\+speed\+\_\+limit}} = 0.\+7
 \begin{DoxyCompactList}\small\item\em Speed limit of moving forward. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{namespaceconfig_a154303b2d6739895778e0a87873846f7}\label{namespaceconfig_a154303b2d6739895778e0a87873846f7}} 
-float \mbox{\hyperlink{namespaceconfig_a154303b2d6739895778e0a87873846f7}{angle\+\_\+err\+\_\+tolerance}} = 0.\+04
-\begin{DoxyCompactList}\small\item\em Angle error tolerance in degrees. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceconfig_a7c8eb637f9c11ad9a743a0b08597cc56}\label{namespaceconfig_a7c8eb637f9c11ad9a743a0b08597cc56}} 
+float \mbox{\hyperlink{namespaceconfig_a7c8eb637f9c11ad9a743a0b08597cc56}{angle\+\_\+err\+\_\+tolerance\+\_\+rot}} = 1.\+0
+\begin{DoxyCompactList}\small\item\em Angle error tolerance for normal rotation state -\/ in degrees. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespaceconfig_adf134dcf762b8b9cc827c68a7f3fe2c2}\label{namespaceconfig_adf134dcf762b8b9cc827c68a7f3fe2c2}} 
-float \mbox{\hyperlink{namespaceconfig_adf134dcf762b8b9cc827c68a7f3fe2c2}{dist\+\_\+err\+\_\+tolerance}} = 0.\+005
+float \mbox{\hyperlink{namespaceconfig_adf134dcf762b8b9cc827c68a7f3fe2c2}{dist\+\_\+err\+\_\+tolerance}} = 0.\+1
 \begin{DoxyCompactList}\small\item\em Distance error tolerance. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespaceconfig_a04b5bbd74dc7baf4dad6eba7138e13fc}{N\+O\+\_\+\+O\+F\+\_\+\+C\+Y\+C\+L\+E\+S\+\_\+\+L\+I\+N\+\_\+\+M\+O\+V\+E\+M\+E\+N\+T\+\_\+\+S\+T\+OP}} = 20
+\begin{DoxyCompactList}\small\item\em Number of cycles to spend in forward state while the robot is in the distance tolerance region. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceconfig_ae62d28ebb8c3906b9a0847c58228f5a3}\label{namespaceconfig_ae62d28ebb8c3906b9a0847c58228f5a3}} 
+float \mbox{\hyperlink{namespaceconfig_ae62d28ebb8c3906b9a0847c58228f5a3}{angle\+\_\+err\+\_\+tolerance\+\_\+fwd}} = 0.\+04
+\begin{DoxyCompactList}\small\item\em Angle error tolerance for angle fix while moving forwad -\/ in degrees. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{group__pidInit_ga3d585b05dff6385da72a7f8d573037e3}{K\+P\+\_\+\+R\+OT}} = 0.\+0
 \begin{DoxyCompactList}\small\item\em Rotation KP constant. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{group__pidInit_ga5697e5564c21a744db557263f67e3cdd}{T\+I\+\_\+\+R\+OT}} = 0.\+000001
@@ -48,3 +59,16 @@ float \mbox{\hyperlink{group__pidInit_ga8f78add9fd9024d2179b00952c5fcae1}{I\+N\+
 \begin{DoxyVerb}Static configuration of the move_to_point module
 \end{DoxyVerb}
  
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceconfig_a04b5bbd74dc7baf4dad6eba7138e13fc}\label{namespaceconfig_a04b5bbd74dc7baf4dad6eba7138e13fc}} 
+\index{config@{config}!NO\_OF\_CYCLES\_LIN\_MOVEMENT\_STOP@{NO\_OF\_CYCLES\_LIN\_MOVEMENT\_STOP}}
+\index{NO\_OF\_CYCLES\_LIN\_MOVEMENT\_STOP@{NO\_OF\_CYCLES\_LIN\_MOVEMENT\_STOP}!config@{config}}
+\doxysubsubsection{\texorpdfstring{NO\_OF\_CYCLES\_LIN\_MOVEMENT\_STOP}{NO\_OF\_CYCLES\_LIN\_MOVEMENT\_STOP}}
+{\footnotesize\ttfamily int config.\+N\+O\+\_\+\+O\+F\+\_\+\+C\+Y\+C\+L\+E\+S\+\_\+\+L\+I\+N\+\_\+\+M\+O\+V\+E\+M\+E\+N\+T\+\_\+\+S\+T\+OP = 20}
+
+
+
+Number of cycles to spend in forward state while the robot is in the distance tolerance region. 
+
+Ensures that robot stops properly, and regulates position even if it reached tolerance region. Especially important if we count that inertion will keep robot moving for some small distance even if we send 0 as the desired linear velocity value 

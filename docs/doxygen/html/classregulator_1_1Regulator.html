@@ -79,10 +79,13 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acd0aae05b32dad4387045b23a46c533e"><td class="memItemLeft" align="right" valign="top"><a id="acd0aae05b32dad4387045b23a46c533e"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#acd0aae05b32dad4387045b23a46c533e">__init__</a> (self, <a class="el" href="classregulator_1_1Regulator.html#a90c833024a2137267bb6debf085776fa">KP</a>, TI, TD, <a class="el" href="classregulator_1_1Regulator.html#a30796177154c238f82443eba6d16bdfd">T</a>, <a class="el" href="classregulator_1_1Regulator.html#afa53c54f525db41e31edf0b0c506c5d8">u_limit</a>, <a class="el" href="classregulator_1_1Regulator.html#a63836946fdda614b388fc1694a2330f0">ui_limit</a>)</td></tr>
-<tr class="memdesc:acd0aae05b32dad4387045b23a46c533e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of the regulator. <br /></td></tr>
-<tr class="separator:acd0aae05b32dad4387045b23a46c533e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17900185841b0561bd65783ff4c59faa"><td class="memItemLeft" align="right" valign="top"><a id="a17900185841b0561bd65783ff4c59faa"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#a17900185841b0561bd65783ff4c59faa">__init__</a> (self, <a class="el" href="classregulator_1_1Regulator.html#a90c833024a2137267bb6debf085776fa">KP</a>, TI, TD, <a class="el" href="classregulator_1_1Regulator.html#a30796177154c238f82443eba6d16bdfd">T</a>, <a class="el" href="classregulator_1_1Regulator.html#afa53c54f525db41e31edf0b0c506c5d8">u_limit</a>, <a class="el" href="classregulator_1_1Regulator.html#a63836946fdda614b388fc1694a2330f0">ui_limit</a>, name)</td></tr>
+<tr class="memdesc:a17900185841b0561bd65783ff4c59faa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of the regulator. <br /></td></tr>
+<tr class="separator:a17900185841b0561bd65783ff4c59faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63c9e8809fd2e2a16b5f3041b52042fb"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#a63c9e8809fd2e2a16b5f3041b52042fb">reset_previous</a> (self)</td></tr>
+<tr class="memdesc:a63c9e8809fd2e2a16b5f3041b52042fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method resets all previously backed-up values.  <a href="classregulator_1_1Regulator.html#a63c9e8809fd2e2a16b5f3041b52042fb">More...</a><br /></td></tr>
+<tr class="separator:a63c9e8809fd2e2a16b5f3041b52042fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfffc3f1a70357b0c981b8bd8b5403cd"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#abfffc3f1a70357b0c981b8bd8b5403cd">update_params</a> (self, <a class="el" href="classregulator_1_1Regulator.html#a90c833024a2137267bb6debf085776fa">KP</a>, TI, TD, <a class="el" href="classregulator_1_1Regulator.html#a63836946fdda614b388fc1694a2330f0">ui_limit</a>)</td></tr>
 <tr class="memdesc:abfffc3f1a70357b0c981b8bd8b5403cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method for updating PID parameters.  <a href="classregulator_1_1Regulator.html#abfffc3f1a70357b0c981b8bd8b5403cd">More...</a><br /></td></tr>
 <tr class="separator:abfffc3f1a70357b0c981b8bd8b5403cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,7 +122,7 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a63836946fdda614b388fc1694a2330f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab61c2baa8a99087f84e60e6015512d1"><td class="memItemLeft" align="right" valign="top"><a id="aab61c2baa8a99087f84e60e6015512d1"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#aab61c2baa8a99087f84e60e6015512d1">err_prev</a></td></tr>
-<tr class="memdesc:aab61c2baa8a99087f84e60e6015512d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error from the previous interation. <br /></td></tr>
+<tr class="memdesc:aab61c2baa8a99087f84e60e6015512d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error from the previous iteration. <br /></td></tr>
 <tr class="separator:aab61c2baa8a99087f84e60e6015512d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a281a4c1c0f63531ed47285cbf175059e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#a281a4c1c0f63531ed47285cbf175059e">err_p_prev</a></td></tr>
 <tr class="memdesc:a281a4c1c0f63531ed47285cbf175059e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error from the iteration before previous one.  <a href="classregulator_1_1Regulator.html#a281a4c1c0f63531ed47285cbf175059e">More...</a><br /></td></tr>
@@ -140,6 +143,27 @@ Public Attributes</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#a5bfda37bd2ce29ec28f7945964d44ccb">KIT</a></td></tr>
 <tr class="memdesc:a5bfda37bd2ce29ec28f7945964d44ccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">KI * T part of the PID calculation. <br /></td></tr>
 <tr class="separator:a5bfda37bd2ce29ec28f7945964d44ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1126bdf63ab74533456f6e6f70b53461"><td class="memItemLeft" align="right" valign="top"><a id="a1126bdf63ab74533456f6e6f70b53461"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>name</b></td></tr>
+<tr class="separator:a1126bdf63ab74533456f6e6f70b53461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30fe3238c88e4f0a6c8764a0c9f43c94"><td class="memItemLeft" align="right" valign="top"><a id="a30fe3238c88e4f0a6c8764a0c9f43c94"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>pub_dup</b></td></tr>
+<tr class="separator:a30fe3238c88e4f0a6c8764a0c9f43c94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69c3016aba9c906b10962fc139d777b3"><td class="memItemLeft" align="right" valign="top"><a id="a69c3016aba9c906b10962fc139d777b3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>pub_dui</b></td></tr>
+<tr class="separator:a69c3016aba9c906b10962fc139d777b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab66ac43ccec14a9f7b159d7d00d1ae40"><td class="memItemLeft" align="right" valign="top"><a id="ab66ac43ccec14a9f7b159d7d00d1ae40"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>pub_u_bef_wu</b></td></tr>
+<tr class="separator:ab66ac43ccec14a9f7b159d7d00d1ae40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3f8e2963b2e513f5e6359f173697e64"><td class="memItemLeft" align="right" valign="top"><a id="ad3f8e2963b2e513f5e6359f173697e64"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>pub_u</b></td></tr>
+<tr class="separator:ad3f8e2963b2e513f5e6359f173697e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f9a9bd93700d75aae54205d3e373ba3"><td class="memItemLeft" align="right" valign="top"><a id="a3f9a9bd93700d75aae54205d3e373ba3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>pub_e_prev</b></td></tr>
+<tr class="separator:a3f9a9bd93700d75aae54205d3e373ba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7603c6680da401b479c288c0c262f005"><td class="memItemLeft" align="right" valign="top"><a id="a7603c6680da401b479c288c0c262f005"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>pub_e_p_prev</b></td></tr>
+<tr class="separator:a7603c6680da401b479c288c0c262f005"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fac388b9def8be0972b93a8bd6ad75c"><td class="memItemLeft" align="right" valign="top"><a id="a2fac388b9def8be0972b93a8bd6ad75c"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregulator_1_1Regulator.html#a2fac388b9def8be0972b93a8bd6ad75c">Ui</a></td></tr>
 <tr class="memdesc:a2fac388b9def8be0972b93a8bd6ad75c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backup integral output control value. <br /></td></tr>
@@ -148,6 +172,27 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class of the regulator which contains parameters and methods which implement different control algorithms. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a63c9e8809fd2e2a16b5f3041b52042fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63c9e8809fd2e2a16b5f3041b52042fb">&#9670;&nbsp;</a></span>reset_previous()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def regulator.Regulator.reset_previous </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method resets all previously backed-up values. </p>
+<p>Shall be used when desired movement is done, in order to prepare the regulator for the new command. </p>
+
+</div>
+</div>
 <a id="abfffc3f1a70357b0c981b8bd8b5403cd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abfffc3f1a70357b0c981b8bd8b5403cd">&#9670;&nbsp;</a></span>update_params()</h2>
 

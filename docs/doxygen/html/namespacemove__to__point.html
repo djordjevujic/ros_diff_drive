@@ -71,11 +71,6 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7f862b8d8112859215414d205c43b692"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemove__to__point.html#a7f862b8d8112859215414d205c43b692">angle_error_calc</a> (target_angle, current_angle)</td></tr>
-<tr class="memdesc:a7f862b8d8112859215414d205c43b692"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate rotation direction <br  />
- Positive rotation direction - clockwise <br  />
- Negative rotation direction - counter clockwise.  <a href="namespacemove__to__point.html#a7f862b8d8112859215414d205c43b692">More...</a><br /></td></tr>
-<tr class="separator:a7f862b8d8112859215414d205c43b692"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08843dbe81bd704411c2268f9b25e28e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemove__to__point.html#a08843dbe81bd704411c2268f9b25e28e">dyn_reconf_callback</a> (config, level)</td></tr>
 <tr class="memdesc:a08843dbe81bd704411c2268f9b25e28e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dynamic reconfigure callback function.  <a href="namespacemove__to__point.html#a08843dbe81bd704411c2268f9b25e28e">More...</a><br /></td></tr>
 <tr class="separator:a08843dbe81bd704411c2268f9b25e28e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,22 +144,14 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nam
 float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemove__to__point.html#a471185c0ff866498bfbe56625cc1fd62">theta_filt</a> = 0.0</td></tr>
 <tr class="memdesc:a471185c0ff866498bfbe56625cc1fd62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filtered value of the current angle. <br /></td></tr>
 <tr class="separator:a471185c0ff866498bfbe56625cc1fd62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07c9b17420f211b6ce86f423238ff788"><td class="memItemLeft" align="right" valign="top"><a id="a07c9b17420f211b6ce86f423238ff788"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemove__to__point.html#a07c9b17420f211b6ce86f423238ff788">POSITIVE</a> = True</td></tr>
-<tr class="memdesc:a07c9b17420f211b6ce86f423238ff788"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant for indicating positive angle. <br /></td></tr>
-<tr class="separator:a07c9b17420f211b6ce86f423238ff788"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa94c40bb46b9dcfa14ab79af4a5a44cc"><td class="memItemLeft" align="right" valign="top"><a id="aa94c40bb46b9dcfa14ab79af4a5a44cc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemove__to__point.html#aa94c40bb46b9dcfa14ab79af4a5a44cc">NEGATIVE</a> = False</td></tr>
-<tr class="memdesc:aa94c40bb46b9dcfa14ab79af4a5a44cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant for indicating negative angle. <br /></td></tr>
-<tr class="separator:aa94c40bb46b9dcfa14ab79af4a5a44cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62490328bc045bb2a67bb60f902e4b75"><td class="memItemLeft" align="right" valign="top"><a id="a62490328bc045bb2a67bb60f902e4b75"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemove__to__point.html#a62490328bc045bb2a67bb60f902e4b75">theta_sign</a> = <a class="el" href="namespacemove__to__point.html#a07c9b17420f211b6ce86f423238ff788">POSITIVE</a></td></tr>
-<tr class="memdesc:a62490328bc045bb2a67bb60f902e4b75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable indicating signess of the current iteration angle: <a class="el" href="namespacemove__to__point.html#a07c9b17420f211b6ce86f423238ff788">POSITIVE</a> or <a class="el" href="namespacemove__to__point.html#aa94c40bb46b9dcfa14ab79af4a5a44cc">NEGATIVE</a>. <br /></td></tr>
-<tr class="separator:a62490328bc045bb2a67bb60f902e4b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad37823b6f4507da29f9ca4edf13727a9"><td class="memItemLeft" align="right" valign="top"><a id="ad37823b6f4507da29f9ca4edf13727a9"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemove__to__point.html#ad37823b6f4507da29f9ca4edf13727a9">theta_sign_prev</a> = <a class="el" href="namespacemove__to__point.html#a07c9b17420f211b6ce86f423238ff788">POSITIVE</a></td></tr>
-<tr class="memdesc:ad37823b6f4507da29f9ca4edf13727a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable indicating signess of the angle from the previous iteration: <a class="el" href="namespacemove__to__point.html#a07c9b17420f211b6ce86f423238ff788">POSITIVE</a> or <a class="el" href="namespacemove__to__point.html#aa94c40bb46b9dcfa14ab79af4a5a44cc">NEGATIVE</a>. <br /></td></tr>
-<tr class="separator:ad37823b6f4507da29f9ca4edf13727a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b6857a0290cf37c55a9f30112b45007"><td class="memItemLeft" align="right" valign="top"><a id="a5b6857a0290cf37c55a9f30112b45007"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemove__to__point.html#a5b6857a0290cf37c55a9f30112b45007">angle_to_goal_prev</a> = 0.0</td></tr>
+<tr class="memdesc:a5b6857a0290cf37c55a9f30112b45007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable that indicates previous angle to goal. <br /></td></tr>
+<tr class="separator:a5b6857a0290cf37c55a9f30112b45007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefdba81522f78061f3cf38207cbc34fe"><td class="memItemLeft" align="right" valign="top"><a id="aefdba81522f78061f3cf38207cbc34fe"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemove__to__point.html#aefdba81522f78061f3cf38207cbc34fe">theta_prev</a> = 0.0</td></tr>
+<tr class="memdesc:aefdba81522f78061f3cf38207cbc34fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable that indicates previous angle (theta) <br /></td></tr>
+<tr class="separator:aefdba81522f78061f3cf38207cbc34fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e241e32aaa5d3d1a36863e385c56f96"><td class="memItemLeft" align="right" valign="top"><a id="a9e241e32aaa5d3d1a36863e385c56f96"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemove__to__point.html#a9e241e32aaa5d3d1a36863e385c56f96">goal_distance</a> = 0.0</td></tr>
 <tr class="memdesc:a9e241e32aaa5d3d1a36863e385c56f96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculated goal distance. <br /></td></tr>
@@ -177,6 +164,10 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nam
 float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemove__to__point.html#acb54f4e8b7652ad7631ebd49f4e197f8">dist_filt</a> = 0.0</td></tr>
 <tr class="memdesc:acb54f4e8b7652ad7631ebd49f4e197f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filtered value of the desired distance. <br /></td></tr>
 <tr class="separator:acb54f4e8b7652ad7631ebd49f4e197f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64b55f55f32685dd746a4f474eb623af"><td class="memItemLeft" align="right" valign="top"><a id="a64b55f55f32685dd746a4f474eb623af"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemove__to__point.html#a64b55f55f32685dd746a4f474eb623af">stop_lin_movement_cnt</a> = 0</td></tr>
+<tr class="memdesc:a64b55f55f32685dd746a4f474eb623af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts up each time when robot calculated distance to goal is in the tolerance range. <br /></td></tr>
+<tr class="separator:a64b55f55f32685dd746a4f474eb623af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada6e674a3b04d7f0c90eac26192a9bc8"><td class="memItemLeft" align="right" valign="top"><a id="ada6e674a3b04d7f0c90eac26192a9bc8"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemove__to__point.html#ada6e674a3b04d7f0c90eac26192a9bc8">move_fwd_started</a> = False</td></tr>
 <tr class="memdesc:ada6e674a3b04d7f0c90eac26192a9bc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates if moving forward started or not. <br /></td></tr>
@@ -226,61 +217,21 @@ list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="name
 <tr class="memdesc:a6058b588fcb340a77b36d3b62c4ae856"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dynamic reconfigure server initialization. <br /></td></tr>
 <tr class="separator:a6058b588fcb340a77b36d3b62c4ae856"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4c429571723c9c6e08126d4531a63a9"><td class="memItemLeft" align="right" valign="top"><a id="ad4c429571723c9c6e08126d4531a63a9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemove__to__point.html#ad4c429571723c9c6e08126d4531a63a9">rot_pid</a> = <a class="el" href="classregulator_1_1Regulator.html">Regulator</a>(KP_ROT, TI_ROT, TD_ROT, <a class="el" href="namespacemove__to__point.html#a7c89111175169acba6d6f7aca063aa52">T</a>, rot_speed_limit, INT_LIMIT_ROT)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemove__to__point.html#ad4c429571723c9c6e08126d4531a63a9">rot_pid</a> = <a class="el" href="classregulator_1_1Regulator.html">Regulator</a>(KP_ROT, TI_ROT, TD_ROT, <a class="el" href="namespacemove__to__point.html#a7c89111175169acba6d6f7aca063aa52">T</a>, rot_speed_limit, INT_LIMIT_ROT, &quot;rotation&quot;)</td></tr>
 <tr class="memdesc:ad4c429571723c9c6e08126d4531a63a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normal rotation PID regulator initialization. <br /></td></tr>
 <tr class="separator:ad4c429571723c9c6e08126d4531a63a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadc7464864ee2443a7cfb126354c217e"><td class="memItemLeft" align="right" valign="top"><a id="aadc7464864ee2443a7cfb126354c217e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemove__to__point.html#aadc7464864ee2443a7cfb126354c217e">fwd_pid</a> = <a class="el" href="classregulator_1_1Regulator.html">Regulator</a>(KP_FWD, TI_FWD, TD_FWD, <a class="el" href="namespacemove__to__point.html#a7c89111175169acba6d6f7aca063aa52">T</a>, fwd_speed_limit, INT_LIMIT_FWD)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemove__to__point.html#aadc7464864ee2443a7cfb126354c217e">fwd_pid</a> = <a class="el" href="classregulator_1_1Regulator.html">Regulator</a>(KP_FWD, TI_FWD, TD_FWD, <a class="el" href="namespacemove__to__point.html#a7c89111175169acba6d6f7aca063aa52">T</a>, fwd_speed_limit, INT_LIMIT_FWD, &quot;forward&quot;)</td></tr>
 <tr class="memdesc:aadc7464864ee2443a7cfb126354c217e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving forward PID regulator initialization. <br /></td></tr>
 <tr class="separator:aadc7464864ee2443a7cfb126354c217e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14a818314a66e4716b37696ca304f9c2"><td class="memItemLeft" align="right" valign="top"><a id="a14a818314a66e4716b37696ca304f9c2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemove__to__point.html#a14a818314a66e4716b37696ca304f9c2">fwd_pid_rot</a> = <a class="el" href="classregulator_1_1Regulator.html">Regulator</a>(KP_ROT, TI_ROT, TD_ROT, <a class="el" href="namespacemove__to__point.html#a7c89111175169acba6d6f7aca063aa52">T</a>, rot_speed_limit, INT_LIMIT_ROT)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemove__to__point.html#a14a818314a66e4716b37696ca304f9c2">fwd_pid_rot</a> = <a class="el" href="classregulator_1_1Regulator.html">Regulator</a>(KP_ROT, TI_ROT, TD_ROT, <a class="el" href="namespacemove__to__point.html#a7c89111175169acba6d6f7aca063aa52">T</a>, rot_speed_limit, INT_LIMIT_ROT, &quot;fwd_rot&quot;)</td></tr>
 <tr class="memdesc:a14a818314a66e4716b37696ca304f9c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation while moving forward PID regulator initialization. <br /></td></tr>
 <tr class="separator:a14a818314a66e4716b37696ca304f9c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">Implements differential drive robot control
 </pre> </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a7f862b8d8112859215414d205c43b692"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f862b8d8112859215414d205c43b692">&#9670;&nbsp;</a></span>angle_error_calc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def move_to_point.angle_error_calc </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>target_angle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>current_angle</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Calculate rotation direction <br  />
- Positive rotation direction - clockwise <br  />
- Negative rotation direction - counter clockwise. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">target_angle</td><td>Angle to be reached [degrees] </td></tr>
-    <tr><td class="paramname">current_angle</td><td>Current angle of the robot [degrees] </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error including direction [degrees] </dd></dl>
-
-</div>
-</div>
 <a id="a08843dbe81bd704411c2268f9b25e28e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a08843dbe81bd704411c2268f9b25e28e">&#9670;&nbsp;</a></span>dyn_reconf_callback()</h2>
 

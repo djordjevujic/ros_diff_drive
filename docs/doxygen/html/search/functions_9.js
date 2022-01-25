@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['switch_5fstate_131',['switch_state',['../classfsm_1_1FsmRobot.html#a69fa4304b052973236a026c1654284e1',1,'fsm::FsmRobot']]]
+  ['update_5fparams_138',['update_params',['../classregulator_1_1Regulator.html#abfffc3f1a70357b0c981b8bd8b5403cd',1,'regulator::Regulator']]]
 ];

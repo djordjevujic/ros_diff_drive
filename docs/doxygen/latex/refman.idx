@@ -27,11 +27,11 @@
 \indexentry{Values updated during the callback of the odometry@{Values updated during the callback of the odometry}|hyperpage}{13}
 \indexentry{Variables used for debugging purposes@{Variables used for debugging purposes}|hyperpage}{14}
 \indexentry{config@{config}|hyperpage}{15}
+\indexentry{config@{config}!NO\_OF\_CYCLES\_LIN\_MOVEMENT\_STOP@{NO\_OF\_CYCLES\_LIN\_MOVEMENT\_STOP}|hyperpage}{16}
+\indexentry{NO\_OF\_CYCLES\_LIN\_MOVEMENT\_STOP@{NO\_OF\_CYCLES\_LIN\_MOVEMENT\_STOP}!config@{config}|hyperpage}{16}
 \indexentry{debug@{debug}|hyperpage}{16}
-\indexentry{fsm@{fsm}|hyperpage}{16}
+\indexentry{fsm@{fsm}|hyperpage}{17}
 \indexentry{move\_to\_point@{move\_to\_point}|hyperpage}{17}
-\indexentry{move\_to\_point@{move\_to\_point}!angle\_error\_calc@{angle\_error\_calc}|hyperpage}{19}
-\indexentry{angle\_error\_calc@{angle\_error\_calc}!move\_to\_point@{move\_to\_point}|hyperpage}{19}
 \indexentry{move\_to\_point@{move\_to\_point}!dyn\_reconf\_callback@{dyn\_reconf\_callback}|hyperpage}{19}
 \indexentry{dyn\_reconf\_callback@{dyn\_reconf\_callback}!move\_to\_point@{move\_to\_point}|hyperpage}{19}
 \indexentry{move\_to\_point@{move\_to\_point}!forward@{forward}|hyperpage}{19}
@@ -52,14 +52,17 @@
 \indexentry{default@{default}!fsm.FsmRobot@{fsm.FsmRobot}|hyperpage}{24}
 \indexentry{fsm.FsmRobot@{fsm.FsmRobot}!switch\_state@{switch\_state}|hyperpage}{24}
 \indexentry{switch\_state@{switch\_state}!fsm.FsmRobot@{fsm.FsmRobot}|hyperpage}{24}
-\indexentry{fsm.FsmRobot@{fsm.FsmRobot}!validate\_state@{validate\_state}|hyperpage}{24}
-\indexentry{validate\_state@{validate\_state}!fsm.FsmRobot@{fsm.FsmRobot}|hyperpage}{24}
+\indexentry{fsm.FsmRobot@{fsm.FsmRobot}!validate\_state@{validate\_state}|hyperpage}{25}
+\indexentry{validate\_state@{validate\_state}!fsm.FsmRobot@{fsm.FsmRobot}|hyperpage}{25}
 \indexentry{fsm.FsmState@{fsm.FsmState}|hyperpage}{25}
 \indexentry{fsm.FsmStates@{fsm.FsmStates}|hyperpage}{26}
 \indexentry{fsm.FsmStates@{fsm.FsmStates}!Default@{Default}|hyperpage}{27}
 \indexentry{Default@{Default}!fsm.FsmStates@{fsm.FsmStates}|hyperpage}{27}
 \indexentry{regulator.Regulator@{regulator.Regulator}|hyperpage}{27}
+\indexentry{regulator.Regulator@{regulator.Regulator}!reset\_previous@{reset\_previous}|hyperpage}{28}
+\indexentry{reset\_previous@{reset\_previous}!regulator.Regulator@{regulator.Regulator}|hyperpage}{28}
 \indexentry{regulator.Regulator@{regulator.Regulator}!update\_params@{update\_params}|hyperpage}{28}
 \indexentry{update\_params@{update\_params}!regulator.Regulator@{regulator.Regulator}|hyperpage}{28}
-\indexentry{regulator.Regulator@{regulator.Regulator}!err\_p\_prev@{err\_p\_prev}|hyperpage}{28}
-\indexentry{err\_p\_prev@{err\_p\_prev}!regulator.Regulator@{regulator.Regulator}|hyperpage}{28}
+\indexentry{regulator.Regulator@{regulator.Regulator}!err\_p\_prev@{err\_p\_prev}|hyperpage}{29}
+\indexentry{err\_p\_prev@{err\_p\_prev}!regulator.Regulator@{regulator.Regulator}|hyperpage}{29}
+\indexentry{test.TestStringMethods@{test.TestStringMethods}|hyperpage}{29}

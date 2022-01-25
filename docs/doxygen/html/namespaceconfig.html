@@ -70,6 +70,14 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a176e5caebeed36c2eb1dd70b2cd77428"><td class="memItemLeft" align="right" valign="top"><a id="a176e5caebeed36c2eb1dd70b2cd77428"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a176e5caebeed36c2eb1dd70b2cd77428">debug_topics_enabled</a> = True</td></tr>
+<tr class="memdesc:a176e5caebeed36c2eb1dd70b2cd77428"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag for enabling rotation and straight moving debug information. <br /></td></tr>
+<tr class="separator:a176e5caebeed36c2eb1dd70b2cd77428"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae19819cbac4c7eb2144f3f9f1da86867"><td class="memItemLeft" align="right" valign="top"><a id="ae19819cbac4c7eb2144f3f9f1da86867"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#ae19819cbac4c7eb2144f3f9f1da86867">regulator_debug_enabled</a> = False</td></tr>
+<tr class="memdesc:ae19819cbac4c7eb2144f3f9f1da86867"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag for enabling regulator values submitting. <br /></td></tr>
+<tr class="separator:ae19819cbac4c7eb2144f3f9f1da86867"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addad1fe67f437e9eb67c8f4805895938"><td class="memItemLeft" align="right" valign="top"><a id="addad1fe67f437e9eb67c8f4805895938"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#addad1fe67f437e9eb67c8f4805895938">controller_freq</a> = 50.0</td></tr>
 <tr class="memdesc:addad1fe67f437e9eb67c8f4805895938"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controller frequency in Hertz. <br /></td></tr>
@@ -82,14 +90,21 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nam
 float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#afa076b8cfdf4cbcb2be966bf48801b3a">fwd_speed_limit</a> = 0.7</td></tr>
 <tr class="memdesc:afa076b8cfdf4cbcb2be966bf48801b3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speed limit of moving forward. <br /></td></tr>
 <tr class="separator:afa076b8cfdf4cbcb2be966bf48801b3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a154303b2d6739895778e0a87873846f7"><td class="memItemLeft" align="right" valign="top"><a id="a154303b2d6739895778e0a87873846f7"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a154303b2d6739895778e0a87873846f7">angle_err_tolerance</a> = 0.04</td></tr>
-<tr class="memdesc:a154303b2d6739895778e0a87873846f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Angle error tolerance in degrees. <br /></td></tr>
-<tr class="separator:a154303b2d6739895778e0a87873846f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c8eb637f9c11ad9a743a0b08597cc56"><td class="memItemLeft" align="right" valign="top"><a id="a7c8eb637f9c11ad9a743a0b08597cc56"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a7c8eb637f9c11ad9a743a0b08597cc56">angle_err_tolerance_rot</a> = 1.0</td></tr>
+<tr class="memdesc:a7c8eb637f9c11ad9a743a0b08597cc56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Angle error tolerance for normal rotation state - in degrees. <br /></td></tr>
+<tr class="separator:a7c8eb637f9c11ad9a743a0b08597cc56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf134dcf762b8b9cc827c68a7f3fe2c2"><td class="memItemLeft" align="right" valign="top"><a id="adf134dcf762b8b9cc827c68a7f3fe2c2"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#adf134dcf762b8b9cc827c68a7f3fe2c2">dist_err_tolerance</a> = 0.005</td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#adf134dcf762b8b9cc827c68a7f3fe2c2">dist_err_tolerance</a> = 0.1</td></tr>
 <tr class="memdesc:adf134dcf762b8b9cc827c68a7f3fe2c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance error tolerance. <br /></td></tr>
 <tr class="separator:adf134dcf762b8b9cc827c68a7f3fe2c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04b5bbd74dc7baf4dad6eba7138e13fc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#a04b5bbd74dc7baf4dad6eba7138e13fc">NO_OF_CYCLES_LIN_MOVEMENT_STOP</a> = 20</td></tr>
+<tr class="memdesc:a04b5bbd74dc7baf4dad6eba7138e13fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of cycles to spend in forward state while the robot is in the distance tolerance region.  <a href="namespaceconfig.html#a04b5bbd74dc7baf4dad6eba7138e13fc">More...</a><br /></td></tr>
+<tr class="separator:a04b5bbd74dc7baf4dad6eba7138e13fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae62d28ebb8c3906b9a0847c58228f5a3"><td class="memItemLeft" align="right" valign="top"><a id="ae62d28ebb8c3906b9a0847c58228f5a3"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconfig.html#ae62d28ebb8c3906b9a0847c58228f5a3">angle_err_tolerance_fwd</a> = 0.04</td></tr>
+<tr class="memdesc:ae62d28ebb8c3906b9a0847c58228f5a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Angle error tolerance for angle fix while moving forwad - in degrees. <br /></td></tr>
+<tr class="separator:ae62d28ebb8c3906b9a0847c58228f5a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3d585b05dff6385da72a7f8d573037e3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pidInit.html#ga3d585b05dff6385da72a7f8d573037e3">KP_ROT</a> = 0.0</td></tr>
 <tr class="memdesc:ga3d585b05dff6385da72a7f8d573037e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation KP constant.  <a href="group__pidInit.html#ga3d585b05dff6385da72a7f8d573037e3">More...</a><br /></td></tr>
 <tr class="separator:ga3d585b05dff6385da72a7f8d573037e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,7 +144,25 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nam
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">Static configuration of the move_to_point module
-</pre> </div></div><!-- contents -->
+</pre> </div><h2 class="groupheader">Variable Documentation</h2>
+<a id="a04b5bbd74dc7baf4dad6eba7138e13fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04b5bbd74dc7baf4dad6eba7138e13fc">&#9670;&nbsp;</a></span>NO_OF_CYCLES_LIN_MOVEMENT_STOP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int config.NO_OF_CYCLES_LIN_MOVEMENT_STOP = 20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Number of cycles to spend in forward state while the robot is in the distance tolerance region. </p>
+<p>Ensures that robot stops properly, and regulates position even if it reached tolerance region. Especially important if we count that inertion will keep robot moving for some small distance even if we send 0 as the desired linear velocity value </p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

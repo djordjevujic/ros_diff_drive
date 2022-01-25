@@ -1,0 +1,20 @@
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/test.py:48: warning: Compound test::TestStringMethods is not documented.
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/debug.py:30: warning: Member pub_dbg_theta_uw (variable) of namespace debug is not documented.
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/debug.py:33: warning: Member pub_dbg_ang_to_goal_uw (variable) of namespace debug is not documented.
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/regulator.py:47: warning: Member name (variable) of class regulator::Regulator is not documented.
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/regulator.py:49: warning: Member pub_dup (variable) of class regulator::Regulator is not documented.
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/regulator.py:50: warning: Member pub_dui (variable) of class regulator::Regulator is not documented.
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/regulator.py:51: warning: Member pub_u_bef_wu (variable) of class regulator::Regulator is not documented.
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/regulator.py:52: warning: Member pub_u (variable) of class regulator::Regulator is not documented.
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/regulator.py:53: warning: Member pub_e_prev (variable) of class regulator::Regulator is not documented.
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/regulator.py:54: warning: Member pub_e_p_prev (variable) of class regulator::Regulator is not documented.
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/test.py:51: warning: Member testAngle_Minus179_Plus91(self) (function) of class test::TestStringMethods is not documented.
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/test.py:55: warning: Member testAngle_Plus179_Plus91(self) (function) of class test::TestStringMethods is not documented.
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/test.py:60: warning: Member testAngle_Plus179_0(self) (function) of class test::TestStringMethods is not documented.
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/test.py:64: warning: Member testAngle_Plus90_0(self) (function) of class test::TestStringMethods is not documented.
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/test.py:68: warning: Member testAngle_Minus90_0(self) (function) of class test::TestStringMethods is not documented.
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/test.py:72: warning: Member testAngle_Minus179_0(self) (function) of class test::TestStringMethods is not documented.
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/test.py:76: warning: Member testAngle_Minus175_1(self) (function) of class test::TestStringMethods is not documented.
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/test.py:80: warning: Member testAngle_175_Minus1(self) (function) of class test::TestStringMethods is not documented.
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/test.py:85: warning: Member testAngle_90_179(self) (function) of class test::TestStringMethods is not documented.
+/home/djordje/catkin_ws/src/ros_diff_drive/scripts/test.py:89: warning: Member testAngle_90_Minus179(self) (function) of class test::TestStringMethods is not documented.
